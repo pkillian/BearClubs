@@ -1,5 +1,5 @@
-BearClubs
-=========
+BearClubs :: CS 169 Project Proposal
+====================================
 [Markdown Viewable on Github](http://github.com/pkillian/BearClubs)
 
 
