@@ -68,6 +68,6 @@ Ideally, given the right amount of time, all features will be implemented. Reali
  - Customizable HTML and templates for officers to implement custom pages
 
 
-##Conclusion:
+## Conclusion:
 
 For all the prestige that Berkeley encapsulates, the task of finding organizations and joining them should be easier than it currently is. Instead of having potential new members storm Sproul Plaza during lunch hours and grab every flyer they can, there should be an up-to-date University affiliated outlet for students to utilize. That's where BearClubs sets in, and hopes to satisfy. Thanks for your consideration, and GO BEARS!
