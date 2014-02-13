@@ -1,6 +1,8 @@
 BearClubs :: CS 169 Project Proposal
 ====================================
-[Markdown Viewable on Github](http://github.com/pkillian/BearClubs)
+Join us on [Gitter](https://gitter.im/pkillian/BearClubs)!
+
+[![Gitter chat](https://badges.gitter.im/pkillian/BearClubs.png)](https://gitter.im/pkillian/BearClubs)
 
 
 ## Problem statement: 
