@@ -6,7 +6,11 @@ Requirements and Specification Document
 
 A tool for connecting students and organizations at UC Berkeley.
 
-## Requirements and Specification
+## Customer
 
-## Conclusion
+## Competitive Landscape
+
+## User Stories
+
+## User Interface Requirements
 
