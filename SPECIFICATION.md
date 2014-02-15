@@ -1,5 +1,5 @@
-BearClubs
-Requirements and Specification Document
+BearClubs  
+Requirements and Specification Document  
 *02/14/2014, version 0.1*
 
 # BearClubs
