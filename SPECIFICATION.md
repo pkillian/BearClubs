@@ -24,67 +24,92 @@ For the most part, BearClubs will keep the core idea of CalLink but make major i
 
 ### Actors:
 
+A single user can be any combination of the following actors:
+
 1. General User - UC Berkeley Student; Access to basic functionality
-2. Administrator - N/A for this iteration
+2. Club Member - N/A for this iteration (UC Berkeley Student that is a member of an organization/club; Access to elevated privileges within scope of club by discretion of club administrator)
+3. Club Officer (Administrator) - N/A for this iteration
 
 ### User Stories:
 
-| Field 			| Description 										|
-| ----------------- |:-------------------------------------------------:|
-| Name/Requirement: | Initial Launch 					  				|
-| Actors:     		| General User   			   		  				|
-| Triggers: 		| Access BearClubs URL       		  				|
-| Precondition: 	| None       				 		 			    |
-| Actions: 			| Present Sign In/Sign Up Page       			    |
-| Postconditions:   | User now has ability to either sign in or sign up |
-| Acceptance Tests: | Assure that "Initial Launch" story only occurs when no user session is stored locally. |
+| Field             | Description                                                                           |
+| ----------------- |:--------------------------------------------------------------------------------------|
+| Name/Requirement: | Initial Launch                                                                        |
+| Actors:           | General User                                                                          |
+| Triggers:         | Access BearClubs URL                                                                  |
+| Precondition:     | None                                                                                  |
+| Actions:          | Present Sign In//Sign Up Page                                                         |
+| Postconditions:   | User now has ability to either sign in or sign up                                     |
+| Acceptance Tests: | Assure that "Initial Launch" story only occurs when no user session is stored locally |
+| Iteration:        | 1                                                                                     |
 
-| ----------------- |:---------------------:|
-| Name/Requirement: | Signed In User Launch |
-| Actors:     		| General User   |
-| Triggers: 		| are neat       |
-| Precondition: 	| are neat       |
-| Actions: 			| are neat       |
-| Postconditions:   | are neat       |
-| Acceptance Tests: | are neat       |
+| Field             | Description                                                                      |
+| ----------------- |:---------------------------------------------------------------------------------|
+| Name/Requirement: | Signed In User Launch                                                            |
+| Actors:           | General User                                                                     |
+| Triggers:         | Access BearClubs URL                                                             |
+| Precondition:     | User session stored locally                                                      |
+| Actions:          | Present Initial Signed In Page (Profile(?), Directory of Clubs (?), Feed(?))     |
+| Postconditions:   | User now has ability to navigate BearClubs with signed in privileges             |
+| Acceptance Tests: | Assure that "Signed In User Launch" only occurs when user session stored locally |
+| Iteration:        | 1                                                                                |
 
-| ----------------- |:--------------:|
-| Name/Requirement: | Sign In 		 |
-| Actors:     		| General User   |
-| Triggers: 		| are neat       |
-| Precondition: 	| are neat       |
-| Actions: 			| are neat       |
-| Postconditions:   | are neat       |
-| Acceptance Tests: | are neat       |
 
-| ----------------- |:--------------:|
-| Name/Requirement: | Sign Up 		 |
-| Actors:     		| General User   |
-| Triggers: 		| are neat       |
-| Precondition: 	| are neat       |
-| Actions: 			| are neat       |
-| Postconditions:   | are neat       |
-| Acceptance Tests: | are neat       |
+| Field             | Description                                                                  |
+| ----------------- |:-----------------------------------------------------------------------------|
+| Name/Requirement: | Sign In                                                                      |
+| Actors:           | General User                                                                 |
+| Triggers:         | Click Sign In Button                                                         |
+| Precondition:     | None                                                                         |
+| Actions:          | Present Initial Signed In Page (Profile(?), Directory of Clubs (?), Feed(?)) |
+| Postconditions:   | User now has ability to navigate BearClubs with signed in privileges         |
+| Acceptance Tests: | Assure that only proper credentials (username, password) allow for sign in |
+| Iteration:        | 1                                                                            |
 
-| ----------------- |:--------------:|
-| Name/Requirement: | Tutorial 		 |
-| Actors:     		| General User   |
-| Triggers: 		| are neat       |
-| Precondition: 	| are neat       |
-| Actions: 			| are neat       |
-| Postconditions:   | are neat       |
-| Acceptance Tests: | are neat       |
 
-| ----------------- |:--------------:|
-| Name/Requirement: | Tutorial 		 |
-| Actors:     		| General User   |
-| Triggers: 		| are neat       |
-| Precondition: 	| are neat       |
-| Actions: 			| are neat       |
-| Postconditions:   | are neat       |
-| Acceptance Tests: | are neat       |
+| Field             | Description                                                                                     |
+| ----------------- |:------------------------------------------------------------------------------------------------|
+| Name/Requirement: | Sign Up                                                                                         |
+| Actors:           | General User                                                                                    |
+| Triggers:         | Click Sign Up Button                                                                            |
+| Precondition:     | None                                                                                            |
+| Actions:          | Present Sign Up Process (Add Clubs (?), Profile Information (?))                                |
+| Postconditions:   | User now has an account // User now has ability to navigate BearClubs with signed in privileges |
+| Acceptance Tests: | Assure that proper credentials (username, password) allow for sign up                           |
+| Iteration:        | 1                                                                                               |
+
+
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Tutorial                                                                       |
+| Actors:           | General User                                                                   |
+| Triggers:         | Sign In // Complete Sign Up                                                    |
+| Precondition:     | User is Signed In for the first time                                           |
+| Actions:          | Present Tutorial (Image Overlay(?), Video(?)                                   |
+| Postconditions:   | Tutorial is dismissed // Revert back to normal logged-in general user behavior |
+| Acceptance Tests: | Assure that "Tutorial" only occurs on user's first login                       |
+| Iteration:        | 1                                                                              |
+
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | View Directory of Clubs                                                        |
+| Actors:           | General User                                                                   |
+| Triggers:         | Access Bear Clubs Club Directory URL                                           |
+| Precondition:     | None                                                                           |
+| Actions:          | Present Club Directory UI                                                      |
+| Postconditions:   | User can now view directory of all clubs                                       |
+| Acceptance Tests: | Assure that user can navigate to all clubs                                     |
+| Iteration:        | 1                                                                              |
+
 
 ### User Stories For Future Iterations:
+
+* Sign In With CalNet
+* Edit Profile
+* Join Club
+* Subscribe To Club
+* Edit Club Page (Admin)
+* Post Club Event (Admin)
 
 ## User Interface Requirements
 
