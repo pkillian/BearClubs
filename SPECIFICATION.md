@@ -29,6 +29,7 @@ For the most part, BearClubs will keep the core idea of CalLink but make major i
 
 ### User Stories:
 
+| Field 			| Description 										|
 | ----------------- |:-------------------------------------------------:|
 | Name/Requirement: | Initial Launch 					  				|
 | Actors:     		| General User   			   		  				|
