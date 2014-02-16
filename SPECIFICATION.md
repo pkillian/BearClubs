@@ -29,12 +29,59 @@ For the most part, BearClubs will keep the core idea of CalLink but make major i
 
 ### User Stories:
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| ----------------- |:-------------------------------------------------:|
+| Name/Requirement: | Initial Launch 					  				|
+| Actors:     		| General User   			   		  				|
+| Triggers: 		| Access BearClubs URL       		  				|
+| Precondition: 	| None       				 		 			    |
+| Actions: 			| Present Sign In/Sign Up Page       			    |
+| Postconditions:   | User now has ability to either sign in or sign up |
+| Acceptance Tests: | Assure that "Initial Launch" story only occurs when no user session is stored locally. |
 
+| ----------------- |:---------------------:|
+| Name/Requirement: | Signed In User Launch |
+| Actors:     		| General User   |
+| Triggers: 		| are neat       |
+| Precondition: 	| are neat       |
+| Actions: 			| are neat       |
+| Postconditions:   | are neat       |
+| Acceptance Tests: | are neat       |
+
+| ----------------- |:--------------:|
+| Name/Requirement: | Sign In 		 |
+| Actors:     		| General User   |
+| Triggers: 		| are neat       |
+| Precondition: 	| are neat       |
+| Actions: 			| are neat       |
+| Postconditions:   | are neat       |
+| Acceptance Tests: | are neat       |
+
+| ----------------- |:--------------:|
+| Name/Requirement: | Sign Up 		 |
+| Actors:     		| General User   |
+| Triggers: 		| are neat       |
+| Precondition: 	| are neat       |
+| Actions: 			| are neat       |
+| Postconditions:   | are neat       |
+| Acceptance Tests: | are neat       |
+
+| ----------------- |:--------------:|
+| Name/Requirement: | Tutorial 		 |
+| Actors:     		| General User   |
+| Triggers: 		| are neat       |
+| Precondition: 	| are neat       |
+| Actions: 			| are neat       |
+| Postconditions:   | are neat       |
+| Acceptance Tests: | are neat       |
+
+| ----------------- |:--------------:|
+| Name/Requirement: | Tutorial 		 |
+| Actors:     		| General User   |
+| Triggers: 		| are neat       |
+| Precondition: 	| are neat       |
+| Actions: 			| are neat       |
+| Postconditions:   | are neat       |
+| Acceptance Tests: | are neat       |
 
 ### User Stories For Future Iterations:
 
