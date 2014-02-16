@@ -6,6 +6,8 @@ Requirements and Specification Document
 
 A tool for connecting students and organizations at UC Berkeley.
 
+## Project Abstract
+
 ## Customer
 Customers for this application will be all those who are interested or are involved in student organizations and clubs on campus. Specifically, there will be three types of customers: club officers, current members, and students who are interested in joining clubs. 
 
