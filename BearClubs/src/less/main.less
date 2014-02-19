@@ -127,7 +127,7 @@ body {
   .no-padding();
 
   background-repeat: repeat;
-  background-image: url("/img/bg-dirty-old-shirt.png");
+  background-image: url('/static/img/bg-dirty-old-shirt.png');
 
   margin: 0;
   padding: 0;
@@ -187,9 +187,11 @@ body {
       text-align:   center;
       text-shadow:  0 1px @style-dark-grey;
     }
-
   }
 
+  .first {
+    .border-left(@line-color: @style-grey, @line-width: 1px);
+  }
 }
 
 #wrapper {
@@ -218,7 +220,7 @@ body {
   height: 160px;
 
   background-repeat: repeat;
-  background-image:   url('/img/bg-noisy-net-dark.png');
+  background-image:   url('/static/img/bg-noisy-net-dark.png');
 
   .box-shadow-top(@blur: 14px; @shad-color: darken(@style-grey, 5%));
 }
