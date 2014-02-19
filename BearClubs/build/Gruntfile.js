@@ -11,7 +11,7 @@ module.exports = function (grunt) {
   grunt.registerTask('default', ["jshint", "uglify", "less", "cssmin", "copy"]);
   
   // running all the tasks takes more than a couple of seconds, so don't default that
-  grunt.registerTask('quick', ["jshint", "uglify:bearclubs", "copy:templates", "copy:js"]);
+  grunt.registerTask('quick', ["jshint", "uglify:jqueryui", "uglify:bearclubs", "copy:js"]);
   
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -32,7 +32,11 @@ module.exports = function (grunt) {
       },
       bearclubs: {
         src: ['../src/js/bearclubs.js', '../src/js/**/*.js'],
-        dest: '../BearClubs/static/js/bearclubs.min.js'
+        dest: '../bc/static/js/bearclubs.min.js'
+      },
+      jqueryui: {
+        src: ['../src/components/jquery.ui/ui/jquery.ui.spinner.js'],
+        dest: '../bc/static/js/jquery-ui.min.js'
       }
     },
     
@@ -51,7 +55,7 @@ module.exports = function (grunt) {
     cssmin: {
       compress: {
         files: {
-          "../BearClubs/static/css/main.min.css": ["../src/tmp/main.max.css"]
+          "../bc/static/css/main.min.css": ["../src/tmp/main.max.css"]
         }
       }
     },
@@ -63,10 +67,9 @@ module.exports = function (grunt) {
             expand: true,
             flatten: true,
             src: [
-              // '../src/components/jquery.ui/jquery-ui.min.js',
               '../src/components/jquery/jquery.min.js'
             ],
-            dest: '../BearClubs/static/js/',
+            dest: '../bc/static/js/',
             filter: 'isFile'
           }
         ]
@@ -79,31 +82,31 @@ module.exports = function (grunt) {
             src: [
               '../src/components/font-awesome/css/font-awesome.min.css',
             ],
-            dest: '../BearClubs/static/css/',
+            dest: '../bc/static/css/',
             filter: 'isFile'
           }
         ]
       },
-      // img: {
-      //   files: [
-      //     {
-      //       expand: true,
-      //       flatten: true,
-      //       src: [
-      //         '../src/components/jquery.ui/themes/base/images/*'
-      //       ],
-      //       dest: '../BearClubs/static/images/',
-      //       filter: 'isFile'
-      //     }
-      //   ]
-      // },
+      img: {
+        files: [
+          {
+            expand: true,
+            flatten: true,
+            src: [
+              '../src/components/jquery.ui/themes/base/images/*'
+            ],
+            dest: '../bc/static/img/',
+            filter: 'isFile'
+          }
+        ]
+      },
       font: {
         files: [
           {
             expand: true,
             flatten: true,
             src: ['../src/components/font-awesome/fonts/*'],
-            dest: '../BearClubs/static/font/',
+            dest: '../bc/static/font/',
             filter: 'isFile'
           }
         ]
