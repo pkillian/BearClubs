@@ -1,0 +1,29 @@
+{
+  "name": "BearClubs",
+  "description": "An interactive directory and organizational tool for extracurricular activities at the University of California, Berkeley",
+  "version": "0.1.0",
+  "homepage": "http://github.com/pkillian/BearClubs",
+  "author": {
+    "name": "BearClubs",
+    "url": "http://www.berkeley.edu/"
+  },
+  "keywords": [
+    "bearclubs",
+    "berkeley"
+  ],
+  "contributors": [
+    {
+      "name": "Patrick Killian",
+      "url": "https://github.com/pkillian"
+    }
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-uglify": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.0",
+    "grunt-contrib-less": "~0.9.0",
+    "grunt-contrib-cssmin": "~0.7.0",
+    "grunt-contrib-copy": "~0.5.0"
+  }
+}
