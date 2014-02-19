@@ -1,5 +1,7 @@
-BearClubs/src/tmp/
 BearClubs/build/node_modules/
+BearClubs/settings.py
 BearClubs/src/components/
+BearClubs/src/tmp/
+BearClubs/venv/
 *.pyc
 
