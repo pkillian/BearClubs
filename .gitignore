@@ -1,4 +1,5 @@
-BearClubs/build/node_modules
-BearClubs/src/components
+BearClubs/src/tmp/
+BearClubs/build/node_modules/
+BearClubs/src/components/
 *.pyc
 
