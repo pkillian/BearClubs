@@ -1,1 +1,0 @@
-web: ln -sf settings.prod.py settings.py; gunicorn -n 0.0.0.0:${PORT} warmup.wsgi;
