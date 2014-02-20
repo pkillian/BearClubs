@@ -17,12 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = None;
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY');
-
-# Development key
-if not SECRET_KEY:
-    SECRET_KEY = '=zds4q=mjc^%)0%l*gxt5i+t$t619s^w5=iv^hhpo7+qap(#zc';
+SECRET_KEY = '=zds4q=mjc^%)0%l*gxt5i+t$t619s^w5=iv^hhpo7+qap(#zc';
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -30,7 +25,6 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -73,7 +67,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 STATICFILES_DIRS = (
@@ -81,3 +74,13 @@ STATICFILES_DIRS = (
 )
 
 STATIC_URL = '/static/'
+
+# Database
+# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
