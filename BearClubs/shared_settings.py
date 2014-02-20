@@ -25,11 +25,11 @@ if not SECRET_KEY:
     SECRET_KEY = '=zds4q=mjc^%)0%l*gxt5i+t$t619s^w5=iv^hhpo7+qap(#zc';
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
