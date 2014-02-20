@@ -6,12 +6,13 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-contrib-less");
   grunt.loadNpmTasks("grunt-contrib-copy");
+  grunt.loadNpmTasks("grunt-newer");
 
   // if you simply run "grunt" these default tasks will execute, IN THE ORDER THEY APPEAR!
   grunt.registerTask('default', ["jshint", "uglify", "less", "cssmin", "copy"]);
   
   // running all the tasks takes more than a couple of seconds, so don't default that
-  grunt.registerTask('quick', ["jshint", "uglify:jqueryui", "uglify:bearclubs", "copy:js"]);
+  grunt.registerTask('quick', ["newer:jshint", "newer:uglify", "newer:less", "newer:cssmin", "newer:copy"]);
   
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
