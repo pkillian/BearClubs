@@ -14,12 +14,16 @@
 @style-black-9-10ths: rgba(red(@style-black), green(@style-black), blue(@style-black), 0.9);
 @style-black-4-5ths:  rgba(red(@style-black), green(@style-black), blue(@style-black), 0.8);
 @style-black-2-3rds:  rgba(red(@style-black), green(@style-black), blue(@style-black), 0.66);
+@style-black-1-3rd:   rgba(red(@style-black), green(@style-black), blue(@style-black), 0.33);
 
+@style-light-grey:    #A0A0A0;
 @style-grey:          #404040;
 @style-dark-grey:     #202020;
 
 @style-white:         #E0E0E0;
 @style-white-9-10ths: rgba(red(@style-white), green(@style-white), blue(@style-white), 0.9);
+@style-white-4-5ths:  rgba(red(@style-white), green(@style-white), blue(@style-white), 0.8);
+@style-white-2-3rds:  rgba(red(@style-white), green(@style-white), blue(@style-white), 0.66);
 
 @style-blue:          #002081;
 @style-blue-2-3rds:   rgba(red(@style-blue), green(@style-blue), blue(@style-blue), 0.66);
@@ -35,6 +39,8 @@
 @style-gold-2-3rds:   rgba(red(@style-gold), green(@style-gold), blue(@style-gold), 0.66);
 @style-gold-half:     rgba(red(@style-gold), green(@style-gold), blue(@style-gold), 0.5);
 @style-gold-1-3rd:    rgba(red(@style-gold), green(@style-gold), blue(@style-gold), 0.33);
+
+@import "theme-light";
 
 .border-line(@line-color: @style-blue, @line-style: solid, @line-width: thin) {
   border-color: @line-color;
@@ -141,7 +147,7 @@ body {
   .no-padding();
 
   background-repeat: repeat;
-  background-image: url('/static/img/bg-squairy.png');
+  background-image: @body-background-image;
 
   margin: 0;
   padding: 0;
@@ -151,46 +157,6 @@ body {
   font-size: 100%;
   font-family: inherit;
   vertical-align: baseline;
-}
-
-#bc-logo {
-  height: 60px;
-
-  display: inline;
-  float: left;
-
-  padding: 0px 20px;
-
-  font-family:  'Satisfy';
-  font-size:    30px;
-  line-height:  30px;
-
-  background-color: @style-blue;
-}
-
-#bc-logo-link {
-  text-decoration: none;
-
-  .bc-logo-bear {
-    color: @style-white;
-  }
-
-  .bc-logo-clubs {
-    color: @style-gold;
-  }
-
-  .bc-logo-bear,
-  .bc-logo-clubs {
-    display: inline;
-    float: left;
-
-    margin: 15px 0px;
-  }
-}
-
-#bc-logo-link:visited,
-#bc-logo-link:active {
-  color: inherit;
 }
 
 #header {
@@ -203,20 +169,22 @@ body {
 
   margin-bottom: 50px;
 
-  background-color: @style-black-4-5ths;
+  background-color: @header-background-color;
 
   .border-top(@line-width: 4px);
-  .border-bottom(@line-color: @style-grey, @line-width: 1px);
+  .border-bottom(@line-color: @header-border-color, @line-width: 1px);
 
-  .box-shadow-bottom(@blur: 14px; @shad-color: darken(@style-grey, 5%));
+  .box-shadow-bottom(@blur: 14px; @shad-color: @header-shadow-color);
 }
 
 #header-content {
   width:  960px;
   margin: 0 auto;
 
+  text-shadow:  0 1px @header-text-shadow-color;
+
   a, a:visited {
-    color: @style-gold;
+    color: @header-button-link-color;
   }
 
   img {
@@ -226,13 +194,54 @@ body {
     background-color: @style-blue;
   }
 
+
+  #bc-logo {
+    height: 60px;
+
+    display: inline;
+    float: left;
+
+    padding: 0px 20px;
+
+    font-family:  'Satisfy';
+    font-size:    30px;
+    line-height:  30px;
+
+    background-color: @style-blue;
+  }
+
+  #bc-logo-link {
+    text-decoration: none;
+
+    .bc-logo-bear {
+      color: @style-white;
+    }
+
+    .bc-logo-clubs {
+      color: @style-gold;
+    }
+
+    .bc-logo-bear,
+    .bc-logo-clubs {
+      display: inline;
+      float: left;
+
+      margin: 15px 0px;
+    }
+  }
+
+  #bc-logo-link:visited,
+  #bc-logo-link:active {
+    color: inherit;
+  }
+
   .header-button {
     height: 60px;
     min-width: 60px;
 
     float: left;
 
-    .border-right(@line-color: @style-grey, @line-width: 1px);
+    .border-right(@line-color: @header-border-color, @line-width: 1px);
 
     div {      
       margin:   20px 0;
@@ -243,12 +252,7 @@ body {
 
       line-height:  20px;
       text-align:   center;
-      text-shadow:  0 1px @style-dark-grey;
     }
-  }
-
-  .first {
-    .border-left(@line-color: @style-grey, @line-width: 1px);
   }
 }
 
@@ -272,10 +276,10 @@ body {
     text-align: center;
 
     font-family: 'Maven Pro';
-    color: @style-gold;
+    color: @content-text-color;
 
     .border-radius(4px);
-    background-color: @style-black-4-5ths;
+    background-color: @content-div-background-color;
   }
 
   .row-container {
@@ -329,9 +333,9 @@ body {
   margin-top: 40px;
 
   background-repeat: repeat;
-  background-image:   url('/static/img/bg-dirty-old-shirt.png');
+  background-image:  @footer-background-image;
 
-  .box-shadow-top(@blur: 14px; @shad-color: darken(@style-grey, 5%));
+  .box-shadow-top(@blur: 14px; @shad-color: @footer-shadow-color);
 }
 
 #footer-content {
