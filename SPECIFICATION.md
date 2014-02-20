@@ -109,7 +109,7 @@ A single user can be any combination of the following actors:
 
 * Sign In With CalNet
 * View Your Profile/Dashboard
-** View your Calendar
+* View your Calendar
 * Edit Profile/Dashboard
 * Search For Clubs
 * Create New Club
