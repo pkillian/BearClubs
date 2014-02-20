@@ -54,7 +54,6 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | Assure that "Signed In User Launch" only occurs when user session stored locally |
 | Iteration:        | 1                                                                                |
 
-
 | Field             | Description                                                                  |
 | ----------------- |:-----------------------------------------------------------------------------|
 | Name/Requirement: | Sign In                                                                      |
@@ -63,9 +62,8 @@ A single user can be any combination of the following actors:
 | Precondition:     | None                                                                         |
 | Actions:          | Present Initial Signed In Page (Profile(?), Directory of Clubs (?), Feed(?)) |
 | Postconditions:   | User now has ability to navigate BearClubs with signed in privileges         |
-| Acceptance Tests: | Assure that only proper credentials (username, password) allow for sign in |
+| Acceptance Tests: | Assure that only proper credentials (username, password) allow for sign in   |
 | Iteration:        | 1                                                                            |
-
 
 | Field             | Description                                                                                     |
 | ----------------- |:------------------------------------------------------------------------------------------------|
@@ -78,18 +76,6 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | Assure that proper credentials (username, password) allow for sign up                           |
 | Iteration:        | 1                                                                                               |
 
-
-| Field             | Description                                                                    |
-| ----------------- |:-------------------------------------------------------------------------------|
-| Name/Requirement: | Tutorial                                                                       |
-| Actors:           | General User                                                                   |
-| Triggers:         | Sign In // Complete Sign Up                                                    |
-| Precondition:     | User is Signed In for the first time                                           |
-| Actions:          | Present Tutorial (Image Overlay(?), Video(?)                                   |
-| Postconditions:   | Tutorial is dismissed // Revert back to normal logged-in general user behavior |
-| Acceptance Tests: | Assure that "Tutorial" only occurs on user's first login                       |
-| Iteration:        | 1                                                                              |
-
 | Field             | Description                                                                    |
 | ----------------- |:-------------------------------------------------------------------------------|
 | Name/Requirement: | View Directory of Clubs                                                        |
@@ -101,15 +87,32 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | Assure that user can navigate to all clubs                                     |
 | Iteration:        | 1                                                                              |
 
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Tutorial                                                                       |
+| Actors:           | General User                                                                   |
+| Triggers:         | Sign In // Complete Sign Up                                                    |
+| Precondition:     | User is Signed In for the first time                                           |
+| Actions:          | Present Tutorial (Image Overlay(?), Video(?))                                  |
+| Postconditions:   | Tutorial is dismissed // Revert back to normal logged-in general user behavior |
+| Acceptance Tests: | Assure that "Tutorial" only occurs on user's first login                       |
+| Iteration:        | TBD                                                                            |
+
 
 ### User Stories For Future Iterations:
 
 * Sign In With CalNet
-* Edit Profile
+* View Your Profile/Dashboard
+** View your Calendar
+* Edit Profile/Dashboard
+* Search For Clubs
+* Create New Club
 * Join Club
 * Subscribe To Club
+* View Club Page
 * Edit Club Page (Admin)
 * Post Club Event (Admin)
+* Manager Club Membership (Admin)
 
 ## User Interface Requirements
 
