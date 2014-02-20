@@ -1,5 +1,5 @@
 {
-  "indent": 2,        // indent sets white to true in jshint 0.9.1, but we want it to be false
+  "indent": 4,        // indent sets white to true in jshint 0.9.1, but we want it to be false
   "white": false,     // so white goes after indent gets set
   "curly": true,      // requires you to always put curly braces around blocks in loops and conditionals
   "devel": true,      // expose console.log and alert and other globals
