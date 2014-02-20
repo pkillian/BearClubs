@@ -23,6 +23,12 @@ func_tests:
 
 all_tests :: func_tests
 
+grunt:
+	cd ./BearClubs/build; grunt; cd -;
+
+grunt-quick:
+	cd ./BearClubs/build; grunt quick; cd -;
+
 ###
 ### HEROKU DEPLOYMENT
 ###
