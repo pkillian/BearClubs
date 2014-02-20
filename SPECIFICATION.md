@@ -93,6 +93,17 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | Assure that user can navigate to all clubs                                     |
 | Iteration:        | 1                                                                              |
 
+| Field             | Description                                                                             |
+| ----------------- |:----------------------------------------------------------------------------------------|
+| Name/Requirement: | View Club Page                                                                          |
+| Actors:           | General User                                                                            |
+| Triggers:         | Click on Club from Directory of Clubs                                                   |
+| Precondition:     | None                                                                                    |
+| Actions:          | Present Club Page                                                                       |
+| Postconditions:   | User can now view information on Club                                                   |
+| Acceptance Tests: | Assure that user is directed to correct club // Assure user has access to all club pages|
+| Iteration:        | 1                                                                                       |
+
 | Field             | Description                                                                    |
 | ----------------- |:-------------------------------------------------------------------------------|
 | Name/Requirement: | Tutorial                                                                       |
@@ -115,7 +126,6 @@ A single user can be any combination of the following actors:
 * Create New Club
 * Join Club
 * Subscribe To Club
-* View Club Page
 * Edit Club Page (Admin)
 * Post Club Event (Admin)
 * Manager Club Membership (Admin)
