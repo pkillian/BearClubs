@@ -34,10 +34,6 @@ module.exports = function (grunt) {
       bearclubs: {
         src: ['../src/js/bearclubs.js', '../src/js/**/*.js'],
         dest: '../bc/static/js/bearclubs.min.js'
-      },
-      jqueryui: {
-        src: ['../src/components/jquery.ui/ui/jquery.ui.spinner.js'],
-        dest: '../bc/static/js/jquery-ui.min.js'
       }
     },
     
