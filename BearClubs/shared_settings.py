@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'BearClubs.bc'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -51,23 +52,15 @@ ROOT_URLCONF = 'BearClubs.urls'
 
 WSGI_APPLICATION = 'BearClubs.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# Handled by settings.dev and settings.prod
+DATABASES = {}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 
@@ -78,5 +71,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 STATIC_URL = '/static/'

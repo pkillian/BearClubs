@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.min.css">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/js/bearclubs.min.js"></script>
+  </head>
+  <body>
+    <div id="header">
+      <div id="header-content">
+        <a href="/"><div class="header-button first"><div>Home</div></div></a>
+        <a href="/"><div class="header-button"><div>About</div></div></a>
+        <a href="/"><div class="header-button"><div>Contact</div></div></a>
+      </div>
+    </div>
+
+    <div id="wrapper">
+      <div id="content">
+        {% block main_content %}
+        {% endblock %}
+      </div>
+    </div>
+
+    <div id="footer">
+      <div id="footer-content">
+      </div>
+    </div>
+  </body>
+</html>
