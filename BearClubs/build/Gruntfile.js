@@ -40,7 +40,8 @@ module.exports = function (grunt) {
     less: {
       bearclubs: {
         files: { /* (dest : src) */
-          '../src/tmp/main.max.css' : '../src/less/main.less'
+          '../src/tmp/main-dark.max.css'  : '../src/less/theme-dark.less',
+          '../src/tmp/main-light.max.css' : '../src/less/theme-light.less'
         },
         options: {
           paths: ['../src/less']
@@ -52,7 +53,8 @@ module.exports = function (grunt) {
     cssmin: {
       compress: {
         files: {
-          "../bc/static/css/main.min.css": ["../src/tmp/main.max.css"]
+          "../bc/static/css/main-dark.min.css": ["../src/tmp/main-dark.max.css"],
+          "../bc/static/css/main-light.min.css": ["../src/tmp/main-light.max.css"]
         }
       }
     },
@@ -114,7 +116,7 @@ module.exports = function (grunt) {
     watch: {
       css: {
         files: "<%= '../src/less/**/*' %>",
-        tasks: ["reload"]
+        tasks: ["less", "cssmin"]
       }
     }
   });

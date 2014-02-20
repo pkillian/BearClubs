@@ -1,0 +1,93 @@
+/* Mixins */
+/***************/
+
+.antialiased-fonts() {
+  -moz-font-smoothing:      antialiased; /* Firefox             */
+  -ms-font-smoothing:       antialiased; /* Firefox             */
+  -o-font-smoothing:        antialiased; /* Opera               */
+  -webkit-font-smoothing:   antialiased; /* Chrome (and Safari) */
+  font-smoothing:           antialiased;
+}
+
+.border-line(@line-color: @style-blue, @line-style: solid, @line-width: thin) {
+  border-color: @line-color;
+  border-style: @line-style;
+  border-width: @line-width;
+}
+
+.border-radius(@radius: 6px) {
+  -moz-border-radius:       @radius; /* Firefox             */
+  -ms-border-radius:        @radius; /* Firefox             */
+  -o-border-radius:         @radius; /* Opera               */
+  -webkit-border-radius:    @radius; /* Chrome (and Safari) */
+  border-radius:            @radius;
+}
+
+.border-top(@line-color: @style-blue, @line-style: solid, @line-width: thin) {
+  border-top-color:     @line-color;
+  border-top-style:     @line-style;
+  border-top-width:     @line-width;
+}
+
+.border-right(@line-color: @style-blue, @line-style: solid, @line-width: thin) {
+  border-right-color:   @line-color;
+  border-right-style:   @line-style;
+  border-right-width:   @line-width;
+}
+
+.border-bottom(@line-color: @style-blue, @line-style: solid, @line-width: thin) {
+  border-bottom-color:  @line-color;
+  border-bottom-style:  @line-style;
+  border-bottom-width:  @line-width;
+}
+
+.border-left(@line-color: @style-blue, @line-style: solid, @line-width: thin) {
+  border-left-color:    @line-color;
+  border-left-style:    @line-style;
+  border-left-width:    @line-width;
+}
+
+.box-shadow-bottom(@h-shad: 0, @v-shad: 0, @blur: 8px, @spread: 2px, @shad-color: @style-gold) {
+  -moz-box-shadow:        0 0 0 0 #000, 0 0 0 0 #000, @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000; /* Firefox */
+  -ms-box-shadow:         0 0 0 0 #000, 0 0 0 0 #000, @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000; /* Firefox */
+  -webkit-box-shadow:     0 0 0 0 #000, 0 0 0 0 #000, @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000; /* Opera */
+  -o-box-shadow:          0 0 0 0 #000, 0 0 0 0 #000, @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000; /* Chrome (and Safari) */
+  box-shadow:             0 0 0 0 #000, 0 0 0 0 #000, @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000;
+}
+
+.box-shadow-top(@h-shad: 0, @v-shad: 0, @blur: 8px, @spread: 2px, @shad-color: @style-gold) {
+  -moz-box-shadow:        @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000, 0 0 0 0 #000, 0 0 0 0 #000; /* Firefox */
+  -ms-box-shadow:         @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000, 0 0 0 0 #000, 0 0 0 0 #000; /* Firefox */
+  -webkit-box-shadow:     @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000, 0 0 0 0 #000, 0 0 0 0 #000; /* Opera */
+  -o-box-shadow:          @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000, 0 0 0 0 #000, 0 0 0 0 #000; /* Chrome (and Safari) */
+  box-shadow:             @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000, 0 0 0 0 #000, 0 0 0 0 #000;
+}
+
+.box-shadow(@h-shad: 0, @v-shad: 0, @blur: 8px, @spread: 2px, @shad-color: @style-gold) {
+  -moz-box-shadow:        @h-shad @v-shad @blur @spread @shad-color; /* Firefox */
+  -ms-box-shadow:         @h-shad @v-shad @blur @spread @shad-color; /* Firefox */
+  -webkit-box-shadow:     @h-shad @v-shad @blur @spread @shad-color; /* Opera */
+  -o-box-shadow:          @h-shad @v-shad @blur @spread @shad-color; /* Chrome (and Safari) */
+  box-shadow:             @h-shad @v-shad @blur @spread @shad-color;
+}
+
+.crisp-image-render() {
+  image-rendering:      -moz-crisp-edges;          /* Firefox             */
+  image-rendering:      -ms-crisp-edges;           /* Firefox             */
+  image-rendering:      -o-crisp-edges;            /* Opera               */
+  image-rendering:      -webkit-optimize-contrast; /* Chrome (and Safari) */
+  image-rendering:      crisp-edges;
+}
+
+.no-background() {
+  background-color: transparent;
+  background-image: none;
+}
+
+.no-margin() {
+  margin: 0;
+}
+
+.no-padding() {
+  padding: 0;
+}
