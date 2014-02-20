@@ -7,8 +7,19 @@
     <script type="text/javascript" src="/static/js/bearclubs.min.js"></script>
   </head>
   <body>
+
+    <script type="text/javascript">
+      $(document).ready(BearClubs.onReady);
+    </script>
+
     <div id="header">
       <div id="header-content">
+        <div id="bc-logo">
+          <a href="/" id="bc-logo-link">
+            <div class="bc-logo-bear">Bear</div>
+            <div class="bc-logo-clubs">Clubs</div>
+          </a>
+        </div>
         <a href="/"><div class="header-button first"><div>Home</div></div></a>
         <a href="/"><div class="header-button"><div>About</div></div></a>
         <a href="/"><div class="header-button"><div>Contact</div></div></a>

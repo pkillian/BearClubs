@@ -2,6 +2,7 @@
 /* Fonts */
 /*********/
 
+@import url(http://fonts.googleapis.com/css?family=Satisfy);
 @import url(http://fonts.googleapis.com/css?family=Maven+Pro:400,500);
 
 
@@ -73,6 +74,14 @@
   border-left-width:    @line-width;
 }
 
+.box-shadow-bottom(@h-shad: 0, @v-shad: 0, @blur: 8px, @spread: 2px, @shad-color: @style-gold) {
+  -moz-box-shadow:        0 0 0 0 #000, 0 0 0 0 #000, @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000; /* Firefox */
+  -ms-box-shadow:         0 0 0 0 #000, 0 0 0 0 #000, @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000; /* Firefox */
+  -webkit-box-shadow:     0 0 0 0 #000, 0 0 0 0 #000, @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000; /* Opera */
+  -o-box-shadow:          0 0 0 0 #000, 0 0 0 0 #000, @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000; /* Chrome (and Safari) */
+  box-shadow:             0 0 0 0 #000, 0 0 0 0 #000, @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000;
+}
+
 .box-shadow-top(@h-shad: 0, @v-shad: 0, @blur: 8px, @spread: 2px, @shad-color: @style-gold) {
   -moz-box-shadow:        @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000, 0 0 0 0 #000, 0 0 0 0 #000; /* Firefox */
   -ms-box-shadow:         @h-shad @v-shad @blur @spread @shad-color, 0 0 0 0 #000, 0 0 0 0 #000, 0 0 0 0 #000; /* Firefox */
@@ -95,6 +104,11 @@
   image-rendering:      -o-crisp-edges;            /* Opera               */
   image-rendering:      -webkit-optimize-contrast; /* Chrome (and Safari) */
   image-rendering:      crisp-edges;
+}
+
+.no-background() {
+  background-color: transparent;
+  background-image: none;
 }
 
 .no-margin() {
@@ -127,7 +141,7 @@ body {
   .no-padding();
 
   background-repeat: repeat;
-  background-image: url('/static/img/bg-dirty-old-shirt.png');
+  background-image: url('/static/img/bg-squairy.png');
 
   margin: 0;
   padding: 0;
@@ -139,11 +153,53 @@ body {
   vertical-align: baseline;
 }
 
+#bc-logo {
+  height: 60px;
+
+  display: inline;
+  float: left;
+
+  padding: 0px 20px;
+
+  font-family:  'Satisfy';
+  font-size:    30px;
+  line-height:  30px;
+
+  background-color: @style-blue;
+}
+
+#bc-logo-link {
+  text-decoration: none;
+
+  .bc-logo-bear {
+    color: @style-white;
+  }
+
+  .bc-logo-clubs {
+    color: @style-gold;
+  }
+
+  .bc-logo-bear,
+  .bc-logo-clubs {
+    display: inline;
+    float: left;
+
+    margin: 15px 0px;
+  }
+}
+
+#bc-logo-link:visited,
+#bc-logo-link:active {
+  color: inherit;
+}
+
 #header {
   position: fixed;
   z-index:  500;
   height:   60px;
   width:    100%;
+
+  overflow: hidden;
 
   margin-bottom: 50px;
 
@@ -151,6 +207,8 @@ body {
 
   .border-top(@line-width: 4px);
   .border-bottom(@line-color: @style-grey, @line-width: 1px);
+
+  .box-shadow-bottom(@blur: 14px; @shad-color: darken(@style-grey, 5%));
 }
 
 #header-content {
@@ -206,24 +264,72 @@ body {
 
 #content {
   min-height: 650px;
-
   width:  960px;
-  margin: 80px 0 0 0;
 
-  text-align: center;
+  margin: 90px 0 0 0;
 
-  .border-radius(4px);
-  background-color: @style-black-4-5ths;
+  div {
+    text-align: center;
 
-  font-family: 'Maven Pro';
-  color: @style-gold;
+    font-family: 'Maven Pro';
+    color: @style-gold;
+
+    .border-radius(4px);
+    background-color: @style-black-4-5ths;
+  }
+
+  .row-container {
+    height: 200px;
+    width:  100%;
+
+    margin-top: 20px;
+
+    display: inline-block;
+    .no-background();
+  }
+
+  .row-div {
+    height: 200px;
+    width:  100%;
+
+    margin-top: 20px;
+  }
+
+  .col-div {
+    height: 200px;
+    width:  470px;
+
+    float: left;
+  }
+
+  .col-div:first-child {
+    margin-right: 20px;
+  }
+
+  .col-div-thirds {
+    height: 200px;
+    width:  306px;
+
+    float: left;
+  }
+
+  .col-div-thirds:nth-child(2) {
+    width:  307px;
+  }
+
+  .col-div-thirds:first-child,
+  .col-div-thirds:nth-child(2) {
+    margin-right: 20px;
+  }
 }
 
 #footer {
   height: 160px;
 
+  margin-top: 40px;
+
   background-repeat: repeat;
-  background-image:   url('/static/img/bg-noisy-net-dark.png');
+  background-image:   url('/static/img/bg-dirty-old-shirt.png');
 
   .box-shadow-top(@blur: 14px; @shad-color: darken(@style-grey, 5%));
 }
