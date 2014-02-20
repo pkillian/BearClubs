@@ -42,6 +42,14 @@
 
 @import "theme-light";
 
+.antialiased-fonts() {
+  -moz-font-smoothing:      antialiased; /* Firefox             */
+  -ms-font-smoothing:       antialiased; /* Firefox             */
+  -o-font-smoothing:        antialiased; /* Opera               */
+  -webkit-font-smoothing:   antialiased; /* Chrome (and Safari) */
+  font-smoothing:           antialiased;
+}
+
 .border-line(@line-color: @style-blue, @line-style: solid, @line-width: thin) {
   border-color: @line-color;
   border-style: @line-style;
@@ -137,6 +145,7 @@ html {
   .no-margin();
   .no-padding();
 
+  .antialiased-fonts();
   .crisp-image-render();
 }
 
@@ -191,7 +200,7 @@ body {
     float:    left;
     padding:  5px 10px;
 
-    background-color: @style-blue;
+    background-color: @header-logo-background-color;
   }
 
 
@@ -203,11 +212,11 @@ body {
 
     padding: 0px 20px;
 
-    font-family:  'Satisfy';
+    font-family:  'Satisfy', sans-serif;
     font-size:    30px;
     line-height:  30px;
 
-    background-color: @style-blue;
+    background-color: @header-logo-background-color;
   }
 
   #bc-logo-link {
@@ -247,8 +256,9 @@ body {
       margin:   20px 0;
       padding:  0 30px;
 
-      font-family: 'Maven Pro', 'Helvetica', sans-serif;
-      font-size: 14pt;
+      font-family:  'Maven Pro', sans-serif;
+      font-weight:  medium;
+      font-size:    14pt;
 
       line-height:  20px;
       text-align:   center;
@@ -275,7 +285,10 @@ body {
   div {
     text-align: center;
 
-    font-family: 'Maven Pro';
+    font-family:  'Maven Pro', sans-serif;
+    font-weight:  medium;
+    font-size:    24px;
+
     color: @content-text-color;
 
     .border-radius(4px);
