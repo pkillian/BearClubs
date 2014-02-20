@@ -28,10 +28,14 @@ var BearClubs = BearClubs || {};
     this.toggleHeader = function (toggle) {
         if (toggle) {
             // Show the header
-            $('#header').animate({height: that.headerHeight + 'px'}, 'fast', function() {});
+            $('#header').animate({height: that.headerHeight + 'px'}, 'fast', function() {
+                $('#header').css('border-bottom-style', 'solid');
+            });
         } else {
             // Hide the header
-            $('#header').animate({height: '0px'}, 'fast', function() {});
+            $('#header').animate({height: '0px'}, 'fast', function() {
+                $('#header').css('border-bottom-style', 'none');
+            });
         }
     };
 
