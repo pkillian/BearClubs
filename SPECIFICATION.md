@@ -132,3 +132,4 @@ A single user can be any combination of the following actors:
 
 ## User Interface Requirements
 
+![UI Requirements](https://dl.dropboxusercontent.com/u/632568/CS169_proj3.png)
