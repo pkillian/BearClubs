@@ -26,7 +26,7 @@ all_tests :: func_tests
 grunt:
 	cd ./BearClubs/build; grunt; cd -;
 
-grunt-quick:
+grunt_quick:
 	cd ./BearClubs/build; grunt quick; cd -;
 
 ###
