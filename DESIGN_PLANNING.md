@@ -50,6 +50,7 @@ In terms of dependencies, we believe that we've already mitigated most of the po
 
 * 1) Create models for each class: User, Club, user\_to\_clubs, club\_to\_events (1 Day)
 * 2) Create naming convention for front-end design (1 Day)
+* 3) Initialize testing workflows (GruntJS and Travis CI) (1 Day)
 
 ##### Sign Up Team - [Insert Member Here], [Insert Member Here]
 
@@ -80,7 +81,7 @@ In terms of dependencies, we believe that we've already mitigated most of the po
 
 Note: Tasks 4, 5, and 6 are dependent on the sign up team finishing their tasks. Since that will be how we can create a user to test the sign in process. We have prioritized them last in the list so that we can wait on this dependency to clear by having this team work on something else. When that team is done, the Sign Up Team will come help the Sign In Team finish up the sign in process.
 
-##### Club Team - [Insert Member Here], [Insert Member Here]
+##### Club Team - Patrick, [Insert Member Here]
 
 * Number of Days to Develop: 5
 * Number of Days to Test: 2
@@ -93,4 +94,31 @@ Note: Tasks 4, 5, and 6 are dependent on the sign up team finishing their tasks.
 
 ## Testing Plan
 
+### Unit and End-to-End Testing Strategies
+
+BearClubs will utilize two testing paradigms; unit testing and end-to-end (E2E) testing. Since we're only implementing a single backend and frontend (Django and HTML5 respectively) with no need for a REST API, our functional and UI testing will be encompassed in the same paradigm of E2E.
+
+#### Unit Testing
+
+Our unit testing will focus on the Model and View (Django equivalent of a Controller) aspects of the Model-Template-View design pattern. We plan on making our models have much 'heavier' implementations than our views, so unit testing both of these aspects separately will be crucial. Our unit tests will be contained hierarchically in the `BearClubs/tests` directory, and will implement the standard Django unit testing that is provided with the framework.
+
+#### End-to-End Testing
+
+End-to-end tests will highlight the functionality of the web application as a whole, focusing heavily on the HTML5/Javascript front-end we're implementing. These E2E tests will be implemented with the `django-webtest` package. Using this package, we're able to run our E2E tests much like our unit tests. The `django-webtest` package subclasses Django's test case (`django.test.TestCase`), allowing us to write unit and functional tests that are similarly coherent and consistent.
+
+### Automated testing
+
+Automated testing is a critical aspect of our testing approach. We're using two tools to automate our tests; [GruntJS](http://gruntjs.com/) and [Travis CI](http://travis-cs.org/). 
+
+#### GruntJS
+
+GruntJS allows us to "watch" files in our working directory, and launch the appropriate tests without any hesitation. For example, if a change is made to a model, GruntJS can be configured to launch the proper unit tests that exist in `tests/unit/models`. Likewise for a change made to a template file; GruntJS can automatically launch a series of E2E tests on the fly, continuously.
+
+GruntJS is also being used to minify and deploy JS/LESS/CSS files, but its focus in our testing strategy is that of the "watch" functionality.
+
+#### Travis CI
+
+Travis CI is a free continuous integration environment, similar to that of Jenkins, but without any of the overhead involved. Travis CI is being used to monitor certain branches (`master` and `testing`), and run our entire suite of unit tests on these branches whenever commits are pushed to our GitHub repository. When a new commit is pushed onto `origin/master` or `origin/testing`, Travis CI checks out that revision, and launches the commands we specify in our `/.travis.yml` configuration file. This is extremely useful from a continuous integration standpoint, because this ensures that every single state of the `master` and `testing` branches gets tested before being deployed to production. Our contributing pattern incorporates this; all versions of BearClubs will be pushed to `origin/testing` and have its test output analyzed extensively before ever being deployed on production.
+
+Due to Travis CI's headless nature, it makes running our E2E tests a bit of a headache, so we've decided to only use Travis CI to run our unit tests.
 
