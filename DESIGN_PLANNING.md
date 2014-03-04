@@ -46,7 +46,7 @@ In order to accomplish these 6 stores in an efficient manner, we want to break i
 
 In terms of dependencies, we believe that we've already mitigated most of the possible dependencies. Our group has created mockups for each model, and we have hashed out and finalized how the backend will work. After doing this, we believe that implementing our first iteration through our proposed implementation plan will be straightforward since there will be minimal conflict. We do acknowledge that a potential risk would be that the front-end views will conflict across the 3 teams. To mitigate this, we believe that unifying the front-ends at the end of implementaiton will be easiest. Coupling this with a common naming convention across the team will help unify our front-ends to be one theme.
 
-##### Entire BearClubs Team Tasks (These will happen first)
+##### Entire BearClubs Team Tasks (These will happen before the start of tasks by any team)
 
 * 1) Create models for each class: User, Club, user\_to\_clubs, club\_to\_events (1 Day)
 * 2) Create naming convention for front-end design (1 Day)
@@ -57,7 +57,6 @@ In terms of dependencies, we believe that we've already mitigated most of the po
 * Number of Days to Test: 2 
 
 ###### Sub-tasks
-
 
 * 1) Build out routes to handle sign up (2 Days)
 * 2) Create front-end form for the sign up process (2 Days)
@@ -105,6 +104,9 @@ Tasks 4, 5, and 6 are dependent on the sign up team finishing their tasks. Since
 
 Tasks 2, 4 are dependent on the sign in team for adherance to a common front-end theme. There are no other dependencies.
 
+### Iteration 2
+
+To Be Added
 
 ## Testing Plan
 
