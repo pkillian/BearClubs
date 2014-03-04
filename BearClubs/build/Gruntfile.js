@@ -7,6 +7,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-less");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-newer");
+  grunt.loadNpmTasks('grunt-shell');
 
   // if you simply run "grunt" these default tasks will execute, IN THE ORDER THEY APPEAR!
   grunt.registerTask('default', ["jshint", "uglify", "less", "cssmin", "copy"]);
