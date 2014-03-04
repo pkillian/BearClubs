@@ -48,7 +48,7 @@ In terms of dependencies, we believe that we've already mitigated most of the po
 
 ##### Entire BearClubs Team Tasks (These will happen first)
 
-* 1) Create models for each class: User, Club, user_to_clubs, club_to_events (1 Day)
+* 1) Create models for each class: User, Club, user\_to\_clubs, club\_to\_events (1 Day)
 * 2) Create naming convention for front-end design (1 Day)
 
 ##### Sign Up Team - [Insert Member Here], [Insert Member Here]
@@ -56,7 +56,7 @@ In terms of dependencies, we believe that we've already mitigated most of the po
 * Number of Days to Develop: 3
 * Number of Days to Test: 2 
 
-####### Sub-tasks
+###### Sub-tasks
 
 
 * 1) Build out routes to handle sign up (2 Days)
@@ -69,7 +69,7 @@ In terms of dependencies, we believe that we've already mitigated most of the po
 * Number of Days to Develop: 7
 * Number of Days to Test: 2
 
-####### Sub-tasks
+###### Sub-tasks
 
 * 1) Create list of privileges that signed in user will have (1 Day)
 * 2) Build out basic home screen for a signed in user to see (3 Days)
