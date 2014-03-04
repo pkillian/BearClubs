@@ -52,7 +52,7 @@ In terms of dependencies, we believe that we've already mitigated most of the po
 * 2) Create naming convention for front-end design (1 Day)
 * 3) Initialize testing workflows (GruntJS and Travis CI) (1 Day)
 
-##### Sign Up Team - [Insert Member Here], [Insert Member Here]
+##### Sign Up Team - Tiffany, [Insert Member Here]
 
 * Number of Days to Develop: 3
 * Number of Days to Test: 2 
