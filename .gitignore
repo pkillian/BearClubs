@@ -2,6 +2,8 @@ BearClubs/build/node_modules/
 BearClubs/settings.py
 BearClubs/src/components/
 BearClubs/src/tmp/
+.coverage
+htmlcov/
 venv/
 *.pyc
 
