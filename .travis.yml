@@ -1,12 +1,8 @@
 language: python
 python:
-    - "2.7.6"
-env:
-    - DJANGO=1.6.2
+    - "2.7"
 install:
-    - pip install -r requirements.txt --use-mirrors
-before_script:
-    - python manage.py syncdb
+    - "pip install -r requirements.txt"
 script:
-    - python manage.py test
+    - "python manage.py test"
 
