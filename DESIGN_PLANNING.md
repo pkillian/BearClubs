@@ -44,9 +44,9 @@ For Iteration 1, we want to implement the basic core features that will define B
 
 In order to accomplish these 6 stores in an efficient manner, we want to break it down into separate development tasks. Given the 6 members in our group, we would like to break down our group of 6 into teams of 2. From here, we will divide the 6 stories across our teams 3 so that every team is responsible for 2 stories.
 
-In terms of dependencies, we believe that we've already mitigated most of the possible dependencies. Our group has created mockups for each model, and we have hashed out and finalized how the backend will work. After doing this, we believe that implementing our first iteration through our proposed implementation plan will be straightforward since there will be minimal conflict. We do acknowledge that a potential risk would be that the front-end views will conflict across the 3 teams. To mitigate this, we believe that unifying the front-ends at the end of implementaiton will be easiest. Coupling this with a common naming convention across the team will help unify our front-ends to be one them.
+In terms of dependencies, we believe that we've already mitigated most of the possible dependencies. Our group has created mockups for each model, and we have hashed out and finalized how the backend will work. After doing this, we believe that implementing our first iteration through our proposed implementation plan will be straightforward since there will be minimal conflict. We do acknowledge that a potential risk would be that the front-end views will conflict across the 3 teams. To mitigate this, we believe that unifying the front-ends at the end of implementaiton will be easiest. Coupling this with a common naming convention across the team will help unify our front-ends to be one theme.
 
-##### Entire BearClubs Team Tasks (These will happen first)
+##### Entire BearClubs Team Tasks (These will happen before the start of tasks by any team)
 
 * 1) Create models for each class: User, Club, user\_to\_clubs, club\_to\_events (1 Day)
 * 2) Create naming convention for front-end design (1 Day)
@@ -59,13 +59,16 @@ In terms of dependencies, we believe that we've already mitigated most of the po
 
 ###### Sub-tasks
 
-
 * 1) Build out routes to handle sign up (2 Days)
 * 2) Create front-end form for the sign up process (2 Days)
 * 3) Test sign up process (1 Day)
 
+###### Dependencies/Risk Mitigation
 
-##### Sign In Team - [Insert Member Here], [Insert Member Here]
+Task 2 has a dependency on the sign in team because we want to make sure that the front-end for the sign in and the sign up process adhere to a common theme. We are mitigating this dependency by having the the sign up team build out the front-end for the sign up process first before the sign in team creates the front-end for the sign in process.
+
+
+##### Sign In Team - Peter Kim, [Insert Member Here]
 
 * Number of Days to Develop: 7
 * Number of Days to Test: 2
@@ -77,9 +80,14 @@ In terms of dependencies, we believe that we've already mitigated most of the po
 * 3) Build out routes to handle sign in process (1 Day)
 * 4) Create front-end form for the sign in process (1 Day)
 * 5) Test sign up process (1 Day)
-* 6) Add checks for home screen that a user is authenticated (2 Days)
+* 6) Add checks for home screen that a user is authenticated // Configure Django session engine (2 Days)
 
-Note: Tasks 4, 5, and 6 are dependent on the sign up team finishing their tasks. Since that will be how we can create a user to test the sign in process. We have prioritized them last in the list so that we can wait on this dependency to clear by having this team work on something else. When that team is done, the Sign Up Team will come help the Sign In Team finish up the sign in process.
+###### Dependencies/Risk Mitigation
+
+Task 1, 2 is dependent on the Club Team because we want to make sure that the front end for a user home screen and the front end for the directory of clubs and individual club pages adhere to the same theme. We will mitigate this week by having the sign in team and the club team agreeing to a theme for the front-end before getting started on their tasks.
+
+Tasks 4, 5, and 6 are dependent on the sign up team finishing their tasks. Since that will be how we can create a user to test the sign in process. We have prioritized them last in the list so that we can wait on this dependency to clear by having this team work on something else. When that team is done, the Sign Up Team will come help the Sign In Team finish up the sign in process.
+
 
 ##### Club Team - Patrick, [Insert Member Here]
 
@@ -90,7 +98,16 @@ Note: Tasks 4, 5, and 6 are dependent on the sign up team finishing their tasks.
 
 * 1) Build out routes to handle adding a club (2 Days)
 * 2) Create front-end form for user to add club (2 Days)
-* 3) Create front-end view that will act as a directory for the club (3 Days)
+* 3) Build out route to handle retrieving a directory of clubs (1 Day)
+* 4) Create front-end view that will act as a directory for the club (3 Days)
+
+###### Dependencies/Risk Mitigation
+
+Tasks 2, 4 are dependent on the sign in team for adherance to a common front-end theme. There are no other dependencies.
+
+### Iteration 2
+
+To Be Added
 
 ## Testing Plan
 
