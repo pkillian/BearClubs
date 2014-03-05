@@ -36,9 +36,86 @@ The following sections in Design Details are under active development; they will
 
 #### Frontend App Details
 
-#### Backend App Details
+On the frontend, BearClubs will primarily be a web-based application. We decided to forgo mobile platforms for now since we foresee the majority of our users to access the application from a desktop/laptop. Our app is for users to discover and connect with new clubs and administrators to manage their club presence on our platform, and a "mobile" aspect does not seem to add much value. The experience seems to be best served on traditional browser interfaces for now. Perhaps once our platform is fully built out with a healthy user base, then we may consider adding on a mobile interface.
+
+Our fontend code will primarily be HTML5/CSS/JavaScript, and we plan to test and support the latest stable versions of major browsers, including Chrome, Firefox, Safari, and Internet Explorer. Our Javascript will make extensive use of jQuery libraries and plugins, and will be concatenated and minified together for the fastest server response times possible. Our CSS will be written in LESS, compiled by `grunt-less`, and minified. The LESS source directory structure supports multiple themes, which we will implement if requested by users. We will follow the traditional Django design pattern of templating, implemented in fragments of HTML5 and passing Python objects/variables from views to templates for rendering.
+
+#### Backend Server Details
+
+Our backend will be written in Django. The server will process incoming requests and manage access to the global database, as well as build and serve pages and manage password encryption and authentication. There are many Django packages that can help us manage these tasks. Since our application is targeted for UC Berkeley students, we are also considering running our user registration and authentication system through CalNet in a later iteration.
 
 #### Database Details
+
+We will be using SQLite for local development, and PostgreSQL on production. We chose local SQLite for speed of development and ease of use, and production PostgreSQL for scale and performance. Our database will store users and their related profile information, organizations and their related profile information, events and their relevant information, as well as provide mappings between these three main models:
+
+Users: username, email, first name, last name
+Organization: name, description, location, contact info, type
+Event: name, description, start time, end time, location
+
+We will also have mapping / relational tables to link our users to organizations and events to organizations; a rudimentary diagram is shown below, and will be updated with future iterations.
+
+##### Data Tables
+
+*All tables have a `UNIQUE PRIMARY KEY` field of type integer with name `id`*
+
+###### USER
+
+| Field             | Description                            |
+| ----------------- |:---------------------------------------|
+| username          | required unique char(128)              |
+| email             | required unique char(128)              |
+| first\_name       | required char(128)                     |
+| last\_name        | required char(128)                     |
+
+###### ORGANIZATION
+
+| Field             | Description                   |
+| ----------------- |:------------------------------|
+| name              | required char(128)            |
+| description       | required textblob             |
+| location          |                               |
+| contact\_info     |                               |
+| type              |                               |
+
+###### EVENT
+
+| Field             | Description                   |
+| ----------------- |:------------------------------|
+| name              | required char(128)            |
+| description       | required blob                 |
+| start\_time       | required datetime             |
+| end\_time         | required datetime             |
+| location          |                               |
+| club\_id          |                               |
+
+##### Mappings / Relations
+
+###### User to Organization
+
+| Field                | Description                            |
+| -------------------- |:---------------------------------------|
+| fk\_user\_id         | required foreign key user(id)          |
+| fk\_organization\_id | required foreign key organization(id)  |
+| admin                | required bool                          |
+| position             | char(128)                              |
+
+
+#### Invariants
+
+* User
+    * Must have valid username.
+    * Must have valid email.
+    * Must have valid first name and last name.
+    * Must be associated with zero or more organizations (user to organization mapping).
+* Organization
+    * Must be associated with at least one admin member.
+    * Muse be associated with at least one member.
+    * Must have valid name.
+    * Must have valid contact info.
+* Event
+    * Must have valid name.
+    * Must have start time and end time (start time must be before end time).
+    * Must be associated with exactly one club.
 
 #### Algorithms
 
@@ -51,15 +128,6 @@ For iteration 1, our algorithms are trivial. In future iterations, algorithms th
     * Distinguishing between users, clubs, events, etc.
     * Live-updating results on keypresses
     * Caching of data (Redis, SOLR, etc.)
-
-#### Invariants
-
-* User
-    * each user will be related to zero or more organizations (user to organization mapping)
-* Organization
-    * each organization will be related to one or more users (user to organization mapping)
-* Event
-    * each event will be owned by exactly one club
 
 #### Protocols
 
