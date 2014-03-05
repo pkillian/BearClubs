@@ -237,7 +237,7 @@ In terms of dependencies, we believe that we've already mitigated most of the po
 * 2) Create naming convention for front-end design (1 Day)
 * 3) Initialize testing workflows (GruntJS and Travis CI) (1 Day)
 
-##### Sign Up Team - Tiffany, [Insert Member Here]
+##### Sign Up Team - Tiffany, Alex
 
 * Number of Days to Develop: 3
 * Number of Days to Test: 2 
@@ -253,7 +253,7 @@ In terms of dependencies, we believe that we've already mitigated most of the po
 Task 2 has a dependency on the sign in team because we want to make sure that the front-end for the sign in and the sign up process adhere to a common theme. We are mitigating this dependency by having the the sign up team build out the front-end for the sign up process first before the sign in team creates the front-end for the sign in process.
 
 
-##### Sign In Team - Peter Kim, [Insert Member Here]
+##### Sign In Team - Peter, Kevin
 
 * Number of Days to Develop: 7
 * Number of Days to Test: 2
@@ -274,7 +274,7 @@ Task 1, 2 is dependent on the Club Team because we want to make sure that the fr
 Tasks 4, 5, and 6 are dependent on the sign up team finishing their tasks. Since that will be how we can create a user to test the sign in process. We have prioritized them last in the list so that we can wait on this dependency to clear by having this team work on something else. When that team is done, the Sign Up Team will come help the Sign In Team finish up the sign in process.
 
 
-##### Club Team - Patrick, [Insert Member Here]
+##### Club Team - Patrick, Shubham
 
 * Number of Days to Develop: 5
 * Number of Days to Test: 2
