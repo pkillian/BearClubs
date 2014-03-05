@@ -30,6 +30,43 @@ Django follows the MVC pattern, but instead calls it MTV for Model-Template-View
 
 ## Design Details
 
+### Frontend App Details
+
+On the frontend, BearClubs will intially be primarily a web-based application. We decided to forgo mobile platforms for now since we foresee the majority of our users to access from a web browser. Our app is for users to discover and connect with new clubs and administrators to manage their club presence on our platform, and a "mobile" aspect does not seem to add much value. The experience seems to be best served on traditional browser interfaces for now. Perhaps once our platform is fully built out with a healthy user base, then we may consider adding on a mobile interface.
+
+Our fontend code will primarily be HTML5/CSS/JavaScript, and we plan to test and support the latest stable versions of major browsers, including Chrome, Firefox, Safari, and Internet Explorer. 
+
+### Backend Server Details
+
+Our backend will be written in Django. The server will process incoming requests and manage access to the global database, as well as build and serve pages and manage password encryption and authentication. There are many Django packages that can help us manage these tasks. Since our application is targeted for UC Berkeley students, we are also considering running our user registration and authentication system through CalNet at a later stage.
+
+### Database Details
+
+We will be using SQLite for locally for speed of development and ease of use, but our production model will implement PostgreSQL for scale and performance. Our database will store users and their related profile information, organizations and their related profile information, events and their relevant information, as well as provide mappings between these three main models:
+
+Users: username, email, first name, last name
+Organization: name, description, office, contact info, type
+Event: name, description, start time, end time, location
+
+We will also have mapping / relational tables to link our users to organizations and events to organizations. See TABLES.md for diagram.
+
+### Invariants
+
+Users:
+* Must have valid username.
+* Must have valid email.
+* Must have valid first name and last name.
+
+Organization:
+* Must have at least one admin user associated.
+* Must have valid name.
+* Must have valid contact info.
+
+Events:
+* Must be associated with exactly one club (must have clubid field).
+* Must have valid name.
+* Must have start time and end time (start time must be before end time).
+
 ## Implementation Plan
 
 ### Iteration 1
