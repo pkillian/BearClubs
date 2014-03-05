@@ -310,7 +310,7 @@ End-to-end tests will highlight the functionality of the web application as a wh
 
 ### Automated testing
 
-Automated testing is a critical aspect of our testing approach. We're using two tools to automate our tests; [GruntJS](http://gruntjs.com/) and [Travis CI](http://travis-ci.org/). 
+Automated testing is a critical aspect of our testing approach. We're using two tools to automate our tests; [GruntJS](http://gruntjs.com/) and [Travis CI](https://travis-ci.org/pkillian/BearClubs). 
 
 #### GruntJS
 
