@@ -30,6 +30,123 @@ Django follows the MVC pattern, but instead calls it MTV for Model-Template-View
 
 ## Design Details
 
+### Iteration 1
+
+The following sections in Design Details are under active development; they will be subject to change during the first two iterations while we dial in our datastructures, etc.
+
+#### Frontend App Details
+
+#### Backend App Details
+
+#### Database Details
+
+#### Algorithms
+
+For iteration 1, our algorithms are trivial. In future iterations, algorithms that will be of significance are not limited to the following:
+
+* Calendar to User mapping algorithm
+* Algorithms that concern live-updating members of club updates
+* Authentication and permissions algorithms concerning admins/officers of clubs
+* Complex search algorithms
+    * Distinguishing between users, clubs, events, etc.
+    * Live-updating results on keypresses
+    * Caching of data (Redis, SOLR, etc.)
+
+#### Invariants
+
+* User
+    * each user will be related to zero or more organizations (user to organization mapping)
+* Organization
+    * each organization will be related to one or more users (user to organization mapping)
+* Event
+    * each event will be owned by exactly one club
+
+#### Protocols
+
+Since we're implementing our backend and frontend through a single Django/HTML5 application, our protocols are trivial. We have no plans of exposing a REST API to distribute our data unless persued later on (for mobile app purposes, programmatic administration of organizations, etc.). Our backend and frontend will communicate via standard HTTP methods (`GET`, `POST`, `PUT`, etc.) through Django's framework of HTTP communication.
+
+#### View/Template Details
+
+Views in Django are similar to how controllers function in a traditional MVC design pattern. Our views will act as the glue between our models and templates; passing data objects to our templates for rendering, accepting `POST` data for processing, and so on.
+
+In iteration 1, we'll be solidifying our overall UI style guide, but common themes will persist through the application:
+
+* Main layout
+    * Header across the top of all pages of the application
+        * Navigation links (left floating)
+            * BearClubs (home)
+            * Clubs (clubs directory)
+            * Discover (directory search page)
+        * User links (right floating)
+            * My Profile (user memberships, settings, etc.)
+            * My Calendar (upcoming events, subscribed events)
+            * My Clubs (list of user's clubs)
+    * User Sidebar (floating left, entire height of content area)
+        * Profile picture
+        * Username
+        * Full name
+        * Small version of calendar (upcoming week of events)
+    * Content area
+        * Main content will be rendered here (yield to other views)
+* Sign up / Sign in layout
+    * Header (same as main layout)
+    * No Sidebar (user isn't signed in / registered yet)
+    * Content area
+        * Centered form / modal dialog
+            * Register (left half of div)
+                * Username field
+                * Email field
+                * Confirm email field
+                * Password field
+                * Confirm password field
+                * Register button
+            * Sign in (right half of div)
+                * Username or Email field
+                * Password field
+                * Sign In button
+                * Forgot username / password button
+* Club Directory
+    * Header (same as main layout)
+    * Sidebar (same as main layout)
+    * Content area
+        * Sub-header (across top of content area)
+            * Live updating search bar
+            * Filter options (items per page, A-Z search, etc.)
+        * Directory view
+            * Live updating list of organizations
+            * Table view
+                * Each row clickable; directs to club's profile
+* Club Profile
+    * Header (same as main layout)
+    * Sidebar (same as main layout)
+    * Content area
+        * Sub-header (across top of content area)
+            * Cover photo
+            * Name of organization
+            * Next meeting
+        * Profile information
+            * Sidebar (right floating)
+                * Subscribe button (get notified of updates / add events to calendar)
+                * Officer information
+                * Contact information
+                * Location (offices)
+                * Upcoming events
+            * Main content
+                * News feed of updates, events, etc.
+
+#### Class Descriptions
+
+Iteration 1 only describes two major class implementations initially; `User` and `Organization`
+
+* User :: User model for interacting with user objects
+    * Accessor methods; `getUserID()`, `getUsername()`, `getClubs()`, etc.
+    * Authentication methods; `loginUser(id, pass\_hash)`, `getAdminRights()`, etc.
+    * More complex methods like getClubs() will interact with mappings (user-club-mapping, etc.)
+* Organization :: Model implementation for organization objects
+    * Accessor methods; `getUsers(admin_level)`, `getAdmins()`, `getOfficers()`, `getOrgName()`, etc.
+    * Authentication methods; `getUserAuthLevel(user_id)`, `grantUserAdmin(user_id`, etc.
+    * Authentication methods will be limited to entities with admin rights for each organization to prevent members from promoting themselves, demoting others, and other sensitive operations (future iterations)
+
 ## Implementation Plan
 
 ### Iteration 1
