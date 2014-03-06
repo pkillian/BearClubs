@@ -120,7 +120,7 @@ We will also have mapping / relational tables to link our users to organizations
     * Must be associated with zero or more organizations (user to organization mapping).
 * Organization
     * Must be associated with at least one admin member.
-    * Muse be associated with at least one member.
+    * Must be associated with at least one member.
     * Must have valid name.
     * Must have valid contact info.
 * Event
