@@ -27,24 +27,10 @@
 	<div class="section-container">
 		<div id="signup" class="section-div">
   				<h3 class="signup-title">Register</h3>
-    			<form>
-      				Username: 
-      				<br>
-      				<input id="signup-username" type="text" name="username">
-      				<br>
-    				Email: 
-    				<br>
-    				<input id="signup-email" type="text" name="email">
-  					<br>
-  					Password: 
-  					<br>
-  					<input id="signup-password" type="password" name="password">
-  					<br>
-  					Confirm Password: 
-  					<br>
-  					<input id="signup-confirm-password" type="password" name="confirm-password">
-  					<br>
-      				<input id="register-button" class="button" type="submit" value="Register" onclick="register(); return false;">
+    			<form method="post" action="{% url 'BearClubs.bc.views.user.userSignUp' %}">
+            {% csrf_token %}
+            {{ form }}
+            <input id="register-button" class="button" type="submit" value="Register">
     			</form>
 		</div>
 		<div id="signin" class="section-div">
