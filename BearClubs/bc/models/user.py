@@ -1,12 +1,17 @@
 import datetime
 
 from django.db import models
+from django.contrib import auth
 
-class User(models.Model):
-    username     = models.CharField(max_length=128, unique=True);
-    email        = models.EmailField(max_length=128, unique=True);
-    first_name   = models.CharField(max_length=64);
-    last_name    = models.CharField(max_length=64);
+class User(auth.models.User):
+    # Following fields inherited from auth.models.User
+    # ------------------------------------------------
+    # username     = models.CharField(max_length=128, unique=True);
+    # password     = models.CharField(max_length=128, unique=True);
+    # email        = models.EmailField(max_length=128, unique=True);
+    # first_name   = models.CharField(max_length=64);
+    # last_name    = models.CharField(max_length=64);
+
     created_at   = models.DateTimeField(editable=False);
     updated_at   = models.DateTimeField();
 
