@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+
+{% load static from staticfiles %}
+{% load header %}
+{% load footer %}
+
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="/static/css/main-light.min.css">
@@ -12,19 +17,7 @@
       $(document).ready(BearClubs.onReady);
     </script>
 
-    <div id="header">
-      <div id="header-content">
-        <div id="bc-logo">
-          <a href="/" id="bc-logo-link">
-            <div class="bc-logo-bear">Bear</div>
-            <div class="bc-logo-clubs">Clubs</div>
-          </a>
-        </div>
-        <a href="/"><div class="header-button first"><div>Home</div></div></a>
-        <a href="/"><div class="header-button"><div>About</div></div></a>
-        <a href="/"><div class="header-button"><div>Contact</div></div></a>
-      </div>
-    </div>
+    {% show_header %}
 
     <div id="wrapper">
       <div id="content">
@@ -33,9 +26,7 @@
       </div>
     </div>
 
-    <div id="footer">
-      <div id="footer-content">
-      </div>
-    </div>
+    {% show_footer %}
+
   </body>
 </html>
