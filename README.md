@@ -1,9 +1,7 @@
 BearClubs :: CS 169 Project Proposal
 ====================================
-Join us on [Gitter](https://gitter.im/pkillian/BearClubs)!
-
 [![Gitter chat](https://badges.gitter.im/pkillian/BearClubs.png)](https://gitter.im/pkillian/BearClubs)
-
+[![Build Status](https://travis-ci.org/pkillian/BearClubs.png?branch=master)](https://travis-ci.org/pkillian/BearClubs)
 
 ## Problem statement: 
 
