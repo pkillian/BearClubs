@@ -1,6 +1,6 @@
 BearClubs  
 Requirements and Specification Document  
-*02/21/2014, version 1.0*  
+*03/05/2014, version 1.1*  
 
 # BearClubs
 
@@ -95,13 +95,13 @@ A single user can be any combination of the following actors:
 
 | Field             | Description                                                                             |
 | ----------------- |:----------------------------------------------------------------------------------------|
-| Name/Requirement: | View Club Page                                                                          |
+| Name/Requirement: | Add Club                                                                                |
 | Actors:           | General User                                                                            |
-| Triggers:         | Click on Club from Directory of Clubs                                                   |
+| Triggers:         | Click on Add Club from Directory of Clubs                                               |
 | Precondition:     | None                                                                                    |
-| Actions:          | Present Club Page                                                                       |
-| Postconditions:   | User can now view information on Club                                                   |
-| Acceptance Tests: | Assure that user is directed to correct club // Assure user has access to all club pages|
+| Actions:          | Present Add Club dialog                                                                 |
+| Postconditions:   | User can now view Club in Club Directory                                                |
+| Acceptance Tests: | User can only add a club with proper input // Assure user sees new club on directory    |
 | Iteration:        | 1                                                                                       |
 
 | Field             | Description                                                                    |
@@ -126,6 +126,7 @@ A single user can be any combination of the following actors:
 * Create New Club
 * Join Club
 * Subscribe To Club
+* View Club Page
 * Edit Club Page (Admin)
 * Post Club Event (Admin)
 * Manager Club Membership (Admin)
