@@ -1,48 +1,56 @@
-<script type="text/javascript">
-	function register() {
-		username = $('#signup-username').val();
-		password = $('#signup-password').val();
-		json_request('/users/add', { user: username, password: password }, username);
-	}
-	
-	function json_request(url, json, username) {
-		$.ajax({
-			type: 'POST',
-			url: url, 
-			data: JSON.stringify(json), 
-			contentType: 'application/json',
-			dataType: 'json',
-			success: function(data) {
-				return handle_messages(data, username);
-			},
-			error: function(error) {
-				alert("An error was encountered");
-			}
-		});
-	}
-</script>
 {% extends "layout/base.html" %}
 
+<script type="text/javascript">
+  function register() {
+    username = $('#signup-username').val();
+    password = $('#signup-password').val();
+    json_request('/users/add', { user: username, password: password }, username);
+  }
+
+  function json_request(url, json, username) {
+    $.ajax({
+      type: 'POST',
+      url: url,
+      data: JSON.stringify(json),
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function(data) {
+        return handle_messages(data, username);
+      },
+      error: function(error) {
+        alert("An error was encountered");
+      }
+    });
+  }
+</script>
+
 {% block main_content %}
-	<div class="section-container">
-		<div id="signup" class="section-div">
-  				<h3 class="signup-title">Register</h3>
-    			<form method="post" action="{% url 'BearClubs.bc.views.user.userSignUp' %}">
-            {% csrf_token %}
-            {{ form }}
-            <input id="register-button" class="button" type="submit" value="Register">
-    			</form>
-		</div>
-		<div id="signin" class="section-div">
-  				<h3 class="signin-title">Sign-In</h3>
-    			<form>
-      				Username or Email: <input id="signin-username" type="text" name="username">
-      				<br>
-    				Password: <input id="signin-password" type="password" name="password">
-  					<br>
-      				<input id="signin-button" class="button" type="submit" value="Sign-In" onclick="sign-in(); return false;">
-    			</form>
-		</div>
-	</div>
+
+  <div class="section-container">
+    <div id="signup" class="section-div content-div">
+      <h3 class="signup-title">Register</h3>
+      <form method="post" action="{% url 'BearClubs.bc.views.user.userSignUp' %}">
+        {% csrf_token %}
+        {% for field in signup_form %}
+          <div class="form_item_wrapper">
+            <p>{{ field.label }}:</p>
+            {{ field.errors }}
+            {{ field }}
+            <br>
+          </div>
+        {% endfor %}
+        <input id="register-button" class="button" type="submit" value="Register">
+      </form>
+  </div>
+  <div id="signin" class="section-div content-div">
+    <h3 class="signin-title">Sign-In</h3>
+    <form>
+      Username or Email: <input id="signin-username" type="text" name="username">
+      <br>
+      Password: <input id="signin-password" type="password" name="password">
+      <br>
+      <input id="signin-button" class="button" type="submit" value="Sign-In" onclick="sign-in(); return false;">
+    </form>
+  </div>
 
 {% endblock %}
