@@ -24,24 +24,14 @@
       </tr>
     </thead>
     <tbody>
+      {% for club in clubs %}
       <tr>
-          <td>CSUA</td>
-          <td>Computer Science</td>
-          <td>Computer Science Undergraduate Association</td>
-          <td>contact@csua.berkeley.edu</td>
+          <td>{{ club.name }}</td>
+          <td>{{ club.organization_type }}e</td>
+          <td>{{ club.description }}</td>
+          <td>{{ club.contact_email }}</td>
       </tr>
-      <tr>
-          <td>H@B</td>
-          <td>Computer Science</td>
-          <td>Hackers@Berkeley</td>
-          <td>contact@hab.berkeley.edu</td>
-      </tr>
-      <tr>
-          <td>DSP</td>
-          <td>Business</td>
-          <td>Delta Sigma Pi</td>
-          <td>contact@dsp.berkeley.edu</td>
-      </tr>
+      {% endfor %}
     </tbody>
   </table>
 {% endblock %}
