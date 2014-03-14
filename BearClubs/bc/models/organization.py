@@ -11,6 +11,38 @@ class Organization(models.Model):
     created_at          = models.DateTimeField(default=timezone.now, editable=False);
     updated_at          = models.DateTimeField(default=timezone.now);
 
+    @staticmethod
+    def getClubsByPage(page, increment=50):
+        assert(page > 0);
+        assert(increment > 0);
+
+        max_page = Organization.getMaxPage(increment);
+
+        if page > max_page:
+            page = max_page;
+
+        # get START_INDEX based on page and increment parameters
+        start_index = (page - 1) * increment;
+
+        # only get INCREMENT items at a time
+        end_index = start_index + increment;
+
+        return Organization.objects.order_by('name')[start_index:end_index];
+
+    @staticmethod
+    def getMaxPage(increment):
+        total_clubs = Organization.objects.count();
+        max_page = (total_clubs // increment);
+
+        # if there's a remainder, add one
+        if total_clubs % increment != 0:
+            max_page += 1;
+
+        if max_page <= 0:
+            max_page = 1;
+
+        return max_page;
+
     class Meta:
         app_label = 'bc';
 

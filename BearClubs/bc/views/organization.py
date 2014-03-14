@@ -24,27 +24,10 @@ def directory(request):
         increment = 250;
 
     # set the max number of pages; (5 // 50) = 0;
-    max_page = (total_clubs // increment);
-
-    # if there's a remainder, add one
-    if total_clubs % increment != 0:
-        max_page += 1;
-
-    if max_page <= 0:
-        max_page = 1;
-
-    # don't go over the max page number
-    if page > max_page:
-        page = max_page;
-
-    # get START_INDEX based on page and increment parameters
-    start_index = (page - 1) * increment;
-
-    # only get INCREMENT items at a time
-    end_index = start_index + increment;
+    max_page = Organization.getMaxPage(increment);
 
     # order the clubs, then slice the list
-    view_args['clubs']      = Organization.objects.order_by('name')[start_index:end_index];
+    view_args['clubs']      = Organization.getClubsByPage(page, increment);
     view_args['max_page']   = max_page;
     view_args['page']       = page;
     view_args['increment']  = increment;
@@ -58,7 +41,7 @@ def addClub(request):
     # if it's a POST, add the club
     if request.POST:
         # get post data
-        form = AddClubForm(request, request.POST);
+        form = AddClubForm(request.user, request.POST);
 
         # check if form is valid
         if form.is_valid():
@@ -75,5 +58,5 @@ def addClub(request):
     # else, show a new addClub form
     else:
         args.update(csrf(request));
-        args['form'] = AddClubForm(request);
+        args['form'] = AddClubForm(request.user);
         return render(request, 'addClub.html', args);
