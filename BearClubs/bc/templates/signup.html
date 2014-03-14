@@ -22,14 +22,17 @@
       <h3 class="signin-title">Sign-In</h3>
       <form method="post" action="{% url 'BearClubs.bc.views.user.userSignIn' %}">
         {% csrf_token %}
-        {{ signin_form.non_field_errors }}
-        {{ signin_form.username.errors }}
-        {{ signin_form.password.errors }}
+        {% if signin_form.non_field_errors %}
+          <div class="form_item_wrapper">
+            {{ signin_form.non_field_errors }}
+          </div>
+        {% endif %}
         {% for field in signin_form %}
           <div class="form_item_wrapper">
             <p>
               {{ field.label }}:
             </p>
+            {{ field.errors }}
             {{ field }}
             <br>
           </div>

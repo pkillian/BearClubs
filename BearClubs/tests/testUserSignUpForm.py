@@ -19,7 +19,6 @@ class UserSignUpFormUnitTests(TestCase):
 		except:
 			pass
 
-
 		form_data = {'username': 'newuser', 'email': 'new@email.com', 'password1':'pw1', 'password2': 'pw1'}
 		form = UserSignUpForm(data=form_data)
 
@@ -130,6 +129,7 @@ class UserSignUpFormUnitTests(TestCase):
 				User.objects.get(username="newuser").delete()
 		except:
 			pass
+			
 		form_data = {'username': 'newuser', 'email': 'emailtest', 'password1':'pw1', 'password2': 'pw1'}
 		form = UserSignUpForm(data=form_data)
 
@@ -147,6 +147,7 @@ class UserSignUpFormUnitTests(TestCase):
 				User.objects.get(username="newuser").delete()
 		except:
 			pass
+
 		form_data = {'username': 'newuser', 'email': 'emailtest@', 'password1':'pw1', 'password2': 'pw1'}
 		form = UserSignUpForm(data=form_data)
 
@@ -164,6 +165,7 @@ class UserSignUpFormUnitTests(TestCase):
 				User.objects.get(username="newuser").delete()
 		except:
 			pass
+
 		form_data = {'username': 'newuser', 'email': 'new2@email.com', 'password1':'pw1', 'password2': 'pw2'}
 		form = UserSignUpForm(data=form_data)
 
