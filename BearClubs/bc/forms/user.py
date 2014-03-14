@@ -28,7 +28,7 @@ class UserSignUpForm(UserCreationForm):
 
     def save(self, commit=True):   
         user            = super(UserSignUpForm, self).save(commit=False);
-        
+
         user.username   = self.cleaned_data['username'];
         user.email      = self.cleaned_data['email'];
         
@@ -37,7 +37,7 @@ class UserSignUpForm(UserCreationForm):
         if commit:
             user.save();
 
-        return user;
+        return authenticate(username=self.cleaned_data['username'], password=self.cleaned_data['password1']);
 
     class Meta:
         model = User;

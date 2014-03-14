@@ -8,7 +8,8 @@ def userSignUp(request):
 		form = UserSignUpForm(request.POST)
 		if form.is_valid():
 			# return successful registration, should login user and redirect to club directory
-			form.save()
+			user = form.save()
+			auth.login(request, user)
 			return render(request, 'index.html')
 		else:
 			# find out which fields were invalid and return error
