@@ -25,7 +25,7 @@ def addClub(request):
         # check if form is valid
         if form.is_valid():
             # add the club
-            form.addClub();
+            form.save();
 
             # go to directory
             return redirect('/clubs');

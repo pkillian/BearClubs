@@ -1,28 +1,15 @@
-import datetime
+from django.utils import timezone
 
 from django.db import models
 
 class Organization(models.Model):
-    name           = models.CharField(max_length=128, unique=True);
-    description    = models.TextField(blank=True);
-    location       = models.CharField(max_length=256, blank=True);
-    contact_email  = models.EmailField(max_length=128, unique=True);
-    org_type       = models.ForeignKey('OrganizationType');
-    created_at     = models.DateTimeField(editable=False);
-    updated_at     = models.DateTimeField();
-
-    def save(self, *args, **kwargs):
-        ''' On save, update timestamps '''
-        datetime_now = datetime.datetime.now();
-
-        # If there's no ID, it's new
-        if not self.id:
-            self.created_at = datetime_now;
-
-        # Always update the modified at value
-        self.modified_at = datetime_now;
-
-        return super(User, self).save(*args, **kwargs);
+    name                = models.CharField(max_length=128, unique=True);
+    description         = models.TextField(blank=True);
+    location            = models.CharField(max_length=256, blank=True);
+    contact_email       = models.EmailField(max_length=128, unique=True);
+    organization_type   = models.ForeignKey('OrganizationType');
+    created_at          = models.DateTimeField(default=timezone.now, editable=False);
+    updated_at          = models.DateTimeField(default=timezone.now);
 
     class Meta:
         app_label = 'bc';
@@ -30,21 +17,11 @@ class Organization(models.Model):
 class OrganizationType(models.Model):
     name           = models.CharField(max_length=128, unique=True);
     description    = models.CharField(max_length=256, unique=True);
-    created_at   = models.DateTimeField(editable=False);
-    updated_at   = models.DateTimeField();
+    created_at     = models.DateTimeField(default=timezone.now, editable=False);
+    updated_at     = models.DateTimeField(default=timezone.now);
 
-    def save(self, *args, **kwargs):
-        ''' On save, update timestamps '''
-        datetime_now = datetime.datetime.now();
-
-        # If there's no ID, it's new
-        if not self.id:
-            self.created_at = datetime_now;
-
-        # Always update the modified at value
-        self.modified_at = datetime_now;
-
-        return super(User, self).save(*args, **kwargs);
+    def __unicode__(self):
+        return self.name;
 
     class Meta:
         app_label = 'bc';
