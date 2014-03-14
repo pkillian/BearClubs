@@ -15,5 +15,6 @@ urlpatterns = patterns('',
     url(r'^index\.html$',   'BearClubs.bc.views.index.index',   name='index'),
 
     url(r'^register$',      'BearClubs.bc.views.user.userSignUp', name='register'),
-    url(r'^login$',         'BearClubs.bc.views.user.userSignIn', name='register'),
+    url(r'^login$',         'BearClubs.bc.views.user.userSignIn', name='login'),
+    url(r'^logout$',        'BearClubs.bc.views.user.userLogOut', name='logout'),
 )

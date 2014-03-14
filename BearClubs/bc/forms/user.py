@@ -29,8 +29,6 @@ class UserSignUpForm(UserCreationForm):
     def save(self, commit=True):   
         user            = super(UserSignUpForm, self).save(commit=False);
 
-        print self.cleaned_data;
-
         user.username   = self.cleaned_data['username'];
         user.email      = self.cleaned_data['email'];
         user.password   = self.cleaned_data['password1'];
