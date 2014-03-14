@@ -6,17 +6,56 @@ from BearClubs.bc.forms.organization import AddClubForm
 from BearClubs.bc.models.organization import Organization
 
 def directory(request):
-    first_50_clubs = [];
+    total_clubs = Organization.objects.count();
+    view_args = {};
 
-    first_50_clubs = Organization.objects.all()[:50];
-    # get 50 clubs here
+    # get paging information from URL params
+    page      = int(request.GET.get('page', '1'));
+    increment = int(request.GET.get('inc', '50'));
 
-    return render(request, 'directory.html', {'clubs': first_50_clubs});
+    # prevent negatives
+    if page <= 0:
+        page = 1;
+
+    # Bound increment values
+    if increment <= 0:
+        increment = 50;
+    elif increment > 250:
+        increment = 250;
+
+    # set the max number of pages; (5 // 50) = 0;
+    max_page = (total_clubs // increment);
+
+    # if there's a remainder, add one
+    if total_clubs % increment != 0:
+        max_page += 1;
+
+    if max_page <= 0:
+        max_page = 1;
+
+    # don't go over the max page number
+    if page > max_page:
+        page = max_page;
+
+    # get START_INDEX based on page and increment parameters
+    start_index = (page - 1) * increment;
+
+    # only get INCREMENT items at a time
+    end_index = start_index + increment;
+
+    # order the clubs, then slice the list
+    view_args['clubs']      = Organization.objects.order_by('name')[start_index:end_index];
+    view_args['max_page']   = max_page;
+    view_args['page']       = page;
+    view_args['increment']  = increment;
+
+    return render(request, 'directory.html', view_args);
 
 @login_required(login_url='/login')
 def addClub(request):
     args = {};
 
+    # if it's a POST, add the club
     if request.POST:
         # get post data
         form = AddClubForm(request, request.POST);
@@ -33,6 +72,7 @@ def addClub(request):
         else:
             return render(request, 'addClub.html', {'form': form});
 
+    # else, show a new addClub form
     else:
         args.update(csrf(request));
         args['form'] = AddClubForm(request);
