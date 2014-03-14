@@ -6,4 +6,4 @@ BearClubs/src/tmp/
 htmlcov/
 venv/
 *.pyc
-
+db.*

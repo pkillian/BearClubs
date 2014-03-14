@@ -1,29 +1,5 @@
 {% extends "layout/base.html" %}
 
-<script type="text/javascript">
-  function register() {
-    username = $('#signup-username').val();
-    password = $('#signup-password').val();
-    json_request('/users/add', { user: username, password: password }, username);
-  }
-
-  function json_request(url, json, username) {
-    $.ajax({
-      type: 'POST',
-      url: url,
-      data: JSON.stringify(json),
-      contentType: 'application/json',
-      dataType: 'json',
-      success: function(data) {
-        return handle_messages(data, username);
-      },
-      error: function(error) {
-        alert("An error was encountered");
-      }
-    });
-  }
-</script>
-
 {% block main_content %}
 
   <div class="section-container">
@@ -44,12 +20,21 @@
     </div>
     <div id="signin" class="section-div content-div">
       <h3 class="signin-title">Sign-In</h3>
-      <form>
-        Username or Email: <input id="signin-username" type="text" name="username">
-        <br>
-        Password: <input id="signin-password" type="password" name="password">
-        <br>
-        <input id="signin-button" class="button" type="submit" value="Sign-In" onclick="sign-in(); return false;">
+      <form method="post" action="{% url 'BearClubs.bc.views.user.userSignIn' %}">
+        {% csrf_token %}
+        {{ signin_form.non_field_errors }}
+        {{ signin_form.username.errors }}
+        {{ signin_form.password.errors }}
+        {% for field in signin_form %}
+          <div class="form_item_wrapper">
+            <p>
+              {{ field.label }}:
+            </p>
+            {{ field }}
+            <br>
+          </div>
+        {% endfor %}
+        <input id="login-button" class="button" type="submit" value="Log In">
       </form>
     </div>
   </div>
