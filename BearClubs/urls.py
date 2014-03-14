@@ -19,5 +19,5 @@ urlpatterns = patterns('',
     url(r'^logout$',        'BearClubs.bc.views.user.userLogOut', name='logout'),
 
     url(r'^clubs$',         'BearClubs.bc.views.organization.directory', name='directory'),
-
+    url(r'^clubs/new$',     'BearClubs.bc.views.organization.addClub',   name='addClub'),
 )

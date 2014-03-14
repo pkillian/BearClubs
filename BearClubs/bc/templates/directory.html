@@ -1,0 +1,47 @@
+{% extends "layout/base.html" %}
+
+{% block main_content %}
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td {
+      padding: 0.5em;
+      font-weight: bold;
+    }
+  </style>
+
+  <h2>Club Directory</h2>
+  <table id="club-directory" class="full tablesorter">
+    <thead>
+      <tr>
+        <th><span>Name</span></th>
+        <th><span>Type</span></th>
+        <th><span>Description</span></th>
+        <th><span>Contact</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>CSUA</td>
+          <td>Computer Science</td>
+          <td>Computer Science Undergraduate Association</td>
+          <td>contact@csua.berkeley.edu</td>
+      </tr>
+      <tr>
+          <td>H@B</td>
+          <td>Computer Science</td>
+          <td>Hackers@Berkeley</td>
+          <td>contact@hab.berkeley.edu</td>
+      </tr>
+      <tr>
+          <td>DSP</td>
+          <td>Business</td>
+          <td>Delta Sigma Pi</td>
+          <td>contact@dsp.berkeley.edu</td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}

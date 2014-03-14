@@ -1,0 +1,23 @@
+{% extends "layout/base.html" %}
+
+{% block main_content %}
+
+  <div class="section-container">
+    <div id="signup" class="section-div content-div">
+      <h3 class="signup-title">Add a New Organization</h3>
+      <form method="post" action="{% url 'BearClubs.bc.views.organization.addClub' %}">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form_item_wrapper">
+            <p>{{ field.label }}:</p>
+            {{ field.errors }}
+            {{ field }}
+            <br>
+          </div>
+        {% endfor %}
+        <input id="register-button" class="button" type="submit" value="Register">
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
