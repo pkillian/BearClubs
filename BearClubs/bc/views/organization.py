@@ -11,4 +11,4 @@ def directory(request):
     first_50_clubs = Organization.objects.all()[:50];
     # get 50 clubs here
 
-    return render(request, 'directory.html' {'clubs': first_50_clubs});
+    return render(request, 'directory.html', {'clubs': first_50_clubs});
