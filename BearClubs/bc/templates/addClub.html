@@ -3,8 +3,8 @@
 {% block main_content %}
 
   <div class="section-container">
-    <div id="signup" class="section-div content-div">
-      <h3 class="signup-title">Add a New Organization</h3>
+    <div id="add-club" class="section-div">
+      <h3 class="add-club-title">Add a New Organization</h3>
       <form method="post" action="{% url 'BearClubs.bc.views.organization.addClub' %}">
         {% csrf_token %}
         {% for field in form %}
@@ -15,7 +15,7 @@
             <br>
           </div>
         {% endfor %}
-        <input id="register-button" class="button" type="submit" value="Register">
+        <input id="add-button" class="button" type="submit" value="Submit">
       </form>
     </div>
   </div>

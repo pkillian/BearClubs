@@ -3,7 +3,7 @@
 {% block main_content %}
 
   <div class="section-container">
-    <div id="signup" class="section-div content-div">
+    <div id="signup" class="section-div">
       <h3 class="signup-title">Register</h3>
       <form method="post" action="{% url 'BearClubs.bc.views.user.userSignUp' %}">
         {% csrf_token %}
@@ -18,7 +18,7 @@
         <input id="register-button" class="button" type="submit" value="Register">
       </form>
     </div>
-    <div id="signin" class="section-div content-div">
+    <div id="signin" class="section-div">
       <h3 class="signin-title">Sign-In</h3>
       <form method="post" action="{% url 'BearClubs.bc.views.user.userSignIn' %}">
         {% csrf_token %}
