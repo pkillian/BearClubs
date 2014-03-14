@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
 
