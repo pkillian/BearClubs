@@ -106,7 +106,7 @@ module.exports = function (grunt) {
             expand: true,
             flatten: true,
             src: ['../src/components/font-awesome/fonts/*'],
-            dest: '../bc/static/font/',
+            dest: '../bc/static/fonts/',
             filter: 'isFile'
           }
         ]
