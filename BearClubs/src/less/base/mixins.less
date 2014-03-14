@@ -71,6 +71,14 @@
   box-shadow:             @h-shad @v-shad @blur @spread @shad-color;
 }
 
+.box-sizing(@border-box: border-box) {
+  -moz-box-sizing:        @border-box;
+  -ms-box-sizing:         @border-box;
+  -o-box-sizing:          @border-box;
+  -webkit-box-sizing:     @border-box;
+  box-sizing:             @border-box;
+}
+
 .crisp-image-render() {
   image-rendering:      -moz-crisp-edges;          /* Firefox             */
   image-rendering:      -ms-crisp-edges;           /* Firefox             */
