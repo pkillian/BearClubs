@@ -5,6 +5,7 @@
 
         margin: 20px auto;
         display: inline-block;
+        text-align: center;
 
         .no-background();
     }
@@ -13,17 +14,17 @@
         height: auto;
         width:  250px;
 
-        padding-left:  20px;
+        padding-left: 20px;
         padding-right: 20px;
 
+        vertical-align: middle;
         text-align: left;
-        font-size:  15px;
+        font-size: 15px;
 
-        float: left;
+        display: inline-block;
     }
 
     .section-div:first-child {
-        margin-left:  190px;
         margin-right: 20px
     }
 
@@ -48,16 +49,20 @@
     }
 
     input {
-        width: 90%;
-        float: left;
+        width: 100%;
+        height: 30px;
 
-        margin-top: 3px;
-        margin-bottom: 10px;
-        padding: 10px;
+        margin-top: 2px;
+        margin-bottom: 8px;
+        padding: 5px;
 
-        border: 1px solid @style-gold;
+        .border-line(@line-color: @style-gold, @line-style: solid, @line-width: 1px);
 
         .border-radius(@radius: 6px);
+
+        .box-sizing(@border-box: border-box);
+
+        float: left;
     }
 
     input.button {
@@ -66,6 +71,7 @@
 
         float:      right;
         margin-top: 10px;
+        margin-bottom: 20px;
         padding:    0;
 
         vertical-align: middle;
@@ -73,10 +79,14 @@
 
         //border: 1px solid @style-gold;
         background-color:   @style-gold;
-        color:              @style-white;
+        color:              @style-pure-white;
     }
 
     label {
         float: left;
+    }
+
+    h3 {
+        text-align: left;
     }
 }
