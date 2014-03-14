@@ -10,7 +10,7 @@ def userSignUp(request):
 			# return successful registration, should login user and redirect to club directory
 			user = form.save()
 			auth.login(request, user)
-			return render(request, 'index.html')
+			return redirect("/clubs")
 		else:
 			# find out which fields were invalid and return error
 			return userFormsRender(request, signUpForm=form)
@@ -18,7 +18,7 @@ def userSignUp(request):
 	else:
 		if (request.user.is_authenticated()):
 			# if user is already authenticated then redirect to club directory
-			return render(request, 'index.html')
+			return redirect("/clubs")
 		else:
 			return userFormsRender(request)
 
@@ -30,14 +30,14 @@ def userSignIn(request):
 			form.loginUser(request);
 
 			# On successful authentication, redirect to club directory
-			return render(request, 'index.html');
+			return redirect("/clubs");
 		else:
 			# On unsuccessful authentication, return error
 			return userFormsRender(request, signInForm=form);
 	else:
 		if (request.user.is_authenticated()):
 			# if user is already authenticated then redirect to club directory
-			return render(request, 'index.html')
+			return redirect("/clubs")
 		else:
 			return userFormsRender(request);
 
