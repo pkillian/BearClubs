@@ -4,6 +4,7 @@ BearClubs/src/components/
 BearClubs/src/tmp/
 .coverage
 htmlcov/
+!htmlcov/BearClubs*
 venv/
 *.pyc
 db.*
