@@ -38,6 +38,8 @@ A single user can be any combination of the following actors:
 
 ### User Stories:
 
+#### Iteration 1 User Stories:
+
 | Field             | Description                                                                           |
 | ----------------- |:--------------------------------------------------------------------------------------|
 | Name/Requirement: | Initial Launch                                                                        |
@@ -115,6 +117,29 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | Assure that "Tutorial" only occurs on user's first login                       |
 | Iteration:        | TBD                                                                            |
 
+#### Iteration 2 User Stories:
+
+ Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | View Club Page                                                                        |
+| Actors:           | General User                                                                   |
+| Triggers:         | Click on Club in Directory View                                                  |
+| Precondition:     | User is looking at club directory                                           |
+| Actions:          | User views specific club page with prepopulated information                                  |
+| Postconditions:   | User now learns more about specific club and can navigate back to directory|
+| Acceptance Tests: | Assure that club page is populated with info added when "Adding a Club"                      |
+| Iteration:        | 2        
+
+ Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Add Club Event                                                   |
+| Actors:           | Creator of Club                                                                   |
+| Triggers:         | None                                                 |
+| Precondition:     | User clicks on add event buton                                      |
+| Actions:          | Present add event dialog                                |
+| Postconditions:   | User can now see events under events tab |
+| Acceptance Tests: | User can only add a event with proper input // Assure user sees new event under events tab              |
+| Iteration:        | 2        
 
 ### User Stories For Future Iterations:
 
