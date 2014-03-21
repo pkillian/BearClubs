@@ -106,51 +106,62 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | User can only add a club with proper input // Assure user sees new club on directory    |
 | Iteration:        | 1                                                                                       |
 
-| Field             | Description                                                                    |
-| ----------------- |:-------------------------------------------------------------------------------|
-| Name/Requirement: | Tutorial                                                                       |
-| Actors:           | General User                                                                   |
-| Triggers:         | Sign In // Complete Sign Up                                                    |
-| Precondition:     | User is Signed In for the first time                                           |
-| Actions:          | Present Tutorial (Image Overlay(?), Video(?))                                  |
-| Postconditions:   | Tutorial is dismissed // Revert back to normal logged-in general user behavior |
-| Acceptance Tests: | Assure that "Tutorial" only occurs on user's first login                       |
-| Iteration:        | TBD                                                                            |
-
 #### Iteration 2 User Stories:
 
- Field             | Description                                                                    |
+| Field             | Description                                                                    |
 | ----------------- |:-------------------------------------------------------------------------------|
-| Name/Requirement: | View Club Page                                                                        |
+| Name/Requirement: | View Club Page                                                                 |
 | Actors:           | General User                                                                   |
-| Triggers:         | Click on Club in Directory View                                                  |
-| Precondition:     | User is looking at club directory                                           |
-| Actions:          | User views specific club page with prepopulated information                                  |
-| Postconditions:   | User now learns more about specific club and can navigate back to directory|
-| Acceptance Tests: | Assure that club page is populated with info added when "Adding a Club"                      |
-| Iteration:        | 2        
+| Triggers:         | Click on Club in Directory View                                                |
+| Precondition:     | User is looking at club directory                                              |
+| Actions:          | User views specific club page with prepopulated information                    |
+| Postconditions:   | User now learns more about specific club and can navigate back to directory    |
+| Acceptance Tests: | Assure that club page is populated with info added when "Adding a Club"        |
+| Iteration:        | 2                                                                              |
 
- Field             | Description                                                                    |
-| ----------------- |:-------------------------------------------------------------------------------|
-| Name/Requirement: | Add Club Event                                                   |
-| Actors:           | Creator of Club                                                                   |
-| Triggers:         | None                                                 |
-| Precondition:     | User clicks on add event buton                                      |
-| Actions:          | Present add event dialog                                |
-| Postconditions:   | User can now see events under events tab |
-| Acceptance Tests: | User can only add a event with proper input // Assure user sees new event under events tab              |
-| Iteration:        | 2   
+| Field             | Description                                                                                   |
+| ----------------- |:----------------------------------------------------------------------------------------------|
+| Name/Requirement: | View User Dashboard                                                                           |
+| Actors:           | Logged In User                                                                                |
+| Triggers:         | Navigating "home" or various actions that affect user's interactions with clubs, events, etc. |
+| Precondition:     | User is signed in and navigates to their subscribed feed of updates                           |
+| Actions:          | Redirect user to dashboard and display user subscribed information (updates, calendar, etc.)  |
+| Postconditions:   | User can interact directly with subscribed entities (read more about them, view events, etc.) |
+| Acceptance Tests: | User dashboard is rendered properly no matter what is subscribed to // User can interact with subscriptions (view events, view clubs, etc.) // Subscriptions can redirect to other entities like club pages       |
+| Iteration:        | 2                                                                                             |
 
- Field             | Description                                                                    |
+| Field             | Description                                                                    |
 | ----------------- |:-------------------------------------------------------------------------------|
-| Name/Requirement: | Search                                                   |
+| Name/Requirement: | View User Profile                                                              |
+| Actors:           | Logged In User                                                                 |
+| Triggers:         | Click on username from any view                                                |
+| Precondition:     | User is signed in and navigates to a certain user's information                |
+| Actions:          | Redirect user to profile and display user generated information                |
+| Postconditions:   | User can interact directly with other user (invite, email, etc.)               |
+| Acceptance Tests: | User profile is rendered properly no matter what informaton provided // User is redirected seamlessly to profile from intial view                                                               |
+| Iteration:        | 2                                                                              |
+
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Add Club Event                                                                 |
+| Actors:           | Creator of Club                                                                |
+| Triggers:         | None                                                                           |
+| Precondition:     | User clicks on add event buton                                                 |
+| Actions:          | Present add event dialog                                                       |
+| Postconditions:   | User can now see events under events tab                                       |
+| Acceptance Tests: | User can only add a event with proper input // Assure user sees new event under events tab |
+| Iteration:        | 2                                                                              | 
+
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Search                                                                         |
 | Actors:           | General User                                                                   |
-| Triggers:         | Type in search bar                                                 |
-| Precondition:     | User clicks on search bar                                      |
-| Actions:          | Present drop down menu with search results                               |
-| Postconditions:   | User can see results for a search query |
-| Acceptance Tests: | User will see results related to search query // Assure user can't see search results they don't have pemissions for              |
-| Iteration:        | 2 
+| Triggers:         | Type in search bar                                                             |
+| Precondition:     | User clicks on search bar                                                      |
+| Actions:          | Present drop down menu with search results                                     |
+| Postconditions:   | User can see results for a search query                                        |
+| Acceptance Tests: | User will see results related to search query // Assure user can't see search results they don't have pemissions for  |
+| Iteration:        | 2                                                                              |
 
 | Field             | Description                                                                    |
 | ----------------- |:-------------------------------------------------------------------------------|
@@ -161,12 +172,12 @@ A single user can be any combination of the following actors:
 | Actions:          | Present form for user to fill out (?)                                          |
 | Postconditions:   | User can see the club listed in their profile // User is now a member of the club and has certain member privileges/permissions                                 |
 | Acceptance Tests: | User can only join if the form is filled out correctly and is approved         |
-| Iteration:        | 2 
+| Iteration:        | 2                                                                              |
 
 ### User Stories For Future Iterations:
 
+* First time user tutorial
 * Sign In With CalNet
-* View Your Profile/Dashboard
 * View your Calendar
 * Edit Profile/Dashboard
 * Search For Clubs
