@@ -179,6 +179,18 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | User can only join if the form is filled out correctly and is approved         |
 | Iteration:        | 2                                                                              |
 
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Promote Member to Admin                                                                     |
+| Actors:           | Existing organization admin (default organization creator)                                                                  |
+| Triggers:         | Button on club profile page                                         |
+| Precondition:     | User is signed in and is an admin of the organization                         |
+| Actions:          | Select members to promote; confirm button                                          |
+| Postconditions:   | Member promoted is now admin                             |
+| Acceptance Tests: | Members promoted has full admin priviledges (create events for now)       |
+| Iteration:        | 2                                                                              |
+
+
 ### User Stories For Future Iterations:
 
 * First time user tutorial
