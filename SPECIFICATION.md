@@ -6,6 +6,11 @@ Requirements and Specification Document
 
 A tool for connecting students and organizations at UC Berkeley.
 
+## Changelog *v2.0*
+* Bump date and revision
+* Add user stories for iteration 2
+* Add more future user stories
+
 ## Project Abstract
 
 BearClubs strives to be the one-stop shop for all things related to on-campus clubs, organizations, and societies. As a student looking to get involved in Berkeley's many prestigious organizations, one notices very quickly that there's a severe problem with how things are currently done. Clubs and organizations rely on email lists, spamming the chalkboards in massive lecture halls, flyers on Sproul Plaza, and a variety of other methods to distribute information and notify members of events. Those of us affiliated with BearClubs think this is unreasonable and can be done in a much more efficient manner.
