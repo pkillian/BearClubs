@@ -139,7 +139,18 @@ A single user can be any combination of the following actors:
 | Actions:          | Present add event dialog                                |
 | Postconditions:   | User can now see events under events tab |
 | Acceptance Tests: | User can only add a event with proper input // Assure user sees new event under events tab              |
-| Iteration:        | 2        
+| Iteration:        | 2   
+
+ Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Search                                                   |
+| Actors:           | General User                                                                   |
+| Triggers:         | Type in search bar                                                 |
+| Precondition:     | User clicks on search bar                                      |
+| Actions:          | Present drop down menu with search results                               |
+| Postconditions:   | User can see results for a search query |
+| Acceptance Tests: | User will see results related to search query // Assure user can't see search results they don't have pemissions for              |
+| Iteration:        | 2 
 
 ### User Stories For Future Iterations:
 
