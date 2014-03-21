@@ -6,6 +6,13 @@ Design and Planning Document
 
 A tool for connecting students and organizations at UC Berkeley.
 
+## Changelog *v2.0*
+* Bump date and revision
+* Removed iteration 1 user stories from implementation plan; left summary for browsing purposes
+* Add iteration 2 user stories and tasks to implementation plan
+* Assign new teams for iteration 2
+* Fixed various typos
+
 ## System Architecture
 
 ### Client-Server Overview
