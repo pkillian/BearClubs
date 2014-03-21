@@ -264,7 +264,7 @@ The four user stories involving clubs (View Club Page, Join Club, Add Club Event
 
 ##### Club Team - Tiffany, Shubham
 
-* Number of Days to Develop: 7
+* Number of Days to Develop: 8
 * Number of Days to Test: 2
 
 ###### Sub-tasks
@@ -273,10 +273,11 @@ The four user stories involving clubs (View Club Page, Join Club, Add Club Event
 * 2) Create front-end for viewing club profiles; coherant layout and display of information (2 Days)
 * 3) Create front-end functionality for joining a club (1 Day)
 * 4) Implement back-end interactions for interacting with club models (joining, etc.) (3 Days)
+* 5) Build out routes to handle viewing existing members and promoting them to admins (1 Day)
 
 ##### User Team - Patrick
 
-* Number of Days to Develop: 7
+* Number of Days to Develop: 8
 * Number of Days to Test: 2
 
 ###### Sub-tasks
@@ -285,6 +286,7 @@ The four user stories involving clubs (View Club Page, Join Club, Add Club Event
 * 2) Create front-end for viewing subscribed entities (club updates, events, etc.) (2 Days)
 * 3) Create back-end for pub/sub model of following subscribed entities (3 Days)
 * 4) Implement in-links on other views that allow for access to the dashboard and profile pages (1 Day)
+* 5) Create back-end for user-admin-club relationship table (1 Day)
 
 ##### Event Team - Alex, Kevin
 
