@@ -240,6 +240,19 @@ In order to accomplish these 6 stores in an efficient manner, we want to break i
 
 In terms of dependencies, we believe that we've already mitigated most of the possible dependencies. Our group has created mockups for each model, and we have hashed out and finalized how the backend will work. After doing this, we believe that implementing our first iteration through our proposed implementation plan will be straightforward since there will be minimal conflict. We do acknowledge that a potential risk would be that the front-end views will conflict across the 3 teams. To mitigate this, we believe that unifying the front-ends at the end of implementaiton will be easiest. Coupling this with a common naming convention across the team will help unify our front-ends to be one theme.
 
+### Iteration 2
+
+For Iteration 2, we want to implement some further core features as well as enhance the BearClubs experience. There are 7 user stories we want to implement specifically: 
+* View Club Page: Individualized pages for each organization
+* Join Club: Ability for general users to associate themselves with an organization
+* View User Dashboard: Elegant and efficient UI for general user
+* View User Profile: Elegant and efficient UI representing a specific user on BearClubs
+* Add Club Event: Ability to associate an event with an organization
+* Edit Club Event: Ability to edit an already created event
+* Search: Ability to associate a search query with a user, organization, or event
+
+The four user stories involving clubs (View Club Page, Join Club, Add Club Event, Edit Club Event) all have dependencies on each other because we want to keep an unified front-end and make sure that they are implemented under the assumptions of a standard organization and event model. The two user stories involving users (View User Dashboard, View User Profile) also have dependencies on each other because want to keep an unified front-end. Search will have dependencies on the finalized models. If a team feels as if a model must change for implemenation sake, the search team must be notified.
+
 ##### Entire BearClubs Team Tasks (These will happen before the start of tasks by any team)
 
 * 1) Create models for each class: User, Club, user\_to\_clubs, club\_to\_events (1 Day)
