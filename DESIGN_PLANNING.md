@@ -242,79 +242,6 @@ In terms of dependencies, we believe that we've already mitigated most of the po
 
 ### Iteration 2
 
-For Iteration 2, we want to implement some further core features as well as enhance the BearClubs experience. There are 7 user stories we want to implement specifically: 
-* View Club Page: Individualized pages for each organization
-* Join Club: Ability for general users to associate themselves with an organization
-* View User Dashboard: Elegant and efficient UI for general user
-* View User Profile: Elegant and efficient UI representing a specific user on BearClubs
-* Add Club Event: Ability to associate an event with an organization
-* Edit Club Event: Ability to edit an already created event
-* Search: Ability to associate a search query with a user, organization, or event
-
-The four user stories involving clubs (View Club Page, Join Club, Add Club Event, Edit Club Event) all have dependencies on each other because we want to keep an unified front-end and make sure that they are implemented under the assumptions of a standard organization and event model. The two user stories involving users (View User Dashboard, View User Profile) also have dependencies on each other because want to keep an unified front-end. Search will have dependencies on the finalized models. If a team feels as if a model must change for implemenation sake, the search team must be notified.
-
-##### Entire BearClubs Team Tasks (These will happen before the start of tasks by any team)
-
-* 1) Create models for each class: User, Club, user\_to\_clubs, club\_to\_events (1 Day)
-* 2) Create naming convention for front-end design (1 Day)
-* 3) Initialize testing workflows (GruntJS and Travis CI) (1 Day)
-
-##### Sign Up Team - Tiffany, Alex
-
-* Number of Days to Develop: 3
-* Number of Days to Test: 2 
-
-###### Sub-tasks
-
-* 1) Build out routes to handle sign up (2 Days)
-* 2) Create front-end form for the sign up process (2 Days)
-* 3) Test sign up process (1 Day)
-
-###### Dependencies/Risk Mitigation
-
-Task 2 has a dependency on the sign in team because we want to make sure that the front-end for the sign in and the sign up process adhere to a common theme. We are mitigating this dependency by having the the sign up team build out the front-end for the sign up process first before the sign in team creates the front-end for the sign in process.
-
-
-##### Sign In Team - Peter, Kevin
-
-* Number of Days to Develop: 7
-* Number of Days to Test: 2
-
-###### Sub-tasks
-
-* 1) Create list of privileges that signed in user will have (1 Day)
-* 2) Build out basic home screen for a signed in user to see (3 Days)
-* 3) Build out routes to handle sign in process (1 Day)
-* 4) Create front-end form for the sign in process (1 Day)
-* 5) Test sign up process (1 Day)
-* 6) Add checks for home screen that a user is authenticated // Configure Django session engine (2 Days)
-
-###### Dependencies/Risk Mitigation
-
-Task 1, 2 is dependent on the Club Team because we want to make sure that the front end for a user home screen and the front end for the directory of clubs and individual club pages adhere to the same theme. We will mitigate this week by having the sign in team and the club team agreeing to a theme for the front-end before getting started on their tasks.
-
-Tasks 4, 5, and 6 are dependent on the sign up team finishing their tasks. Since that will be how we can create a user to test the sign in process. We have prioritized them last in the list so that we can wait on this dependency to clear by having this team work on something else. When that team is done, the Sign Up Team will come help the Sign In Team finish up the sign in process.
-
-
-##### Club Team - Patrick, Shubham
-
-* Number of Days to Develop: 5
-* Number of Days to Test: 2
-
-###### Sub-tasks
-
-* 1) Build out routes to handle adding a club (2 Days)
-* 2) Create front-end form for user to add club (2 Days)
-* 3) Build out route to handle retrieving a directory of clubs (1 Day)
-* 4) Create front-end view that will act as a directory for the club (3 Days)
-
-###### Dependencies/Risk Mitigation
-
-Tasks 2, 4 are dependent on the sign in team for adherance to a common front-end theme. There are no other dependencies.
-
-
-### Iteration 2
-
 For Iteration 2, we want to implement basic functionality concerning User Profile pages, User Dashboard, Club and Event Profiles as well as interacting with these entities and searching.
 * View Club Page
 * Join Club
@@ -324,9 +251,11 @@ For Iteration 2, we want to implement basic functionality concerning User Profil
 * Edit Club Event
 * Search
 
+The four user stories involving clubs (View Club Page, Join Club, Add Club Event, Edit Club Event) all have dependencies on each other because we want to keep an unified front-end and make sure that they are implemented under the assumptions of a standard organization and event model. The two user stories involving users (View User Dashboard, View User Profile) also have dependencies on each other because want to keep an unified front-end. Search will have dependencies on the finalized models. If a team feels as if a model must change for implemenation sake, the search team must be notified.
+
 ##### Entire BearClubs Team Tasks (These will happen before the start of tasks by any team)
 
-##### Club Team - Tiffany, [name]
+##### Club Team - Tiffany, Shubham
 
 * Number of Days to Develop: 7
 * Number of Days to Test: 2
@@ -338,11 +267,7 @@ For Iteration 2, we want to implement basic functionality concerning User Profil
 * 3) Create front-end functionality for joining a club (1 Day)
 * 4) Implement back-end interactions for interacting with club models (joining, etc.) (3 Days)
 
-###### Dependencies/Risk Mitigation
-
-None
-
-##### User Team - Patrick, Shubham
+##### User Team - Patrick
 
 * Number of Days to Develop: 7
 * Number of Days to Test: 2
@@ -353,10 +278,6 @@ None
 * 2) Create front-end for viewing subscribed entities (club updates, events, etc.) (2 Days)
 * 3) Create back-end for pub/sub model of following subscribed entities (3 Days)
 * 4) Implement in-links on other views that allow for access to the dashboard and profile pages (1 Day)
-
-###### Dependencies/Risk Mitigation
-
-None
 
 ##### Event Team - Alex, Kevin
 
@@ -370,10 +291,6 @@ None
 * 3) Create front-end functionality for joining a club (1 Day)
 * 4) Implement back-end processes for interacting with club models (joining, etc.) (3 Days)
 
-###### Dependencies/Risk Mitigation
-
-None
-
 ##### Search Team - Peter
 
 * Number of Days to Develop: 5
@@ -383,10 +300,6 @@ None
 
 * 1) Create search front-end (nav-bar, results page, etc.) (2 Days)
 * 2) Implement search back-end with caching technologies (SOLR, Redis, etc.) (3 Days)
-
-###### Dependencies/Risk Mitigation
-
-None
 
 
 ## Testing Plan
