@@ -1,6 +1,6 @@
 BearClubs  
 Requirements and Specification Document  
-*03/05/2014, version 2.0*  
+*03/21/2014, version 2.0*  
 
 # BearClubs
 
