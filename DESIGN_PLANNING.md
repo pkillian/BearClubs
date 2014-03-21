@@ -299,9 +299,82 @@ Tasks 4, 5, and 6 are dependent on the sign up team finishing their tasks. Since
 
 Tasks 2, 4 are dependent on the sign in team for adherance to a common front-end theme. There are no other dependencies.
 
+
 ### Iteration 2
 
-To Be Added
+For Iteration 2, we want to implement basic functionality concerning User Profile pages, User Dashboard, Club and Event Profiles as well as interacting with these entities and searching.
+* View Club Page
+* Join Club
+* View User Dashboard
+* View User Profile
+* Add Club Event
+* Edit Club Event
+* Search
+
+##### Entire BearClubs Team Tasks (These will happen before the start of tasks by any team)
+
+##### Club Team - [name], [name]
+
+* Number of Days to Develop: 7
+* Number of Days to Test: 2
+
+###### Sub-tasks
+
+* 1) Build out routes to handle viewing and joining a club (1 Day)
+* 2) Create front-end for viewing club profiles; coherant layout and display of information (2 Days)
+* 3) Create front-end functionality for joining a club (1 Day)
+* 4) Implement back-end interactions for interacting with club models (joining, etc.) (3 Days)
+
+###### Dependencies/Risk Mitigation
+
+None
+
+##### User Team - Patrick
+
+* Number of Days to Develop: 7
+* Number of Days to Test: 2
+
+###### Sub-tasks
+
+* 1) Build out routes to handle user dashboard and profile endpoints (1 Day)
+* 2) Create front-end for viewing subscribed entities (club updates, events, etc.) (2 Days)
+* 3) Create back-end for pub/sub model of following subscribed entities (3 Days)
+* 4) Implement in-links on other views that allow for access to the dashboard and profile pages (1 Day)
+
+###### Dependencies/Risk Mitigation
+
+None
+
+##### Event Team - [name], [name]
+
+* Number of Days to Develop: 7
+* Number of Days to Test: 2
+
+###### Sub-tasks
+
+* 1) Build out routes to handle adding and editing an event (1 Day)
+* 2) Create front-end for viewing club profiles; coherant layout and display of information (2 Days)
+* 3) Create front-end functionality for joining a club (1 Day)
+* 4) Implement back-end processes for interacting with club models (joining, etc.) (3 Days)
+
+###### Dependencies/Risk Mitigation
+
+None
+
+##### Search Team - Peter
+
+* Number of Days to Develop: 5
+* Number of Days to Test: 2
+
+##### Sub-tasks
+
+* 1) Create search front-end (nav-bar, results page, etc.) (2 Days)
+* 2) Implement search back-end with caching technologies (SOLR, Redis, etc.) (3 Days)
+
+###### Dependencies/Risk Mitigation
+
+None
+
 
 ## Testing Plan
 
