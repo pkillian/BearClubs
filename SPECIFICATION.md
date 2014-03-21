@@ -187,6 +187,7 @@ A single user can be any combination of the following actors:
 * View Club Page
 * Edit Club Page (Admin)
 * Post Club Event (Admin)
+* Edit Club Event (Admin)
 * Manager Club Membership (Admin)
 
 ## User Interface Requirements
