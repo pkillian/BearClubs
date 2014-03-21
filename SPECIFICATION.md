@@ -152,6 +152,17 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | User will see results related to search query // Assure user can't see search results they don't have pemissions for              |
 | Iteration:        | 2 
 
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Join Club                                                                      |
+| Actors:           | General User                                                                   |
+| Triggers:         | Click on Join Club button on Club Page                                         |
+| Precondition:     | User is signed in and not already a member of the club                         |
+| Actions:          | Present form for user to fill out (?)                                          |
+| Postconditions:   | User can see the club listed in their profile // User is now a member of the club and has certain member privileges/permissions                                 |
+| Acceptance Tests: | User can only join if the form is filled out correctly and is approved         |
+| Iteration:        | 2 
+
 ### User Stories For Future Iterations:
 
 * Sign In With CalNet
