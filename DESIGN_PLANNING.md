@@ -313,7 +313,7 @@ For Iteration 2, we want to implement basic functionality concerning User Profil
 
 ##### Entire BearClubs Team Tasks (These will happen before the start of tasks by any team)
 
-##### Club Team - [name], [name]
+##### Club Team - Tiffany, [name]
 
 * Number of Days to Develop: 7
 * Number of Days to Test: 2
