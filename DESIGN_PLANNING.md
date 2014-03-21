@@ -1,6 +1,6 @@
 BearClubs  
 Design and Planning Document  
-*03/05/2014, version 1.1*  
+*03/21/2014, version 2.0*  
 
 # BearClubs
 
