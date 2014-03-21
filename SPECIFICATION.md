@@ -196,15 +196,8 @@ A single user can be any combination of the following actors:
 * First time user tutorial
 * Sign In With CalNet
 * View your Calendar
-* Edit Profile/Dashboard
-* Search For Clubs
-* Create New Club
-* Join Club
 * Subscribe To Club
-* View Club Page
 * Edit Club Page (Admin)
-* Post Club Event (Admin)
-* Edit Club Event (Admin)
 * Manager Club Membership (Admin)
 
 ## User Interface Requirements
