@@ -329,7 +329,7 @@ For Iteration 2, we want to implement basic functionality concerning User Profil
 
 None
 
-##### User Team - Patrick
+##### User Team - Patrick, Shubham
 
 * Number of Days to Develop: 7
 * Number of Days to Test: 2
