@@ -345,7 +345,7 @@ None
 
 None
 
-##### Event Team - Alex, [name]
+##### Event Team - Alex, Kevin
 
 * Number of Days to Develop: 7
 * Number of Days to Test: 2
