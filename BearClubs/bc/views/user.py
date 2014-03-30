@@ -1,7 +1,24 @@
-from django.shortcuts import render, redirect
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
-from BearClubs.bc.forms.user import UserSignUpForm, UserSignInForm
+from django.shortcuts import render, redirect
+
+from BearClubs.bc.forms import UserSignUpForm, UserSignInForm
+from BearClubs.bc.models import User;
+
+@login_required(login_url='/login')
+def dashboard(request):
+    args = {};
+    args['user'] = request.user;
+
+    return render(request, "dashboard.html", args);
+
+@login_required(login_url='/login')
+def profile(request, user_id):
+    args = {};
+    args['user'] = User.objects.get(id=user_id);
+
+    return render(request, "userProfile.html", args);
 
 def userSignUp(request):
     if request.method == 'POST':

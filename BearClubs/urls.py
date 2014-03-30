@@ -1,7 +1,10 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-admin.autodiscover()
+
+from BearClubs.bc import views
+
+admin.autodiscover();
 
 urlpatterns = patterns('',
     # Examples:
@@ -10,14 +13,18 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^$',              'BearClubs.bc.views.index.index',   name='index'),
-    url(r'^index$',         'BearClubs.bc.views.index.index',   name='index'),
-    url(r'^index\.html$',   'BearClubs.bc.views.index.index',   name='index'),
+    url(r'^$',                          views.index,            name='index'),
+    url(r'^index/?$',                   views.index,            name='index'),
+    url(r'^index\.html/?$',             views.index,            name='index'),
 
-    url(r'^register$',      'BearClubs.bc.views.user.userSignUp', name='register'),
-    url(r'^login$',         'BearClubs.bc.views.user.userSignIn', name='login'),
-    url(r'^logout$',        'BearClubs.bc.views.user.userLogOut', name='logout'),
+    url(r'^register/?$',                views.userSignUp,       name='register'),
+    url(r'^login/?$',                   views.userSignIn,       name='login'),
+    url(r'^logout/?$',                  views.userLogOut,       name='logout'),
 
-    url(r'^clubs$',         'BearClubs.bc.views.organization.directory', name='directory'),
-    url(r'^clubs/new$',     'BearClubs.bc.views.organization.addClub',   name='addClub'),
+    url(r'^dashboard/?$',               views.dashboard,        name='dashboard'),
+    url(r'^user/?$',                    views.dashboard,        name='dashboard'),
+    url(r'^user/(?P<user_id>\d+)/?$',   views.profile,          name='profile'),
+
+    url(r'^clubs/?$',                   views.directory,        name='directory'),
+    url(r'^clubs/new/?$',               views.addClub,          name='addClub'),
 )
