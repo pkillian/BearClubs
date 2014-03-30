@@ -52,4 +52,4 @@ class UserToEvent(models.Model):
 
     class Meta:
         app_label = 'bc';
-        db_table  = 'bc_user_to_organization';
+        db_table  = 'bc_user_to_event';
