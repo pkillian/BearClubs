@@ -1,5 +1,10 @@
 [
   {
+    "model": "bc.user",
+    "pk": 1,
+    "fields": {}
+  },
+  {
     "model": "bc.organizationtype",
     "pk": 1,
     "fields": {
