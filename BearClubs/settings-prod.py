@@ -83,6 +83,11 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
+# Database fixture location
+FIXTURE_DIRS = (
+    os.path.join(BASE_DIR, 'BearClubs', 'bc', 'fixtures', 'prod')
+)
+
 # HEROKU
 import dj_database_url
 DATABASES['default'] = dj_database_url.config();

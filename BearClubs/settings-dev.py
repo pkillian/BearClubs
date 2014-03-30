@@ -83,6 +83,11 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
+# Database fixture location
+FIXTURE_DIRS = (
+    os.path.join(BASE_DIR, 'BearClubs', 'bc', 'fixtures', 'dev')
+)
+
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
