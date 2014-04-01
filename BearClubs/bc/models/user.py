@@ -9,5 +9,8 @@ class User(auth.models.User):
     # first_name   = models.CharField(max_length=64);
     # last_name    = models.CharField(max_length=64);
 
+    def __unicode__():
+        return 'User: %s' % (self.username)
+
     class Meta:
         app_label = 'bc';

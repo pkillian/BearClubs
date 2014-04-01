@@ -43,6 +43,9 @@ class Organization(models.Model):
 
         return max_page;
 
+    def __unicode__(self):
+        return 'Organization: %s' % (self.name)
+
     class Meta:
         app_label = 'bc';
 

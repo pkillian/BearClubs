@@ -28,5 +28,8 @@ class Event(models.Model):
 
         return super(Event, self).save(*args, **kwargs);
 
+    def __unicode__():
+        return 'Event: %s' % (self.name)
+
     class Meta:
         app_label = 'bc';
