@@ -92,3 +92,14 @@ FIXTURE_DIRS = (
 # HEROKU
 import dj_database_url
 DATABASES['default'] = dj_database_url.config();
+
+#HAYSTACK
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': os.environ['SEARCHBOX_URL'],
+        'INDEX_NAME': 'documents',
+        },
+    }
+
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
