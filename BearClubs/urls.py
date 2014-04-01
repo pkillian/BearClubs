@@ -27,4 +27,6 @@ urlpatterns = patterns('',
 
     url(r'^clubs/?$',                   views.directory,        name='directory'),
     url(r'^clubs/new/?$',               views.addClub,          name='addClub'),
+
+    url(r'^events/new/?$',              views.addEvent,          name='addEvent'),
 )
