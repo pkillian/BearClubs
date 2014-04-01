@@ -34,6 +34,13 @@ def directory(request):
 
     return render(request, 'directory.html', view_args);
 
+def clubProfile(request, organization_id):
+
+    args = {}
+    args['club'] = Organization.objects.get(id=organization_id);
+
+    return render(request, 'clubProfile.html', args);
+
 @login_required(login_url='/login')
 def addClub(request):
     args = {};
