@@ -1,0 +1,23 @@
+{% extends "layout/base.html" %}
+
+{% block main_content %}
+
+  <div class="section-container">
+    <div id="add-evet" class="section-div">
+      <h3 class="add-event-title">Add a New Event</h3>
+      <form method="post" action="{% url 'BearClubs.bc.views.event.addEvent' %}">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form_item_wrapper">
+            <p>{{ field.label }}:</p>
+            {{ field.errors }}
+            {{ field }}
+            <br>
+          </div>
+        {% endfor %}
+        <input id="add-button" class="button" type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
