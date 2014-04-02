@@ -7,7 +7,7 @@ from django.utils import unittest, timezone
 
 from BearClubs.bc.models import Event, Organization, OrganizationType, User, UserToEvent, UserToOrganization
 
-class UserToEventMappingTests(TestCase):
+class UserProfileTests(TestCase):
 
     client = Client();
 
@@ -47,7 +47,7 @@ class UserToEventMappingTests(TestCase):
     def tearDown(self):
         self.client.logout();
 
-    def testValidDashboard_OneEvent(self):
+    def testValidProfile_OneEvent(self):
         self.ute1.save();
 
         response = self.client.get(self.baseURL + '/user/%d' % self.user.id);
@@ -60,10 +60,11 @@ class UserToEventMappingTests(TestCase):
         self.assertTrue('href="/events/2"' not in response.content);
         self.assertTrue('href="mailto:test2@test.com"' not in response.content);
 
+        self.assertTrue(self.event3.name not in response.content);
         self.assertTrue('href="/events/3"' not in response.content);
         self.assertTrue('href="mailto:test3@test.com"' not in response.content);
 
-    def testValidDashboard_TwoEvents1(self):
+    def testValidProfile_TwoEvents1(self):
         self.ute1.save();
         self.ute2.save();
 
@@ -81,7 +82,7 @@ class UserToEventMappingTests(TestCase):
         self.assertTrue('href="/events/3"' not in response.content);
         self.assertTrue('href="mailto:test3@test.com"' not in response.content);
 
-    def testValidDashboard_TwoEvents2(self):
+    def testValidProfile_TwoEvents2(self):
         self.ute1.save();
         self.ute3.save();
 
@@ -99,7 +100,7 @@ class UserToEventMappingTests(TestCase):
         self.assertTrue('href="/events/3"' in response.content);
         self.assertTrue('href="mailto:test3@test.com"' in response.content);
 
-    def testValidDashboard_ThreeEvents(self):
+    def testValidProfile_ThreeEvents(self):
         self.ute1.save();
         self.ute2.save();
         self.ute3.save();
@@ -116,6 +117,78 @@ class UserToEventMappingTests(TestCase):
 
         self.assertTrue(self.event3.name in response.content);
         self.assertTrue('href="/events/3"' in response.content);
+        self.assertTrue('href="mailto:test3@test.com"' in response.content);
+
+    def testValidProfile_OneOrg(self):
+        self.uto1.save();
+
+        response = self.client.get(self.baseURL + '/user/%d' % self.user.id);
+
+        self.assertTrue(self.org1.name in response.content);
+        self.assertTrue('href="/clubs/1"' in response.content);
+        self.assertTrue('href="mailto:test1@test.com"' in response.content);
+
+        self.assertTrue(self.org2.name not in response.content);
+        self.assertTrue('href="/clubs/2"' not in response.content);
+        self.assertTrue('href="mailto:test2@test.com"' not in response.content);
+
+        self.assertTrue(self.org3.name not in response.content);
+        self.assertTrue('href="/clubs/3"' not in response.content);
+        self.assertTrue('href="mailto:test3@test.com"' not in response.content);
+
+    def testValidProfile_TwoOrgs1(self):
+        self.uto1.save();
+        self.uto2.save();
+
+        response = self.client.get(self.baseURL + '/user/%d' % self.user.id);
+
+        self.assertTrue(self.org1.name in response.content);
+        self.assertTrue('href="/clubs/1"' in response.content);
+        self.assertTrue('href="mailto:test1@test.com"' in response.content);
+
+        self.assertTrue(self.org2.name in response.content);
+        self.assertTrue('href="/clubs/2"' in response.content);
+        self.assertTrue('href="mailto:test2@test.com"' in response.content);
+
+        self.assertTrue(self.org3.name not in response.content);
+        self.assertTrue('href="/clubs/3"' not in response.content);
+        self.assertTrue('href="mailto:test3@test.com"' not in response.content);
+
+    def testValidProfile_TwoOrgs2(self):
+        self.uto1.save();
+        self.uto3.save();
+
+        response = self.client.get(self.baseURL + '/user/%d' % self.user.id);
+
+        self.assertTrue(self.org1.name in response.content);
+        self.assertTrue('href="/clubs/1"' in response.content);
+        self.assertTrue('href="mailto:test1@test.com"' in response.content);
+
+        self.assertTrue(self.org2.name not in response.content);
+        self.assertTrue('href="/clubs/2"' not in response.content);
+        self.assertTrue('href="mailto:test2@test.com"' not in response.content);
+
+        self.assertTrue(self.org3.name in response.content);
+        self.assertTrue('href="/clubs/3"' in response.content);
+        self.assertTrue('href="mailto:test3@test.com"' in response.content);
+
+    def testValidProfile_ThreeOrgs(self):
+        self.uto1.save();
+        self.uto2.save();
+        self.uto3.save();
+
+        response = self.client.get(self.baseURL + '/user/%d' % self.user.id);
+
+        self.assertTrue(self.org1.name in response.content);
+        self.assertTrue('href="/clubs/1"' in response.content);
+        self.assertTrue('href="mailto:test1@test.com"' in response.content);
+
+        self.assertTrue(self.org2.name in response.content);
+        self.assertTrue('href="/clubs/2"' in response.content);
+        self.assertTrue('href="mailto:test2@test.com"' in response.content);
+
+        self.assertTrue(self.org3.name in response.content);
+        self.assertTrue('href="/clubs/3"' in response.content);
         self.assertTrue('href="mailto:test3@test.com"' in response.content);
 
 # If this file is invoked as a Python script, run the tests in this module
