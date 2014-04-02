@@ -1,6 +1,7 @@
 from django import forms
 from django.utils import timezone
 from BearClubs.bc.models import Event, Organization
+from django.contrib.admin import widgets 
 from datetimewidget.widgets import DateTimeWidget
 
 class AddEventForm(forms.ModelForm):
@@ -17,8 +18,8 @@ class AddEventForm(forms.ModelForm):
 
         self.user = user;
         self.fields['contact_email'].initial = user.email;
-        self.fields['start_time'].widget = DateTimeWidget(options = dateTimeOptions)
-        self.fields['end_time'].widget = DateTimeWidget(options = dateTimeOptions)
+        # self.fields['start_time'].widget = DateTimeWidget(options = dateTimeOptions)
+        # self.fields['end_time'].widget = DateTimeWidget(options = dateTimeOptions)
         self.fields['organization']=forms.ModelChoiceField(queryset=Organization.objects.all())
 
     def is_valid(self):
