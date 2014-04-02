@@ -48,3 +48,8 @@ class UserToOrganizationtMappingTests(TestCase):
 
     def tearDown(self):
         self.client.logout();
+
+if __name__ == "__main__":
+    # Add a verbose argument
+    sys.argv = [sys.argv[0]] + ["-v"] + sys.argv[1:]
+    unittest.main()
