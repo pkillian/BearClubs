@@ -3,6 +3,20 @@
 {% block main_content %}
     
   <h2>Dashboard</h2>
-  <h3>{{ user.username }} ({{user.email}})</h3>
+  <h3><a href="/user/{{ user.id }}">{{ user.username }}</a> ({{user.email}})</h3>
+
+  <h3>Upcoming Events:</h3>
+  <ul>
+    {% for event in events %}
+    <li>
+        <a href="/clubs/{{ event.organization.id }}">{{ event.organization.name }}</a>'s event 
+        <a href="/events/{{ event.id }}">{{ event.name }}</a>
+        {% if event.contact_email %}
+            <a href="mailto:{{ event.contact_email }}">({{ event.contact_email }})</a>
+        {% endif %}
+        starts at {{ event.start_time }}
+    </li>
+    {% endfor %}
+  </ul>
 
 {% endblock %}

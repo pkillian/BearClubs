@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'haystack',
     'BearClubs.bc'
 )
 
@@ -85,7 +86,7 @@ STATIC_URL = '/static/'
 
 # Database fixture location
 FIXTURE_DIRS = (
-    os.path.join(BASE_DIR, 'BearClubs', 'bc', 'fixtures', 'dev')
+    'bc/fixtures/dev',
 )
 
 # Database
@@ -97,3 +98,20 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+#HAYSTACK
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://127.0.0.1:9200/',
+        'INDEX_NAME': 'haystack',
+        'INCLUDE_SPELLING': False,
+    },
+
+    'test': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+        'SILENTLY_FAIL': True,
+    }
+}
+
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

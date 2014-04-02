@@ -1,12 +1,12 @@
 from django.utils import timezone
-
+from django.core.urlresolvers import reverse
 from django.db import models
 
 class Organization(models.Model):
     name                = models.CharField(max_length=128, unique=True);
     description         = models.TextField(blank=True);
     location            = models.CharField(max_length=256, blank=True);
-    contact_email       = models.EmailField(max_length=128, unique=True);
+    contact_email       = models.EmailField(max_length=128, blank=False, unique=True);
     organization_type   = models.ForeignKey('OrganizationType');
     created_at          = models.DateTimeField(default=timezone.now, editable=False);
     updated_at          = models.DateTimeField(default=timezone.now);
@@ -42,6 +42,12 @@ class Organization(models.Model):
             max_page = 1;
 
         return max_page;
+
+    def get_absolute_url(self):
+        return reverse('club', args=[self.id]);
+
+    def __unicode__(self):
+        return 'Organization: %s' % (self.name)
 
     class Meta:
         app_label = 'bc';

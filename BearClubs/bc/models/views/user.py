@@ -13,3 +13,8 @@ class UserSubscriptionView(models.Model):
         managed   = False;
         app_label = 'bc';
         db_table  = 'bc_user_subscription_view';
+
+    @staticmethod
+    def getSubscriptionsForUser(user):
+        """ Return a list of subscription elements related to USER """
+        return [];
