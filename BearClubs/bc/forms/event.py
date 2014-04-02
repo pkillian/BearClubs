@@ -1,25 +1,20 @@
 from django import forms
 from django.utils import timezone
+from datetime import datetime
 from BearClubs.bc.models import Event, Organization
 from django.contrib.admin import widgets 
-from datetimewidget.widgets import DateTimeWidget
 
 class AddEventForm(forms.ModelForm):
 
     def __init__(self, user, *args, **kwargs):
         forms.ModelForm.__init__(self, *args, **kwargs);
         
-        dateTimeOptions = {
-             'format': 'mm/dd/yyyy HH:ii P',
-             'autoclose': 'true',
-             'showMeridian' : 'true'
-        }
-
+        ACCEPTABLE_FORMATS = ['%m/%d/%Y %I:%M:%S %p'];
 
         self.user = user;
         self.fields['contact_email'].initial = user.email;
-        # self.fields['start_time'].widget = DateTimeWidget(options = dateTimeOptions)
-        # self.fields['end_time'].widget = DateTimeWidget(options = dateTimeOptions)
+        self.fields['start_time'] = forms.DateTimeField(label="Start Time - Format(MM/DD/YYYY HH:MM:SS AM/PM) ", input_formats=ACCEPTABLE_FORMATS);
+        self.fields['end_time'] = forms.DateTimeField(label="End Time - Format(MM/DD/YYYY HH:MM:SS AM/PM) ", input_formats=ACCEPTABLE_FORMATS);
         self.fields['organization']=forms.ModelChoiceField(queryset=Organization.objects.all())
 
     def is_valid(self):
@@ -31,15 +26,33 @@ class AddEventForm(forms.ModelForm):
         if not valid:
             return valid;
 
-        if self.cleaned_data['start_time'] > self.cleaned_data['end_time']:
+        startTime = self.cleaned_data['start_time'];
+        endTime = self.cleaned_data['end_time'];
+
+        # try:
+        #     startTime = self.cleaned_data['start_time'];
+        #     startTime = datetime.strptime(startTime, '%m/%d/%Y %I:%M:%S %p');
+        # except Exception as e:
+        #     self._errors['time_error'] = str(e);
+        #     return False;
+
+        # try:
+        #     endTime = self.cleaned_data['end_time'];
+        #     endTime = datetime.strptime(endTime, '%m/%d/%Y %I:%M:%S %p');
+        # except:
+        #     self._errors['time_error'] = "end time is invalid format";
+        #     return False;
+
+
+        if startTime > endTime:
             self._errors['time_error'] = "start time must be before end time";
             return False;
 
-        if self.cleaned_data['start_time'] < timezone.now():
+        if startTime < timezone.now():
             self._errors['time_error'] = "start time must be after current time";
             return False;
 
-        if self.cleaned_data['end_time'] < timezone.now():
+        if endTime < timezone.now():
             self._errors['time_error'] = "end time must be after current time";
             return False;
 

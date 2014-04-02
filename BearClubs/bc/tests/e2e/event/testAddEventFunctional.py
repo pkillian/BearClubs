@@ -45,8 +45,8 @@ class AddEventFunctionalTests(TestCase):
         self.c.logout();
 
     def testValidEvent1(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         form_data = {
             'name': 'Test Event',
@@ -68,8 +68,8 @@ class AddEventFunctionalTests(TestCase):
         self.assertTrue(test_event.location == 'Berkeley');
 
     def testValidEvent2(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         form_data = {
             'name': 'Test Event',
@@ -89,8 +89,8 @@ class AddEventFunctionalTests(TestCase):
         self.assertTrue(test_event.contact_email == 'test@test.com');
     
     def testValidEvent3(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         form_data = {
             'name': 'Test Event',
@@ -110,8 +110,8 @@ class AddEventFunctionalTests(TestCase):
         self.assertTrue(test_event.contact_email == 'test@test.com');
 
     def testValidEvent4(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         form_data = {
             'name': 'a'*128,
@@ -131,8 +131,8 @@ class AddEventFunctionalTests(TestCase):
         self.assertTrue(test_event.contact_email == 'test@test.com');
 
     def testValidEvent5(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         email_128 = ("a"*119) + "@test.com";
 

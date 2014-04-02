@@ -34,8 +34,8 @@ class AddEventUnitTests(TestCase):
         self.club = Organization.objects.get(name="Test Club");
 
     def testValidEvent1(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         form_data = {
             'name': 'Test Event',
@@ -59,8 +59,8 @@ class AddEventUnitTests(TestCase):
         self.assertTrue(test_event.location == 'Berkeley');
 
     def testValidEvent2(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         form_data = {
             'name': 'Test Event',
@@ -82,8 +82,8 @@ class AddEventUnitTests(TestCase):
         self.assertTrue(test_event.contact_email == 'test@test.com');
 
     def testValidEvent3(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         form_data = {
             'name': 'Test Event',
@@ -105,8 +105,8 @@ class AddEventUnitTests(TestCase):
         self.assertTrue(test_event.contact_email == 'test@test.com');
 
     def testValidEvent4(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         form_data = {
             'name': 'a'*128,
@@ -128,8 +128,8 @@ class AddEventUnitTests(TestCase):
         self.assertTrue(test_event.contact_email == 'test@test.com');
 
     def testValidEvent5(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         email_128 = ("a"*119) + "@test.com";
 
@@ -155,8 +155,8 @@ class AddEventUnitTests(TestCase):
         self.assertTrue(test_event.contact_email == email_128);
 
     def testNoNameEvent(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         form_data = {
             'name': '',
@@ -172,8 +172,8 @@ class AddEventUnitTests(TestCase):
         self.assertFalse(form.is_valid());
 
     def testNameTooLongEvent(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         form_data = {
             'name': 'a'*129,
@@ -188,8 +188,8 @@ class AddEventUnitTests(TestCase):
         self.assertFalse(form.is_valid());
 
     def testNoEmailEvent(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         form_data = {
             'name': 'Test Event',
@@ -204,8 +204,8 @@ class AddEventUnitTests(TestCase):
         self.assertFalse(form.is_valid());
 
     def testEmailTooLongEvent(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         email = ("a"*120) + "@test.com";
 
@@ -223,8 +223,8 @@ class AddEventUnitTests(TestCase):
         self.assertFalse(form.is_valid());
 
     def testNoOrganizationEvent(self):
-        startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-        endTime = startTime + datetime.timedelta(days=3)
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
 
         form_data = {
             'name': 'Test Event',
