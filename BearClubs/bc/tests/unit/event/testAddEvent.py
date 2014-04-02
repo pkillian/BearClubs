@@ -45,7 +45,7 @@ class AddEventUnitTests(TestCase):
             'description': 'Event Description',
             'organization': self.club.id,
             'contact_email': 'test@test.com',
-            'start_time': starTime,
+            'start_time': startTime,
             'end_time': endTime,
             'location': 'Berkeley',
         };

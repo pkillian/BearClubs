@@ -25,6 +25,11 @@ class UserToOrganization(models.Model):
 
         return super(UserToOrganization, self).save(*args, **kwargs);
 
+    @staticmethod
+    def getOrganizationsForUser(user):
+        uto_objects = UserToOrganization.objects.filter(user=user.id);
+        return [uto.organization for uto in uto_objects];
+
     class Meta:
         app_label = 'bc';
         db_table  = 'bc_user_to_organization';

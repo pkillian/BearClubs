@@ -12,17 +12,30 @@ from BearClubs.bc.models.mappings import UserToEvent, UserToOrganization
 def dashboard(request):
     args = {};
     args['user'] = request.user;
-    args['event_subscriptions'] = UserToEvent.getEventsForUser(request.user);
+    args['events'] = UserToEvent.getEventsForUser(request.user);
 
     return render(request, "dashboard.html", args);
 
 @login_required(login_url='/login')
 def profile(request, user_id):
     args = {};
+
     try:
-        args['user'] = User.objects.get(id=user_id);
+        user = User.objects.get(id=user_id);
     except ObjectDoesNotExist:
-        args['user'] = request.user;
+        user = request.user;
+
+    if user.first_name:
+        user.name = user.first_name;
+        if user.last_name: 
+            user.name += " " + user.last_name;
+    else:
+        user.name = user.username;
+
+    user.clubs = UserToOrganization.getOrganizationsForUser(user);
+    user.events = UserToEvent.getEventsForUser(user);
+
+    args['user'] = user;
 
     return render(request, "userProfile.html", args);
 
