@@ -28,7 +28,7 @@ class Event(models.Model):
 
         return super(Event, self).save(*args, **kwargs);
 
-    def __unicode__():
+    def __unicode__(self):
         return 'Event: %s' % (self.name)
 
     class Meta:

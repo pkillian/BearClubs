@@ -9,7 +9,7 @@ class User(auth.models.User):
     # first_name   = models.CharField(max_length=64);
     # last_name    = models.CharField(max_length=64);
 
-    def __unicode__():
+    def __unicode__(self):
         return 'User: %s' % (self.username)
 
     class Meta:

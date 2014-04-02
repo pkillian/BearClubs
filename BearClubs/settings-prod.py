@@ -99,7 +99,7 @@ HAYSTACK_CONNECTIONS = {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
         'URL': os.environ['SEARCHBOX_URL'],
         'INDEX_NAME': 'documents',
-        },
-    }
+    },
+}
 
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
