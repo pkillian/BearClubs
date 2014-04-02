@@ -18,11 +18,6 @@ class AddEventFunctionalTests(TestCase):
     # -- Valid Event, no location: succeed
     # -- Valid Event, name = 128 chars: succeed
     # -- Valid Event, email = 128 chars: succeed
-    # -- No name: failure
-    # -- Name > 128 chars: failure
-    # -- No email: failure
-    # -- Email > 128 chars: failure
-    # -- No Org id: failure
 
     def setUp(self):
         bus_org_type = OrganizationType.objects.get(name='Business');
@@ -155,21 +150,6 @@ class AddEventFunctionalTests(TestCase):
         self.assertTrue(test_event.description == 'Event Description');
         self.assertTrue(test_event.contact_email == email_128);
 
-    # def testNoNameEvent(self):
-    #     startTime = datetime.datetime.today() + datetime.timedelta(days=1)
-    #     endTime = startTime + datetime.timedelta(days=3)
-
-    #     form_data = {
-    #         'name': '',
-    #         'description': 'Event Description',
-    #         'organization': self.club.id,
-    #         'contact_email': 'test@test.com',
-    #         'start_time': str(startTime),
-    #         'end_time': str(endTime),
-    #         'location': 'Berkeley',
-    #     };
-
-    #     response = self.c.post(self.baseURL+'/events/new', form_data);
         
 
 

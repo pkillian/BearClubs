@@ -15,6 +15,38 @@ class Event(models.Model):
     created_at     = models.DateTimeField(default=timezone.now, editable=False);
     updated_at     = models.DateTimeField(default=timezone.now);
 
+    @staticmethod
+    def getEventsByPage(page, increment=50):
+        assert(page > 0);
+        assert(increment > 0);
+
+        max_page = Event.getMaxPage(increment);
+
+        if page > max_page:
+            page = max_page;
+
+        # get START_INDEX based on page and increment parameters
+        start_index = (page - 1) * increment;
+
+        # only get INCREMENT items at a time
+        end_index = start_index + increment;
+
+        return Event.objects.order_by('name')[start_index:end_index];
+
+    @staticmethod
+    def getMaxPage(increment):
+        total_events = Event.objects.count();
+        max_page = (total_events // increment);
+
+        # if there's a remainder, add one
+        if total_events % increment != 0:
+            max_page += 1;
+
+        if max_page <= 0:
+            max_page = 1;
+
+        return max_page;
+
     def save(self, *args, **kwargs):
         ''' On save, update timestamps '''
         datetime_now = timezone.now();

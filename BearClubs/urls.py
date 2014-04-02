@@ -32,5 +32,6 @@ urlpatterns = patterns('',
     url(r'^clubs/(?P<organization_id>\d+)/?$',   views.clubProfile,         name='club'),
     url(r'^clubs/join/?$',                       views.joinClub,            name='joinclub'),
 
-    url(r'^events/new/?$',              views.addEvent,          name='addEvent'),
+    url(r'^events/?$',                           views.eventDirectory,      name='eventDirectory'),
+    url(r'^events/new/?$',                       views.addEvent,            name='addEvent'),
 )

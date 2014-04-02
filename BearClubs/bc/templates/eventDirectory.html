@@ -1,0 +1,75 @@
+{% extends "layout/base.html" %}
+
+{% block main_content %}
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td {
+      padding: 0.5em;
+      font-weight: bold;
+    }
+  </style>
+
+  <div class="club-directory-header">
+    <div class="club-directory-nameplate">
+      <h2>Event Directory</h2><p> - </p><a href="/events/new">Add an Event</a>
+    </div>
+    <div class="page-controls">
+
+      {% if page > 1 %}
+      <a href="/events?page=1&inc={{ increment }}">
+        <i class="fa fa-angle-double-left"></i>
+      </a>
+      <a href="/events?page={{ page|add:'-1' }}&inc={{ increment }}">
+        <i class="fa fa-angle-left"></i>
+      </a>
+      {% else %}
+        <i class="fa fa-angle-double-left"></i>
+        <i class="fa fa-angle-left"></i>
+      {% endif %}
+
+      <p>Page: {{ page }} Increment: {{ increment }}</p>
+
+      {% if page < max_page %}
+      <a href="/events?page={{ page|add:'1' }}&inc={{ increment }}">
+        <i class="fa fa-angle-right"></i>
+      </a>
+      <a href="/events?page={{ max_page }}&inc={{ increment }}">
+        <i class="fa fa-angle-double-right"></i>
+      </a>
+      {% else %}
+        <i class="fa fa-angle-right"></i>
+        <i class="fa fa-angle-double-right"></i>
+      {% endif %}
+
+    </div>
+  </div>
+  <table id="club-directory" class="full tablesorter">
+    <thead>
+      <tr>
+        <th><span>Name</span></th>
+        <th><span>Organization</span></th>
+        <th><span>Description</span></th>
+        <th><span>Start</span></th>
+        <th><span>Contact</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for event in events %}
+      <tr>
+          <td>
+            <a href="">
+              {{ event.name }}</td>
+            </a>
+          <td>{{ event.organization }}</td>
+          <td>{{ event.description }}</td>
+          <td>{{ event.start_time }}</td>_
+          <td>{{ event.contact_email }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
