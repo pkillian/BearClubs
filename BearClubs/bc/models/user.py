@@ -1,4 +1,5 @@
 from django.contrib import auth
+from django.core.urlresolvers import reverse
 
 class User(auth.models.User):
     # Following fields inherited from auth.models.User
@@ -8,6 +9,12 @@ class User(auth.models.User):
     # email        = models.EmailField(max_length=128, unique=True);
     # first_name   = models.CharField(max_length=64);
     # last_name    = models.CharField(max_length=64);
+
+    def __unicode__(self):
+        return 'User: %s' % (self.username)
+
+    def get_absolute_url(self):
+        return reverse('profile', args=[self.id])
 
     class Meta:
         app_label = 'bc';

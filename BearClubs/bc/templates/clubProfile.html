@@ -1,0 +1,14 @@
+{% extends "layout/base.html" %}
+
+{% block main_content %}
+
+<h2>{{ club.name }}</h2>
+<h3>{{ club.contact_email }}</h3>
+
+      <form method="post" action="{% url 'BearClubs.bc.views.organization.joinClub' %}">
+        {% csrf_token %}
+        <input type="hidden" name="organization_id" id="organization_id" value='{{ club.id }}'>,
+        <input id="join-club-button" class="button" type="submit" value="Join Club">
+      </form>
+
+{% endblock %}

@@ -1,3 +1,5 @@
+services:
+    - elasticsearch
 branches:
   only:
     - master

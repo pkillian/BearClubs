@@ -1,22 +1,28 @@
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 
 from BearClubs.bc.forms import UserSignUpForm, UserSignInForm
-from BearClubs.bc.models import User;
+from BearClubs.bc.models import User
+from BearClubs.bc.models.mappings import UserToEvent, UserToOrganization
 
 @login_required(login_url='/login')
 def dashboard(request):
     args = {};
     args['user'] = request.user;
+    args['event_subscriptions'] = UserToEvent.getEventsForUser(request.user);
 
     return render(request, "dashboard.html", args);
 
 @login_required(login_url='/login')
 def profile(request, user_id):
     args = {};
-    args['user'] = User.objects.get(id=user_id);
+    try:
+        args['user'] = User.objects.get(id=user_id);
+    except ObjectDoesNotExist:
+        args['user'] = request.user;
 
     return render(request, "userProfile.html", args);
 
@@ -46,21 +52,21 @@ def userSignIn(request):
         if form.is_valid():
             form.loginUser(request);
 
-            # On successful authentication, redirect to club directory
-            return redirect("/clubs");
+            # On successful authentication, redirect to dashboard
+            return redirect("/user");
         else:
             # On unsuccessful authentication, return error
             return userFormsRender(request, signInForm=form);
     else:
         if (request.user.is_authenticated()):
-            # if user is already authenticated then redirect to club directory
-            return redirect("/clubs")
+            # if user is already authenticated then redirect to dashboard
+            return redirect("/user")
         else:
             return userFormsRender(request);
 
 def userLogOut(request):
     auth.logout(request)
-    return render(request, 'index.html')
+    return redirect('/login')
 
 def userFormsRender(request, signUpForm=None, signInForm=None):
     args = {};

@@ -1,5 +1,5 @@
 from django.utils import timezone
-
+from django.core.urlresolvers import reverse
 from django.db import models
 
 class Organization(models.Model):
@@ -45,6 +45,12 @@ class Organization(models.Model):
 
     def __str__(self): 
         return self.name;
+
+    def get_absolute_url(self):
+        return reverse('club', args=[self.id]);
+
+    def __unicode__(self):
+        return 'Organization: %s' % (self.name)
 
     class Meta:
         app_label = 'bc';
