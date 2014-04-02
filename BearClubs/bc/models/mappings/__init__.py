@@ -1,3 +1,3 @@
-from user import UserToOrganization
+from user import UserToEvent, UserToOrganization
 
-__all__ = ['UserToOrganization'];
+__all__ = ['UserToEvent', 'UserToOrganization'];

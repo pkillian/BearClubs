@@ -86,7 +86,7 @@ STATIC_URL = '/static/'
 
 # Database fixture location
 FIXTURE_DIRS = (
-    os.path.join(BASE_DIR, 'BearClubs', 'bc', 'fixtures', 'dev')
+    'bc/fixtures/dev',
 )
 
 # Database
@@ -107,6 +107,11 @@ HAYSTACK_CONNECTIONS = {
         'INDEX_NAME': 'haystack',
         'INCLUDE_SPELLING': False,
     },
+
+    'test': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+        'SILENTLY_FAIL': True,
+    }
 }
 
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
