@@ -51,6 +51,8 @@ def clubProfile(request, organization_id):
         user = User.objects.get(id=int(request.user.id));
         user.save();
 
+        args['member'] = False;
+
         #check if logged-in user is a member of this organization already
         for member in members:
             if member.user.username == user.username:
@@ -66,6 +68,7 @@ def clubProfile(request, organization_id):
                 break;      #to account for the users that joined the club multiple times, but this should not happen anymore
             else:
                 args['admin'] = False;
+
 
     return render(request, 'clubProfile.html', args);
 
