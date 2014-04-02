@@ -98,7 +98,7 @@ HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
         'URL': os.environ['SEARCHBOX_URL'],
-        'INDEX_NAME': 'documents',
+        'INDEX_NAME': 'haystack',
         'INCLUDE_SPELLING': True,
     },
 }
