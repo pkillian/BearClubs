@@ -44,8 +44,7 @@ class Organization(models.Model):
         return max_page;
 
     def get_absolute_url(self):
-        return ''
-        # return reverse('directory', args=[3]);
+        return reverse('club', args=[self.id]);
 
     def __unicode__(self):
         return 'Organization: %s' % (self.name)
