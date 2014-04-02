@@ -3,20 +3,39 @@
 {% block main_content %}
 
 <h2>{{ club.name }}</h2>
-<h3>{{ club.contact_email }}</h3>
-
+<br>
+<h4>Organization Type: {{ club.organization_type }}</h4>
+<br>
+<h4>Description: {{ club.description }}</h4>
+<br>
+<h4>Contact Email: {{ club.contact_email }}</h4>
+<br>
+<h4>Members:</h4>
+<br>
       {% if members %}
         <ul>
         {% for member in members %}
-          <li> {{ member.user.username }} </li>
+          <li> 
+            {{ member.user.username }}
+            {% if admin == True and member.admin == False %}
+            <form method="post" action="{% url 'BearClubs.bc.views.user.promote' %}">
+              {% csrf_token %}
+              <input type="hidden" name="uto_id" id="uto_id" value='{{ member.id }}'>
+              <input type="hidden" name="org_id" id="org_id" value='{{ club.id }}'>
+              <input id="promote-button" class="button" type="submit" value="Promote To Admin">
+            </form>
+            {% endif %}
+          </li>
         {% endfor %}
         </ul>
       {% endif %}
 
+      {% if member == False %}
       <form method="post" action="{% url 'BearClubs.bc.views.organization.joinClub' %}">
         {% csrf_token %}
         <input type="hidden" name="organization_id" id="organization_id" value='{{ club.id }}'>
         <input id="join-club-button" class="button" type="submit" value="Join Club">
       </form>
+      {% endif %}
 
 {% endblock %}

@@ -24,11 +24,12 @@ urlpatterns = patterns('',
     url(r'^dashboard/?$',               views.dashboard,        name='dashboard'),
     url(r'^user/?$',                    views.dashboard,        name='dashboard'),
     url(r'^user/(?P<user_id>\d+)/?$',   views.profile,          name='profile'),
+    url(r'^user/promote/?$',            views.promote,          name='promote'),
 
     url(r'^clubs/?$',                   views.directory,        name='directory'),
     url(r'^clubs/new/?$',               views.addClub,          name='addClub'),
     url(r'^clubs/(?P<organization_id>\d+)/?$',   views.clubProfile,          name='club'),
-    url(r'^clubs/join/?$',   views.joinClub,          name='joinclub'),
+    url(r'^clubs/join/?$',              views.joinClub,         name='joinclub'),
 
 
 )
