@@ -30,12 +30,12 @@
         </ul>
       {% endif %}
 
-      {% if member == False %}
       <form method="post" action="{% url 'BearClubs.bc.views.organization.joinClub' %}">
         {% csrf_token %}
         <input type="hidden" name="organization_id" id="organization_id" value='{{ club.id }}'>
+        {% if member == False %}
         <input id="join-club-button" class="button" type="submit" value="Join Club">
+        {% endif %}
       </form>
-      {% endif %}
 
 {% endblock %}
