@@ -59,7 +59,10 @@
     <tbody>
       {% for club in clubs %}
       <tr>
-          <td>{{ club.name }}</td>
+          <td>
+            <a href="/clubs/{{ club.id }}">
+              {{ club.name }}</td>
+            </a>
           <td>{{ club.organization_type }}</td>
           <td>{{ club.description }}</td>
           <td>{{ club.contact_email }}</td>

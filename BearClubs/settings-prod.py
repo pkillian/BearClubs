@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'haystack',
     'BearClubs.bc'
 )
 
@@ -91,3 +92,15 @@ FIXTURE_DIRS = (
 # HEROKU
 import dj_database_url
 DATABASES['default'] = dj_database_url.config();
+
+#HAYSTACK
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': os.environ['SEARCHBOX_URL'],
+        'INDEX_NAME': 'documents',
+        'INCLUDE_SPELLING': True,
+    },
+}
+
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

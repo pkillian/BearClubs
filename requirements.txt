@@ -12,3 +12,6 @@ requests==2.2.1
 selenium==2.40.0
 static==1.0.2
 wsgiref==0.1.2
+django-haystack==2.0.0
+elasticsearch==1.0.0
+pyelasticsearch==0.6.1
