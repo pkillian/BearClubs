@@ -49,6 +49,10 @@ class UserToEvent(models.Model):
 
         return super(UserToEvent, self).save(*args, **kwargs);
 
+    @staticmethod
+    def getEventsForUser(user):
+        return UserToEvent.objects.filter(user=user).select_related();
+
     class Meta:
         app_label = 'bc';
         db_table  = 'bc_user_to_event';
