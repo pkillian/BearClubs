@@ -7,7 +7,7 @@ from django.utils import unittest, timezone
 
 from BearClubs.bc.models import Event, Organization, OrganizationType, User, UserToEvent, UserToOrganization
 
-class UserToEventMappingTests(TestCase):
+class UserDashboardTests(TestCase):
 
     client = Client();
 
@@ -62,6 +62,7 @@ class UserToEventMappingTests(TestCase):
         self.assertTrue('href="/events/2"' not in response.content);
         self.assertTrue('href="mailto:test2@test.com"' not in response.content);
 
+        self.assertTrue(self.event3.name not in response.content);
         self.assertTrue('href="/clubs/3"' not in response.content);
         self.assertTrue('href="/events/3"' not in response.content);
         self.assertTrue('href="mailto:test3@test.com"' not in response.content);
