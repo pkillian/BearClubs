@@ -28,6 +28,9 @@ class Event(models.Model):
 
         return super(Event, self).save(*args, **kwargs);
 
+    def get_absolute_url(self):
+        return ''
+
     def __unicode__(self):
         return 'Event: %s' % (self.name)
 

@@ -13,7 +13,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^search/', include('haystack.urls')),
+    url(r'^search/', include('haystack.urls'),                  name = 'search'),
 
     url(r'^$',                          views.index,            name='index'),
     url(r'^index/?$',                   views.index,            name='index'),

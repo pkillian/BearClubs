@@ -1,5 +1,5 @@
 from django.utils import timezone
-
+from django.core.urlresolvers import reverse
 from django.db import models
 
 class Organization(models.Model):
@@ -42,6 +42,10 @@ class Organization(models.Model):
             max_page = 1;
 
         return max_page;
+
+    def get_absolute_url(self):
+        return ''
+        # return reverse('directory', args=[3]);
 
     def __unicode__(self):
         return 'Organization: %s' % (self.name)
