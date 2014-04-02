@@ -23,6 +23,10 @@ class AddEventUnitTests(TestCase):
     # -- No email: failure
     # -- Email > 128 chars: failure
     # -- No Org id: failure
+    # -- start_time > end_time : failure
+    # -- start_time & end_time in past: failure
+    # -- start_time in past: failure
+    # -- start_time invalid format: failure
 
     def setUp(self):
         bus_org_type = OrganizationType.objects.get(name='Business');
@@ -237,7 +241,71 @@ class AddEventUnitTests(TestCase):
 
         form = AddEventForm(self.user, form_data);
         self.assertFalse(form.is_valid());
+
+    def testStartTimeGreaterThanEndTimeEvent(self):
+        startTime = '9/24/2060 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
+
+        form_data = {
+            'name': 'Test Event',
+            'description': 'Event Description',
+            'contact_email': 'test@test.com',
+            'start_time': str(startTime),
+            'end_time': str(endTime),
+            'location': 'Berkeley',
+        };
+
+        form = AddEventForm(self.user, form_data);
+        self.assertFalse(form.is_valid());
      
+    def testStartTimeAndEndTimeInPastEvent(self):
+        startTime = '9/24/2010 5:03:29 PM'
+        endTime = '9/24/2011 5:03:29 PM'
+
+        form_data = {
+            'name': 'Test Event',
+            'description': 'Event Description',
+            'contact_email': 'test@test.com',
+            'start_time': str(startTime),
+            'end_time': str(endTime),
+            'location': 'Berkeley',
+        };
+
+        form = AddEventForm(self.user, form_data);
+        self.assertFalse(form.is_valid());
+
+    def testStartTimeInPastEvent(self):
+        startTime = '9/24/2010 5:03:29 PM'
+        endTime = '9/24/2044 5:03:29 PM'
+
+        form_data = {
+            'name': 'Test Event',
+            'description': 'Event Description',
+            'contact_email': 'test@test.com',
+            'start_time': str(startTime),
+            'end_time': str(endTime),
+            'location': 'Berkeley',
+        };
+
+        form = AddEventForm(self.user, form_data);
+        self.assertFalse(form.is_valid());
+
+    def testInvalidDateFormatEvent(self):
+        startTime = '9/24/2010 5:03'
+        endTime = '9/24/2044 5:03:29 PM'
+
+        form_data = {
+            'name': 'Test Event',
+            'description': 'Event Description',
+            'contact_email': 'test@test.com',
+            'start_time': str(startTime),
+            'end_time': str(endTime),
+            'location': 'Berkeley',
+        };
+
+        form = AddEventForm(self.user, form_data);
+        self.assertFalse(form.is_valid());
+
 
 # If this file is invoked as a Python script, run the tests in this module
 if __name__ == "__main__":
