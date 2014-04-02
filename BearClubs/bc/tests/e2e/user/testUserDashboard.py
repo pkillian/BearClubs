@@ -62,6 +62,7 @@ class UserDashboardTests(TestCase):
         self.assertTrue('href="/events/2"' not in response.content);
         self.assertTrue('href="mailto:test2@test.com"' not in response.content);
 
+        self.assertTrue(self.event3.name not in response.content);
         self.assertTrue('href="/clubs/3"' not in response.content);
         self.assertTrue('href="/events/3"' not in response.content);
         self.assertTrue('href="mailto:test3@test.com"' not in response.content);
