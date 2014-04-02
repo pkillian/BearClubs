@@ -39,6 +39,16 @@ def profile(request, user_id):
 
     return render(request, "userProfile.html", args);
 
+@login_required(login_url='/login')
+def promote(request):
+    org_id = int(request.POST.get('org_id', ''));
+    uto_id = int(request.POST.get('uto_id',''));
+    uto = UserToOrganization.objects.get(id=uto_id);
+    uto.admin = True;
+    uto.save();
+
+    return redirect("/clubs/"+str(org_id));
+
 def userSignUp(request):
     if request.method == 'POST':
         form = UserSignUpForm(request.POST)

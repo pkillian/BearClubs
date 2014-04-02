@@ -41,30 +41,57 @@ def clubProfile(request, organization_id):
     args = {}
     args['club'] = Organization.objects.get(id=organization_id);
 
+    org = Organization.objects.get(id=organization_id);
+
+    #filter out UserToOrganization entries that have members in this organization
+    members = UserToOrganization.objects.filter(organization=org);
+    args['members'] = members;
+
+    if request.user.is_authenticated():
+        user = User.objects.get(id=int(request.user.id));
+        user.save();
+
+        args['member'] = False;
+
+        #check if logged-in user is a member of this organization already
+        for member in members:
+            if member.user.username == user.username:
+                args['member'] = True;
+                break;      #to account for the users that joined the club multiple times, but this should not happen anymore
+            else:
+                args['member'] = False;
+
+        #check if current logged-in user is an admin for this organization
+        for member in members:
+            if member.user.username == user.username and member.admin == True:
+                args['admin'] = True;
+                break;      #to account for the users that joined the club multiple times, but this should not happen anymore
+            else:
+                args['admin'] = False;
+
+
     return render(request, 'clubProfile.html', args);
 
 @login_required(login_url='/login')
 def joinClub(request):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated():
         organization_id = int(request.POST.get('organization_id',''));
-        user_id = int(request.user.id);
 
-        user = User.objects.get(id=user_id);
         org = Organization.objects.get(id=organization_id);
 
-        user.save();
         org.save();
 
+        user = User.objects.get(id=int(request.user.id));
+        user.save();
+
+        #uto = UserToOrganization(user=request.user)
         uto = UserToOrganization(user=user)
-        
+
         uto.save();
         uto.organization.add(org);
         uto.save();
 
-        args = {};
-        args['club'] = Organization.objects.get(id=organization_id);
-
-        return render(request, 'clubProfile.html', args);
+    return redirect("/clubs/"+str(organization_id));
 
 @login_required(login_url='/login')
 def addClub(request):
