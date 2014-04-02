@@ -12,3 +12,9 @@ requests==2.2.1
 selenium==2.40.0
 static==1.0.2
 wsgiref==0.1.2
+elasticsearch==1.0.0
+pyelasticsearch==0.6.1
+python-ptrace==0.7
+simplejson==3.3.3
+six==1.6.1
+urllib3==1.8
