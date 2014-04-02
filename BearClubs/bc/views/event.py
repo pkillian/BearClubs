@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
+from django.core.exceptions import ValidationError
 
 from BearClubs.bc.forms.event import AddEventForm
 
@@ -16,7 +17,7 @@ def addEvent(request):
         # check if form is valid
         if form.is_valid():
             # add the event
-            form.save();
+            form.save()
 
             # go to home
             return redirect('/');

@@ -7,6 +7,11 @@
       <h3 class="add-event-title">Add a New Event</h3>
       <form method="post" action="{% url 'BearClubs.bc.views.event.addEvent' %}">
         {% csrf_token %}
+        {% if form.errors %}
+          <div class="form_item_wrapper">
+            {{ form.errors}}
+          </div>
+        {% endif %}
         {% for field in form %}
           <div class="form_item_wrapper">
             <p>{{ field.label }}:</p>
