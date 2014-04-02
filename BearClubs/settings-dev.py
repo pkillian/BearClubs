@@ -86,7 +86,7 @@ STATIC_URL = '/static/'
 
 # Database fixture location
 FIXTURE_DIRS = (
-    os.path.join(BASE_DIR, 'BearClubs', 'bc', 'fixtures', 'dev')
+    'bc/fixtures/dev',
 )
 
 # Database
