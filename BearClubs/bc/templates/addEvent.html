@@ -7,9 +7,9 @@
       <h3 class="add-event-title">Add a New Event</h3>
       <form method="post" action="{% url 'BearClubs.bc.views.event.addEvent' %}">
         {% csrf_token %}
-        {% if form.errors %}
+        {% if form.errors.time_error %}
           <div class="form_item_wrapper">
-            {{ form.errors}}
+            {{ form.errors.time_error}}
           </div>
         {% endif %}
         {% for field in form %}
