@@ -99,7 +99,7 @@ HAYSTACK_CONNECTIONS = {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
         'URL': os.environ['SEARCHBOX_URL'],
         'INDEX_NAME': 'haystack',
-        'INCLUDE_SPELLING': True,
+        'INCLUDE_SPELLING': False,
     },
 }
 
