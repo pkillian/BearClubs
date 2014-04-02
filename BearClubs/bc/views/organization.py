@@ -41,28 +41,36 @@ def clubProfile(request, organization_id):
     args = {}
     args['club'] = Organization.objects.get(id=organization_id);
 
+    org = Organization.objects.get(id=organization_id);
+    members = UserToOrganization.objects.filter(organization=org);
+    args['members'] = members;
+
     return render(request, 'clubProfile.html', args);
 
 @login_required(login_url='/login')
 def joinClub(request):
     if request.user.is_authenticated:
         organization_id = int(request.POST.get('organization_id',''));
-        user_id = int(request.user.id);
 
-        user = User.objects.get(id=user_id);
         org = Organization.objects.get(id=organization_id);
 
-        user.save();
         org.save();
 
+        user = User.objects.get(id=int(request.user.id));
+        user.save();
+
+        #uto = UserToOrganization(user=request.user)
         uto = UserToOrganization(user=user)
-        
+
         uto.save();
         uto.organization.add(org);
         uto.save();
 
         args = {};
         args['club'] = Organization.objects.get(id=organization_id);
+
+        members = UserToOrganization.objects.filter(organization=org);
+        args['members'] = members;
 
         return render(request, 'clubProfile.html', args);
 
