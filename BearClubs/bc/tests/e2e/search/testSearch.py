@@ -15,7 +15,7 @@ class SearchEndToEndTests(TestCase):
 
     def setUp(self):
         haystack.connections.reload('test')
-        super(SearchUnitTests, self).setUp()
+        super(SearchEndToEndTests, self).setUp()
         self.client = Client()
 
         bus_org_type = OrganizationType.objects.get(name='Business');
