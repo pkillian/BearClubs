@@ -107,6 +107,11 @@ HAYSTACK_CONNECTIONS = {
         'INDEX_NAME': 'haystack',
         'INCLUDE_SPELLING': False,
     },
+
+    'test': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+        'SILENTLY_FAIL': True,
+    }
 }
 
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

@@ -11,16 +11,6 @@ from django.utils.unittest import TestLoader, TextTestRunner
 
 from BearClubs.bc.models import User, Event, Organization, OrganizationType
 
-TEST_INDEX = {
-    'default': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': 'http://127.0.0.1:9200/',
-        'TIMEOUT': 60 * 10,
-        'INDEX_NAME': 'test_index',
-    },
-}
-
-@override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
 class SearchUnitTests(TestCase):
 
     # Test cases:
@@ -29,7 +19,7 @@ class SearchUnitTests(TestCase):
     # -- Haystack indexes Event model
 
     def setUp(self):
-        haystack.connections.reload('default')
+        haystack.connections.reload('test')
         super(SearchUnitTests, self).setUp()
 
         bus_org_type = OrganizationType.objects.get(name='Business');
@@ -42,6 +32,8 @@ class SearchUnitTests(TestCase):
         organization_3 = Organization(name='Test 3', description='Test 3 Desc', contact_email='test3@test.com', organization_type=bus_org_type).save();
 
         Event(name='testevent', description='event description', organization=Organization.objects.get(name='Test 1'),  start_time=timezone.now(), end_time=timezone.now()).save();
+
+        management.call_command('rebuild_index', interactive=False, verbosity=0)
 
     def testUserIndex(self):
         results = haystack.query.SearchQuerySet().models(User).all()
@@ -58,10 +50,7 @@ class SearchUnitTests(TestCase):
     def tearDown(self):
         management.call_command('clear_index', interactive=False, verbosity=0)
 
-@override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
 class SearchEndToEndTests(TestCase):
-
-    # Test cases:
 
     def setUp(self):
         self.client = Client()
@@ -103,6 +92,9 @@ class SearchEndToEndTests(TestCase):
 
         # Check that response contains result html
         self.assertContains(response, result_html, 1)
+
+    def tearDown(self):
+        management.call_command('clear_index', interactive=False, verbosity=0)
 
 # If this file is invoked as a Python script, run the tests in this module
 if __name__ == "__main__":
