@@ -2,6 +2,7 @@
 
 {% block main_content %}
 
+
 <h2>{{ club.name }}</h2>
 <br>
 <h4>Organization Type: {{ club.organization_type }}</h4>
@@ -12,19 +13,22 @@
 <br>
 <h4>Members:</h4>
 <br>
+<div class="clubProfile">
       {% if members %}
         <ul>
         {% for member in members %}
           <li> 
-            {{ member.user.username }}
-            {% if admin == True and member.admin == False %}
             <form method="post" action="{% url 'BearClubs.bc.views.user.promote' %}">
+            <h4>{{ member.user.username }}</h4>
+            {% if admin == True and member.admin == False %}
               {% csrf_token %}
               <input type="hidden" name="uto_id" id="uto_id" value='{{ member.id }}'>
               <input type="hidden" name="org_id" id="org_id" value='{{ club.id }}'>
               <input id="promote-button" class="button" type="submit" value="Promote To Admin">
-            </form>
+            {% elif admin == True and member.admin == True %}
+              <input id="message-button" class="button" type="submit" value="Member is already an Admin" onClick="return false">
             {% endif %}
+            </form>
           </li>
         {% endfor %}
         </ul>
@@ -37,5 +41,6 @@
         <input id="join-club-button" class="button" type="submit" value="Join Club">
         {% endif %}
       </form>
+</div>
 
 {% endblock %}
