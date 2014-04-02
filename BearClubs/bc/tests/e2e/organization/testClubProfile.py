@@ -7,7 +7,7 @@ from django.utils import unittest, timezone
 
 from BearClubs.bc.models import Event, Organization, OrganizationType, User, UserToEvent, UserToOrganization
 
-class UserToOrganizationtMappingTests(TestCase):
+class clubProfileTests(TestCase):
 
     client = Client();
 
