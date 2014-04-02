@@ -45,15 +45,15 @@ class SearchUnitTests(TestCase):
 
     def testUserIndex(self):
         results = haystack.query.SearchQuerySet().models(User).all()
-        assert results.count() == User.objects.count()
+        assert results.count() == User.objects.count(), "Got %d; expected %d" % (results.count(), User.objects.count());
 
     def testOrganizationIndex(self):
         results = haystack.query.SearchQuerySet().models(Organization).all()
-        assert results.count() == Organization.objects.count()
+        assert results.count() == Organization.objects.count(), "Got %d; expected %d" % (results.count(), Organization.objects.count());
 
     def testEventIndex(self):
         results = haystack.query.SearchQuerySet().models(Event).all()
-        assert results.count() == Event.objects.count()
+        assert results.count() == Event.objects.count(), "Got %d; expected %d" % (results.count(), Event.objects.count());
 
     def tearDown(self):
         management.call_command('clear_index', interactive=False, verbosity=0)
