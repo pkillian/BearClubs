@@ -30,6 +30,7 @@ class Event(models.Model):
 
     def get_absolute_url(self):
         return ''
+        # return reverse('event', args=[self.id]);
 
     def __unicode__(self):
         return 'Event: %s' % (self.name)
