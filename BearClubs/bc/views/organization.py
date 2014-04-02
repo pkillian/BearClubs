@@ -4,6 +4,7 @@ from django.core.context_processors import csrf
 
 from BearClubs.bc.forms.organization import AddClubForm
 from BearClubs.bc.models.organization import Organization
+from BearClubs.bc.models.mappings import UserToOrganization
 
 def directory(request):
     total_clubs = Organization.objects.count();
@@ -41,9 +42,17 @@ def clubProfile(request, organization_id):
 
     return render(request, 'clubProfile.html', args);
 
+@login_required(login_url='/login')
 def joinClub(request, organization_id):
     if request.user.is_authenticated:
-        UserToOrganization.objects.save(user=request.user);
+        user = request.user;
+        org = Organization.objects.get(id=organization_id);
+        user.save();
+        org.save();
+        uto = UserToOrganization(user=user)
+        uto.save();
+        uto.organization.add(org);
+        uto.save();
 
         args = {}
         args['club'] = Organization.objects.get(id=organization_id);
