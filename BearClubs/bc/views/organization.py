@@ -74,21 +74,14 @@ def clubProfile(request, organization_id):
 
 @login_required(login_url='/login')
 def joinClub(request):
-    if request.user.is_authenticated():
-        organization_id = int(request.POST.get('organization_id',''));
+    if request.user.is_authenticated() and request.POST:
+        organization_id = int(request.POST.get('organization_id','-1'));
 
         org = Organization.objects.get(id=organization_id);
+        user = User.objects.get(id=request.user.id);
 
-        org.save();
+        uto = UserToOrganization(user=user, organization=org);
 
-        user = User.objects.get(id=int(request.user.id));
-        user.save();
-
-        #uto = UserToOrganization(user=request.user)
-        uto = UserToOrganization(user=user)
-
-        uto.save();
-        uto.organization.add(org);
         uto.save();
 
     return redirect("/clubs/"+str(organization_id));
