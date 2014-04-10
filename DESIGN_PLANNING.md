@@ -310,6 +310,19 @@ The four user stories involving clubs (View Club Page, Join Club, Add Club Event
 * 1) Create search front-end (nav-bar, results page, etc.) (2 Days)
 * 2) Implement search back-end with caching technologies (SOLR, Redis, etc.) (3 Days)
 
+### Iteration 3
+
+For Iteration 3, we want to further expand on what we accomplished in Iteration 2. We want to elaborate on the basic functionality provided in the User Profile, Club, and Event pages. In addition, we want to begin revamping the BearClubs' UI and begin consolidating and unifying the views to a uniform design and feel.
+
+#### Entire Bear Clubs Team Tasks (These will happen before the start of tasks by any team)
+
+#### Club Team - [Insert name], [Insert name]
+
+#### User Team - [Insert name], [Insert name]
+
+#### Event Team - [Insert name], [Insert name]
+
+#### UI Team - [Insert name], [Insert Name]
 
 ## Testing Plan
 
