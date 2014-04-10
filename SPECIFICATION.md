@@ -190,6 +190,18 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | Members promoted has full admin priviledges (create events for now)       |
 | Iteration:        | 2                                                                              |
 
+#### Iteration 3 User Stories:
+
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Add Club Creator as Admin                                                      |
+| Actors:           | General User                                                                   |
+| Triggers:         | Click on Submit button of the create club page                                 |
+| Precondition:     | User is signed in                                                              |
+| Actions:          | Redirect to club directory(?)                                                  |
+| Postconditions:   | User is now a member of the club with admin privileges // User is listed under the members section on the club page                                |
+| Acceptance Tests: | The club creator has full admin priviledges                                    |
+| Iteration:        | 3                                                                              |
 
 ### User Stories For Future Iterations:
 
