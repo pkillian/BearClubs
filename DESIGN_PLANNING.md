@@ -318,6 +318,16 @@ For Iteration 3, we want to further expand on what we accomplished in Iteration 
 
 #### Club Team - [Insert name], [Insert name]
 
+* Number of Days to Develop: 4
+* Number of Days to Test: 2
+
+###### Sub-tasks
+
+* 1) Allow club creator to register as club admin through front end functionality (2 days)
+* 2) Add front end UI functionality to allow admins to promote existing club members to admin (2 days)
+
+
+
 #### User Team - [Insert name], [Insert name]
 
 #### Event Team - [Insert name], [Insert name]
