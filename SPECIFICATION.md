@@ -257,4 +257,28 @@ A single user can be any combination of the following actors:
 
 ## User Interface Requirements
 
+### Screenshots after Iteration 2
+
+#### Club and Event Directories
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.47.45%20AM.png)
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.48.52%20AM.png)
+
+#### Add Element Form Example
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.48.40%20AM.png)
+
+#### Search Functionality
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.48.57%20AM.png)
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.50.43%20AM.png)
+
+#### User Login Form Functionality
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.50.50%20AM.png)
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.51.07%20AM.png)
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.51.17%20AM.png)
+
+#### User Profile and Dashboard Views
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.51.46%20AM.png)
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.51.49%20AM.png)
+
+
+### Initial Sketches
 ![UI Requirements](https://dl.dropboxusercontent.com/u/632568/CS169_proj3.png)
