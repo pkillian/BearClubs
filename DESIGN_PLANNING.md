@@ -54,8 +54,8 @@ Our backend will be written in Django. The server will process incoming requests
 We will be using SQLite for local development, and PostgreSQL on production. We chose local SQLite for speed of development and ease of use, and production PostgreSQL for scale and performance. Our database will store users and their related profile information, organizations and their related profile information, events and their relevant information, as well as provide mappings between these three main models:  
 
 Users: username, email, first name, last name  
-Organization: name, description, location, contact info, type  
-Event: name, description, start time, end time, location  
+Organization: name, description, location, contact email, organization_type  
+Event: name, description, start time, end time, location, locationlatitude, locationlongitude
 
 We will also have mapping / relational tables to link our users to organizations and events to organizations; a rudimentary diagram is shown below, and will be updated with future iterations.
 
@@ -68,6 +68,7 @@ We will also have mapping / relational tables to link our users to organizations
 | Field             | Description                            |
 | ----------------- |:---------------------------------------|
 | username          | required unique char(128)              |
+| password          | required unique char(128)              |
 | email             | required unique char(128)              |
 | first\_name       | required char(128)                     |
 | last\_name        | required char(128)                     |
@@ -83,6 +84,8 @@ We will also have mapping / relational tables to link our users to organizations
 | location_long     | double                            |
 | contact\_info     | char(128)                         |
 | type              | required foreign key org_type(id) |
+| created_at        | DateTime                          |   
+| updated_at        | DateTime                          |
 
 ###### ORGANIZATION_TYPE
 
@@ -90,6 +93,8 @@ We will also have mapping / relational tables to link our users to organizations
 | ----------------- |:----------------------------------|
 | name              | required char(128)                |
 | description       | required textblob                 |
+| created_at        | DateTime                          |   
+| updated_at        | DateTime                          |
 
 ###### EVENT
 
@@ -103,6 +108,8 @@ We will also have mapping / relational tables to link our users to organizations
 | location_lat      | double                                |
 | location_long     | double                                |
 | org\_id           | required foreign key organization(id) |
+| created_at        | DateTime                          |   
+| updated_at        | DateTime                          |
 
 ##### Mappings / Relations
 
@@ -139,6 +146,7 @@ For iteration 1, our algorithms are trivial. In future iterations, algorithms th
 
 * Calendar to User mapping algorithm
 * Algorithms that concern live-updating members of club updates
+* Algorithms that concern integrating organizations and events
 * Authentication and permissions algorithms concerning admins/officers of clubs
 * Complex search algorithms
     * Distinguishing between users, clubs, events, etc.
@@ -230,6 +238,11 @@ Iteration 1 only describes two major class implementations initially; `User` and
     * Accessor methods; `getUsers(admin_level)`, `getAdmins()`, `getOfficers()`, `getOrgName()`, etc.
     * Authentication methods; `getUserAuthLevel(user_id)`, `grantUserAdmin(user_id`, etc.
     * Authentication methods will be limited to entities with admin rights for each organization to prevent members from promoting themselves, demoting others, and other sensitive operations (future iterations)
+
+Iteration 2 describes an additional major class implementation: `Event`
+
+* Event :: Event model interactions with user and organization objects
+    * Accessor methods; `get_abosolute_url`
 
 ## Implementation Plan
 
