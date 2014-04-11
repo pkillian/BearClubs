@@ -72,6 +72,8 @@ We will also have mapping / relational tables to link our users to organizations
 | email             | required unique char(128)              |
 | first\_name       | required char(128)                     |
 | last\_name        | required char(128)                     |
+| created_at        | DateTime                          |   
+| updated_at        | DateTime                          |
 
 ###### ORGANIZATION
 
