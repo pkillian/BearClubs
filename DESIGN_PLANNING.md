@@ -1,16 +1,17 @@
 BearClubs  
 Design and Planning Document  
-*03/21/2014, version 2.0*  
+*04/11/2014, version 3.0*  
 
 # BearClubs
 
 A tool for connecting students and organizations at UC Berkeley.
 
-## Changelog *v2.0*
+## Changelog *v3.0*
 * Bump date and revision
-* Removed iteration 1 user stories from implementation plan; left summary for browsing purposes
-* Add iteration 2 user stories and tasks to implementation plan
-* Assign new teams for iteration 2
+* Added Haystack/ElasticSearch to System Architecture
+* Removed iteration 2 user stories from implementation plan; left summary for browsing purposes
+* Add iteration 3 user stories and tasks to implementation plan
+* Assign new teams for iteration 3
 * Fixed various typos
 
 ## System Architecture
@@ -20,6 +21,8 @@ A tool for connecting students and organizations at UC Berkeley.
 We will be creating a client-server web application. We will follow a Model-View-Controller (MVC) pattern, using HTML5/JavaScript for the client and Django for the server side. The key components in this system will be:
 
 * Database: We will store relevant raw data/information about our users, organizations, and events in a database.
+
+* Search Database / Cache: We're using Haystack and ElasticSearch for our dynamic search capabilities. These frameworks and technologies will cache intermediate results after database records are created / updated / destroyed.
 
 * Backend Server: The server will be implemented in Django. It will access the database for raw data and communicate with the client for sending and receiving data requests/responses.
 
