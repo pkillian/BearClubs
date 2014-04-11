@@ -190,6 +190,16 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | Members promoted has full admin priviledges (create events for now)       |
 | Iteration:        | 2                                                                              |
 
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Search Autocomplete                                                                     |
+| Actors:           | General User                                                                  |
+| Triggers:         | Click search button on header                                         |
+| Precondition:     | N/A                         |
+| Actions:          | Start typing in search field                                          |
+| Postconditions:   | Relevant search results are presented to the user                             |
+| Acceptance Tests: | Search results are relevant to search query       |
+| Iteration:        | 3                                                                              |
 
 ### User Stories For Future Iterations:
 
