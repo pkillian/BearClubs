@@ -332,6 +332,14 @@ For Iteration 3, we want to further expand on what we accomplished in Iteration 
 
 #### Event Team - [Insert name], [Insert name]
 
+* Number of Days to Develop:
+* Number of Days to Test:
+
+###### Sub-tasks
+
+* 1) Implement view for User to view details on a specific Event listed on the event directory page. ()
+* 2) Provide front-end functionality to allow the club admin to add an event. ()
+
 #### UI Team - [Insert name], [Insert Name]
 
 ## Testing Plan
