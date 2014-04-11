@@ -330,6 +330,14 @@ For Iteration 3, we want to further expand on what we accomplished in Iteration 
 
 #### User Team - [Insert name], [Insert name]
 
+* Number of Days to Develop:
+* Number of Days to Test:
+
+###### Sub-tasks
+
+* 1)  Implement frontend functionality to allow signed in Users to subscribe to a club. ()
+* 2)  Implement back-end functionality to allow subscribed users to see club events. ()
+
 #### Event Team - [Insert name], [Insert name]
 
 * Number of Days to Develop:
