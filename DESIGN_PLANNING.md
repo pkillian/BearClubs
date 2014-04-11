@@ -269,7 +269,7 @@ For Iteration 3, we want to further expand on what we accomplished in Iteration 
 
 #### Entire Bear Clubs Team Tasks (These will happen before the start of tasks by any team)
 
-#### Club Team - [Insert name], [Insert name]
+#### Club Team - Tiffany, [Insert name]
 
 * Number of Days to Develop: 4
 * Number of Days to Test: 2
