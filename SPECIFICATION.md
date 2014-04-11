@@ -1,15 +1,16 @@
 BearClubs  
 Requirements and Specification Document  
-*03/21/2014, version 2.0*  
+*04/11/2014, version 3.0*  
 
 # BearClubs
 
 A tool for connecting students and organizations at UC Berkeley.
 
-## Changelog *v2.0*
+## Changelog *v3.0*
 * Bump date and revision
-* Add user stories for iteration 2
+* Add user stories for iteration 3
 * Add more future user stories
+* Added screenshots and subheaders to UI section
 
 ## Project Abstract
 
