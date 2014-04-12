@@ -279,7 +279,7 @@ For Iteration 3, we want to further expand on what we accomplished in Iteration 
 * 1) Allow club creator to register as club admin through front end functionality (2 days)
 * 2) Add front end UI functionality to allow admins to promote existing club members to admin (2 days)
 
-#### User Team - Patrick, [Insert name]
+#### User Team - Patrick, Peter
 
 * Number of Days to Develop: 4 days
 * Number of Days to Test: 3 days
@@ -289,7 +289,7 @@ For Iteration 3, we want to further expand on what we accomplished in Iteration 
 * 1)  Implement frontend functionality to allow signed in Users to subscribe to a club. (1 day)
 * 2)  Implement back-end functionality to allow subscribed users to see club events. (3 days)
 
-#### Event Team - [Insert name], [Insert name]
+#### Event Team - Peter, Tiffany
 
 * Number of Days to Develop: 3 days
 * Number of Days to Test: 3 days
