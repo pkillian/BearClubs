@@ -1,15 +1,16 @@
 BearClubs  
 Requirements and Specification Document  
-*03/21/2014, version 2.0*  
+*04/11/2014, version 3.0*  
 
 # BearClubs
 
 A tool for connecting students and organizations at UC Berkeley.
 
-## Changelog *v2.0*
+## Changelog *v3.0*
 * Bump date and revision
-* Add user stories for iteration 2
+* Add user stories for iteration 3
 * Add more future user stories
+* Added screenshots and subheaders to UI section
 
 ## Project Abstract
 
@@ -190,6 +191,8 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | Members promoted has full admin priviledges (create events for now)       |
 | Iteration:        | 2                                                                              |
 
+#### Iteration 3 User Stories:
+
 | Field             | Description                                                                    |
 | ----------------- |:-------------------------------------------------------------------------------|
 | Name/Requirement: | Search Autocomplete                                                                     |
@@ -201,15 +204,92 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | Search results are relevant to search query       |
 | Iteration:        | 3                                                                              |
 
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Add Club Creator as Admin                                                      |
+| Actors:           | General User                                                                   |
+| Triggers:         | Click on Submit button of the create club page                                 |
+| Precondition:     | User is signed in                                                              |
+| Actions:          | Redirect to club directory(?)                                                  |
+| Postconditions:   | User is now a member of the club with admin privileges // User is listed under the members section on the club page                                |
+| Acceptance Tests: | The club creator has full admin priviledges                                    |
+| Iteration:        | 3                                                                              |
+
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Add Event as Admin                                                    |
+| Actors:           | Existing Organization Admin                                                                  |
+| Triggers:         | Click on Add event button                                |
+| Precondition:     | User is signed in, and is admin of club                                                            |
+| Actions:          | Present add event dialog                                                  |
+| Postconditions:   | User can now see events under events tab                                 |
+| Acceptance Tests: | User can only add a event with proper input // Assure user sees new event under events tab                                 |
+| Iteration:        | 3                                                                              |
+
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Subscribe to Club                                                 |
+| Actors:           | General User                                                                 |
+| Triggers:         | Click on Subscribe button                               |
+| Precondition:     | User is signed in                                                           |
+| Actions:          | Present subscribe club dialog                                                 |
+| Postconditions:   | User is now a member of club, user can now see events of club on profile                               |
+| Acceptance Tests: | User logged as member in database                         |
+| Iteration:        | 3                                                                              |
+
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Manage Club Membership                                               |
+| Actors:           | Existing Organization Admin                                                                |
+| Triggers:         | Click on Manage button                               |
+| Precondition:     | User is signed in, and is admin of club                                                           |
+| Actions:          | Present manage club dialog                                                 |
+| Postconditions:   | User can now promote members to admin                               |
+| Acceptance Tests: | Club member has full admin privieleges                       |
+| Iteration:        | 3                                                                              |
+
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | View Event Page                                                                 |
+| Actors:           | General User                                                                   |
+| Triggers:         | Click on Event in Event Directory View                                                |
+| Precondition:     | User is looking at event directory                                              |
+| Actions:          | User views specific event page with prepopulated information                    |
+| Postconditions:   | User now learns more about specific event and can navigate back to directory    |
+| Acceptance Tests: | Assure that Event page is populated with info added when "Adding a Event"        |
+| Iteration:        | 3                                                                             |
+
 ### User Stories For Future Iterations:
 
 * First time user tutorial
 * Sign In With CalNet
 * View your Calendar
-* Subscribe To Club
 * Edit Club Page (Admin)
-* Manager Club Membership (Admin)
 
 ## User Interface Requirements
 
+### Screenshots after Iteration 2
+
+#### Club and Event Directories
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.47.45%20AM.png)
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.48.52%20AM.png)
+
+#### Add Element Form Example
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.48.40%20AM.png)
+
+#### Search Functionality
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.48.57%20AM.png)
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.50.43%20AM.png)
+
+#### User Login Form Functionality
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.50.50%20AM.png)
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.51.07%20AM.png)
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.51.17%20AM.png)
+
+#### User Profile and Dashboard Views
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.51.46%20AM.png)
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-11%20at%2010.51.49%20AM.png)
+
+
+### Initial Sketches
 ![UI Requirements](https://dl.dropboxusercontent.com/u/632568/CS169_proj3.png)

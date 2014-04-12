@@ -1,16 +1,17 @@
 BearClubs  
 Design and Planning Document  
-*03/21/2014, version 2.0*  
+*04/11/2014, version 3.0*  
 
 # BearClubs
 
 A tool for connecting students and organizations at UC Berkeley.
 
-## Changelog *v2.0*
+## Changelog *v3.0*
 * Bump date and revision
-* Removed iteration 1 user stories from implementation plan; left summary for browsing purposes
-* Add iteration 2 user stories and tasks to implementation plan
-* Assign new teams for iteration 2
+* Added Haystack/ElasticSearch to System Architecture
+* Removed iteration 2 user stories from implementation plan; left summary for browsing purposes
+* Add iteration 3 user stories and tasks to implementation plan
+* Assign new teams for iteration 3
 * Fixed various typos
 
 ## System Architecture
@@ -20,6 +21,8 @@ A tool for connecting students and organizations at UC Berkeley.
 We will be creating a client-server web application. We will follow a Model-View-Controller (MVC) pattern, using HTML5/JavaScript for the client and Django for the server side. The key components in this system will be:
 
 * Database: We will store relevant raw data/information about our users, organizations, and events in a database.
+
+* Search Database / Cache: We're using Haystack and ElasticSearch for our dynamic search capabilities. These frameworks and technologies will cache intermediate results after database records are created / updated / destroyed.
 
 * Backend Server: The server will be implemented in Django. It will access the database for raw data and communicate with the client for sending and receiving data requests/responses.
 
@@ -275,56 +278,52 @@ For Iteration 2, we want to implement basic functionality concerning User Profil
 
 The four user stories involving clubs (View Club Page, Join Club, Add Club Event, Edit Club Event) all have dependencies on each other because we want to keep an unified front-end and make sure that they are implemented under the assumptions of a standard organization and event model. The two user stories involving users (View User Dashboard, View User Profile) also have dependencies on each other because want to keep an unified front-end. Search will have dependencies on the finalized models. If a team feels as if a model must change for implemenation sake, the search team must be notified.
 
-##### Entire BearClubs Team Tasks (These will happen before the start of tasks by any team)
+### Iteration 3
 
-##### Club Team - Tiffany, Shubham
+For Iteration 3, we want to further expand on what we accomplished in Iteration 2. We want to elaborate on the basic functionality provided in the User Profile, Club, and Event pages. In addition, we want to begin revamping the BearClubs UI and begin consolidating and unifying the views to a uniform design and feel.
 
-* Number of Days to Develop: 8
+#### Entire Bear Clubs Team Tasks (These will happen before the start of tasks by any team)
+
+#### Club Team - Tiffany, Shubham
+
+* Number of Days to Develop: 4
 * Number of Days to Test: 2
 
 ###### Sub-tasks
 
-* 1) Build out routes to handle viewing and joining a club (1 Day)
-* 2) Create front-end for viewing club profiles; coherant layout and display of information (2 Days)
-* 3) Create front-end functionality for joining a club (1 Day)
-* 4) Implement back-end interactions for interacting with club models (joining, etc.) (3 Days)
-* 5) Build out routes to handle viewing existing members and promoting them to admins (1 Day)
+* 1) Allow club creator to register as club admin through front end functionality (2 days)
+* 2) Add front end UI functionality to allow admins to promote existing club members to admin (2 days)
 
-##### User Team - Patrick
+#### User Team - Patrick, Peter
 
-* Number of Days to Develop: 8
-* Number of Days to Test: 2
+* Number of Days to Develop: 4 days
+* Number of Days to Test: 3 days
 
 ###### Sub-tasks
 
-* 1) Build out routes to handle user dashboard and profile endpoints (1 Day)
-* 2) Create front-end for viewing subscribed entities (club updates, events, etc.) (2 Days)
-* 3) Create back-end for pub/sub model of following subscribed entities (3 Days)
-* 4) Implement in-links on other views that allow for access to the dashboard and profile pages (1 Day)
-* 5) Create back-end for user-admin-club relationship table (1 Day)
+* 1)  Implement frontend functionality to allow signed in Users to subscribe to a club. (1 day)
+* 2)  Implement back-end functionality to allow subscribed users to see club events. (3 days)
 
-##### Event Team - Alex, Kevin
+#### Event Team - Peter, Tiffany
 
-* Number of Days to Develop: 7
-* Number of Days to Test: 2
+* Number of Days to Develop: 3 days
+* Number of Days to Test: 3 days
 
 ###### Sub-tasks
 
-* 1) Build out routes to handle adding and editing an event (1 Day)
-* 2) Create front-end for viewing club profiles; coherant layout and display of information (2 Days)
-* 3) Create front-end functionality for joining a club (1 Day)
-* 4) Implement back-end processes for interacting with club models (joining, etc.) (3 Days)
+* 1) Implement view for User to view details on a specific Event listed on the event directory page. (2 days)
+* 2) Provide front-end functionality to allow the club admin to add an event. (1 day)
 
-##### Search Team - Peter
+#### UI Team - Kevin, Patrick
 
-* Number of Days to Develop: 5
-* Number of Days to Test: 2
+* Number of Days to Develop: 8 days
+* Number of Days to Test: 2 days
 
-##### Sub-tasks
+###### Sub-tasks
 
-* 1) Create search front-end (nav-bar, results page, etc.) (2 Days)
-* 2) Implement search back-end with caching technologies (SOLR, Redis, etc.) (3 Days)
-
+* 1) Identify a new style for all views to conform with (3 days)
+* 2) Identify all pages and group them into various 'buckets' (ie. form, table view, display, etc.) (2 days)
+* 3) Implement site-wide style changes, build out any outstanding components (ie. headers, footers, etc.) (3 days)
 
 ## Testing Plan
 
