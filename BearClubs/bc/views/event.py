@@ -6,6 +6,12 @@ from django.core.exceptions import ValidationError
 from BearClubs.bc.models.event import Event
 from BearClubs.bc.forms.event import AddEventForm
 
+def eventProfile(request, event_id):
+    args = {}
+    args['event'] = Event.objects.get(id=event_id);
+
+    return render(request, 'eventProfile.html', args);
+
 def eventDirectory(request):
     total_events = Event.objects.count();
     view_args = {};
