@@ -98,7 +98,14 @@ def addClub(request):
         # check if form is valid
         if form.is_valid():
             # add the club
-            form.save();
+            org = form.save();
+
+            # get club creator
+            user = User.objects.get(id=request.user.id);
+
+            # add club creator to club as admin
+            uto = UserToOrganization(user=user, organization=org, admin=True);
+            uto.save();
 
             # go to directory
             return redirect('/clubs');
