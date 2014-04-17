@@ -10,6 +10,7 @@ html {
 
   .antialiased-fonts();
   .crisp-image-render();
+  background-color:#fff;
 }
 
 body {
@@ -43,10 +44,6 @@ body {
 
   background-color: @header-background-color;
 
-  .border-top(@line-width: 4px);
-  .border-bottom(@line-color: @header-border-color, @line-width: 1px);
-
-  .box-shadow-bottom(@blur: 14px; @shad-color: @header-shadow-color);
 }
 
 #header-content {
@@ -112,17 +109,16 @@ body {
     height: 60px;
     min-width: 60px;
 
-    float: left;
-
-    .border-right(@line-color: @header-border-color, @line-width: 1px);
+    float: right;
 
     div {      
       margin:   20px 0;
       padding:  0 30px;
 
-      font-family:  'Maven Pro', sans-serif;
+      font-family:  'Montserrat', sans-serif;
       font-weight:  400;
-      font-size:    14pt;
+      font-size:    12pt;
+      text-rendering: optimizeLegibility;
 
       line-height:  20px;
       text-align:   center;
@@ -131,24 +127,23 @@ body {
 }
 
 #wrapper {
-  width:  960px;
-  height: auto;
+  width: 100%;
 
-  margin:   0 auto;
-  padding:  0 12px 12px 12px;
+  background-color: @header-logo-background-color;
 
   overflow: hidden;
 }
 
 #content {
-  min-height: 650px;
-  width:  960px;
+  min-height: 640px;
+  width: 100%;
 
-  margin: 90px 0 0 0;
+  margin: 50px auto 0 auto;
 
-  font-family:  'Maven Pro', sans-serif;
+  font-family:  'Montserrat', sans-serif;
   font-weight:  400;
   font-size:    14px;
+  background-color: #fff;
 
   a {
     text-decoration: none;
@@ -158,7 +153,7 @@ body {
   .content-div div {
     text-align: center;
 
-    font-family:  'Maven Pro', sans-serif;
+    font-family:  'Montserrat', sans-serif;
     font-weight:  400;
     font-size:    24px;
 
@@ -172,7 +167,9 @@ body {
     height: 200px;
     width:  100%;
 
-    margin-top: 20px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
 
     display: inline-block;
     .no-background();
@@ -211,15 +208,117 @@ body {
   .col-div-thirds:nth-child(2) {
     margin-right: 20px;
   }
+
+  
+}
+
+#welcome-header {
+  min-height: auto;
+  width:  100%;
+
+  margin: 150px auto 0 auto;
+
+  background-color: @header-background-color;
+
+  font-family:  'Montserrat', sans-serif;
+
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    text-align: center;
+
+  }
+
+  .content-div,
+  .content-div div {
+    text-align: center;
+
+    font-family:  'Montserrat', sans-serif;
+    font-weight:  400;
+    font-size:    24px;
+
+    color: @content-text-color;
+
+    .border-radius(4px);
+    background-color: @content-div-background-color;
+  }
+
+  .row-container {
+    height: 200px;
+    width:  100%;
+
+    margin-top: 100px;
+
+    display: inline-block;
+    .no-background();
+  }
+
+  .btn-login {
+    text-decoration: none;
+    background-color: #06ba8f;
+    color: #fff;
+
+    display: inline-block;
+    margin-bottom: 0;
+    
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    line-height: 1.333333333;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    width: 260px;
+    font-size: 24px;
+    font-family:  'Montserrat', sans-serif;
+  }
+
+   .btn-signup {
+    text-decoration: none;
+    background-color: #fdb515;
+    color: #fff;
+
+    display: inline-block;
+    margin-bottom: 0;
+    
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    line-height: 1.333333333;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    width: 260px;
+    font-size: 24px;
+    font-family:  'Montserrat', sans-serif;
+  }
+
 }
 
 #footer {
   height: 160px;
+  width: 100%;
 
-  margin-top: 40px;
+  margin-top: 0px;
 
-  background-repeat: repeat;
-  background-image:  @footer-background-image;
+  background-color: #2f2f2f;
 
   .box-shadow-top(@blur: 14px; @shad-color: @footer-shadow-color);
 }
@@ -230,4 +329,5 @@ body {
 
   margin: 0 auto;
 }
+
 

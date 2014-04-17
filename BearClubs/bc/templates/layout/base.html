@@ -28,6 +28,10 @@
     {% show_header %}
 
     <div id="wrapper">
+      <div id="welcome-header">
+        {% block header_content %}
+        {% endblock %}
+      </div>
       <div id="content">
         {% block main_content %}
         {% endblock %}
