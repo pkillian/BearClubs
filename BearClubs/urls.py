@@ -35,5 +35,5 @@ urlpatterns = patterns('',
     url(r'^events/?$',                           views.eventDirectory,      name='eventDirectory'),
     url(r'^events/new/?$',                       views.addEvent,            name='addEvent'),
     
-    url(r'^clubs/(?P<organization_id>\d+)/manage/?$',  views.manage,        name='manage'),
+    url(r'^clubs/(?P<organization_id>\d+)/manage_members/?$',  views.manage,        name='manage'),
 )
