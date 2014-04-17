@@ -7,6 +7,9 @@ from BearClubs.bc.models.organization import Organization
 from BearClubs.bc.models.user import User
 from BearClubs.bc.models.mappings import UserToOrganization
 
+def __unicode__(self):
+    return self.name;
+
 def directory(request):
     total_clubs = Organization.objects.count();
     view_args = {};
