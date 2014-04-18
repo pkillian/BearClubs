@@ -15,7 +15,7 @@ class SearchAutocompleteEndToEndTests(TestCase):
 
     def setUp(self):
         haystack.connections.reload('test')
-        super(SearchEndToEndTests, self).setUp()
+        super(SearchAutocompleteEndToEndTests, self).setUp()
         self.client = Client()
 
         bus_org_type = OrganizationType.objects.get(name='Business');

@@ -20,7 +20,7 @@ class SearchAutocompleteUnitTests(TestCase):
 
     def setUp(self):
         haystack.connections.reload('test')
-        super(SearchUnitTests, self).setUp()
+        super(SearchAutocompleteUnitTests, self).setUp()
 
         bus_org_type = OrganizationType.objects.get(name='Business');
         cs_org_type = OrganizationType.objects.get(name='Computer Science');
