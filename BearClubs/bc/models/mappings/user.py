@@ -60,6 +60,16 @@ class UserToEvent(models.Model):
         ute_objects = UserToEvent.objects.filter(user=user.id);
         return [ute.event for ute in ute_objects];
 
+    @staticmethod
+    def userSubscribedToEvent(user=None, event=None):
+        if (not user) or (not event):
+            return False;
+
+        if event in UserToEvent.getEventsForUser(user):
+            return True;
+
+        return False;
+
     class Meta:
         app_label = 'bc';
         db_table  = 'bc_user_to_event';

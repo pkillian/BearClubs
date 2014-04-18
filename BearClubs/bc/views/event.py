@@ -3,12 +3,21 @@ from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
 from django.core.exceptions import ValidationError
 
-from BearClubs.bc.models.event import Event
 from BearClubs.bc.forms.event import AddEventForm
+from BearClubs.bc.models.mappings.user import UserToEvent
+from BearClubs.bc.models.event import Event
+from BearClubs.bc.models.user import User
 
 def eventProfile(request, event_id):
     args = {}
-    args['event'] = Event.objects.get(id=event_id);
+    
+    event = Event.objects.get(id=event_id);
+    user = User.objects.get(id=request.user.id);
+
+    if UserToEvent.userSubscribedToEvent(user=request.user, event=event):
+        args['subscribed'] = True;
+
+    args['event'] = event;
 
     return render(request, 'eventProfile.html', args);
 
@@ -67,3 +76,41 @@ def addEvent(request):
         args.update(csrf(request));
         args['form'] = AddEventForm(request.user);
         return render(request, 'addEvent.html', args);
+
+@login_required(login_url='/login')
+def subscribe(request):
+    args = {};
+    event_id = None;
+
+    if request.POST:
+        user = User.objects.get(id=request.user.id);
+        
+        event_id = request.POST['event_id'];
+        event = Event.objects.get(id=event_id);
+
+        ute = UserToEvent(user=user, event=event);
+        ute.save();
+
+    else:
+        return eventDirectory(request);
+
+    return eventProfile(request, event_id);
+
+@login_required(login_url='/login')
+def unsubscribe(request):
+    args = {};
+    event_id = None;
+
+    if request.POST:
+        user = User.objects.get(id=request.user.id);
+
+        event_id = request.POST['event_id'];
+        event = Event.objects.get(id=event_id);
+
+        ute = UserToEvent.objects.get(user=user, event=event);
+        ute.delete();
+
+    else:
+        return eventDirectory(request);
+
+    return eventProfile(request, event_id);
