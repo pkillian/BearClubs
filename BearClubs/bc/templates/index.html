@@ -1,20 +1,21 @@
 {% extends "layout/base.html" %}
 
-{% block header_content %}
+{% block welcome_header %}
 
-  <h2>
-    Get connected at Berkeley.
-  </h2>
-  <div class="content-div row-container">
-    <a href="#" class="btn-login">Login</a>
-    <a href="#" class="btn-signup">Sign Up</a>
+  <div id="welcome-header">
+    <h2>
+      Get connected at Berkeley.
+    </h2>
+    <div class="content-div row-container">
+      <a href="#" class="btn-login">Login</a>
+      <a href="#" class="btn-signup">Sign Up</a>
+    </div>
   </div>
 
 {% endblock %}
 
 {% block main_content %}
  
-  
   <div class="content-div row-container">
     <div class="col-div">
       <img src="../static/img/map-icon.png" alt="Map">
@@ -39,4 +40,5 @@
       <h3> Create a profile to keep up with everything!</h3>
     </div>
   </div>
+
 {% endblock %}

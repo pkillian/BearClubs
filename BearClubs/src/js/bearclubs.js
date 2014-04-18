@@ -54,12 +54,12 @@ var BearClubs = BearClubs || {};
         if (toggle) {
             // Show the header
             $('#header').animate({height: that.headerHeight + 'px'}, 'fast', function() {
-                $('#header').css('border-bottom-style', 'solid');
+                // $('#header').css('border-bottom-style', 'solid');
             });
         } else {
             // Hide the header
             $('#header').animate({height: '0px'}, 'fast', function() {
-                $('#header').css('border-bottom-style', 'none');
+                // $('#header').css('border-bottom-style', 'none');
             });
         }
 
