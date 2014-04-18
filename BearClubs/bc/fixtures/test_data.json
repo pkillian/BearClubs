@@ -1,0 +1,59 @@
+[
+  {
+    "model": "bc.user",
+    "pk": 1,
+    "fields": {}
+  },
+  {
+    "model": "bc.organizationtype",
+    "pk": 1,
+    "fields": {
+      "name": "Business",
+      "description": "Business organizations"
+    }
+  },
+  {
+    "model": "bc.organizationtype",
+    "pk": 2,
+    "fields": {
+      "name": "Computer Science",
+      "description": "Computer Science organizations"
+    }
+  },
+  {
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "test", 
+        "first_name": "", 
+        "last_name": "", 
+        "is_active": true, 
+        "is_superuser": false, 
+        "is_staff": false, 
+        "last_login": "2014-04-18T04:10:07.258Z", 
+        "groups": [], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$12000$23ty2XPOQrek$WmhE0AqVjjCqfSEgIt7vNZqiV1zjZW6nhN3p+jJDRZ0=", 
+        "email": "test@gmail.com", 
+        "date_joined": "2014-04-18T04:09:38.543Z"
+    }
+},
+{
+    "pk": 2, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "tester1", 
+        "first_name": "", 
+        "last_name": "", 
+        "is_active": true, 
+        "is_superuser": false, 
+        "is_staff": false, 
+        "last_login": "2014-04-18T04:09:52.920Z", 
+        "groups": [], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$12000$MJeFdbsDO1sw$K9nikfecpG2q2UJTnNzElfrKEoVUtcdvj00fm2rpUtY=", 
+        "email": "tester1@gmail.com", 
+        "date_joined": "2014-04-18T04:09:52.672Z"
+    }
+}
+]

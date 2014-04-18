@@ -20,7 +20,7 @@
     </div>
     <div id="signin" class="section-div">
       <h3 class="signin-title">Sign-In</h3>
-      <form method="post" action="{% url 'BearClubs.bc.views.user.userSignIn' %}">
+      <form class="login" method="post" action="{% url 'BearClubs.bc.views.user.userSignIn' %}">
         {% csrf_token %}
         {% if signin_form.non_field_errors %}
           <div class="form_item_wrapper">
