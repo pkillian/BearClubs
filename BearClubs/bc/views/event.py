@@ -11,11 +11,14 @@ from BearClubs.bc.models.user import User
 def eventProfile(request, event_id):
     args = {}
     
+    user = None;
     event = Event.objects.get(id=event_id);
-    user = User.objects.get(id=request.user.id);
 
-    if UserToEvent.userSubscribedToEvent(user=request.user, event=event):
-        args['subscribed'] = True;
+    if request.user.is_authenticated():
+        user = User.objects.get(id=request.user.id);
+        
+        if UserToEvent.userSubscribedToEvent(user=request.user, event=event):
+            args['subscribed'] = True;
 
     args['event'] = event;
 
