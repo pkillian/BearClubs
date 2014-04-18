@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from BearClubs.bc.forms import AddEventForm
-from BearClubs.bc.models import User, Organization, OrganizationType, Event
+from BearClubs.bc.models import User, Organization, OrganizationType, Event, UserToOrganization
 from django.utils import timezone
 import datetime
 
@@ -31,10 +31,13 @@ class AddEventFunctionalTests(TestCase):
 
 
     	self.c = Client();
-    	self.c.login(username='test', password='1234');
+
 
         Organization(name="Test Club", description="Club Description", contact_email="test@test.com", organization_type=bus_org_type).save();
         self.club = Organization.objects.get(name="Test Club");
+
+        self.uto = UserToOrganization(user=self.user, organization=self.club, admin=True).save();
+        self.c.login(username='test', password='1234');
 
     def tearDown(self):
         self.c.logout();
