@@ -30,6 +30,8 @@ class AdminTests(TestCase):
     	Tests that the club creator is automatically added as a member to the club and is an admin.
     	"""
 
+    	self.client.login(username='test', password='1234');
+
         form_data = {
             'name': 'Test Club',
             'description': 'Club Description',
@@ -39,7 +41,7 @@ class AdminTests(TestCase):
 
         response = self.client.post(self.baseURL+'/clubs/new', form_data);
         
-        test_club = Organization.objects.get(name="test org 1");
+        test_club = Organization.objects.get(name="Test Club");
         test_user = User.objects.get(username="test");
 
         self.assertEquals(test_user, UserToOrganization.objects.get(user=test_user, organization=test_club).user);
@@ -119,14 +121,16 @@ class AdminTests(TestCase):
         self.assertFalse(UserToOrganization.objects.get(user=test_user, organization=test_club).admin);
 
 	def testDemoteMembersAsAdmin(self):
+		"""
+    	Tests that an admin of a club can deomote other admins and the selected admins are deomoted to members.
     	"""
-    	Tests that an admin of a club can promote members to admin and members are promoted to admins.
-    	"""
+    	pass;
 
     def testDemoteMembersNotAsAdmin(self):
     	"""
-    	Tests that a regular member cannot promote other members as admins
+    	Tests that a regular member cannot deomote admins to regular members.
     	"""
+    	pass;
     
     def tearDown(self):
         self.client.logout();
