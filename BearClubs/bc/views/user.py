@@ -43,9 +43,10 @@ def profile(request, user_id):
 def promote(request):
     org_id = request.POST.get('org_id', '-1');
     uto_id = request.POST.get('uto_id','-1');
-    uto = UserToOrganization.objects.get(id=uto_id);
-    uto.admin = True;
-    uto.save();
+    if UserToOrganization.objects.get(user=request.user, organization=org_id).admin == True:
+        uto = UserToOrganization.objects.get(id=uto_id);
+        uto.admin = True;
+        uto.save();
 
     return redirect('/clubs/'+str(org_id)+'/manage_members');
 
