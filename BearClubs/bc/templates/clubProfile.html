@@ -14,12 +14,12 @@
       <form method="post" action="{% url 'BearClubs.bc.views.organization.joinClub' %}">
         {% csrf_token %}
         <input type="hidden" name="organization_id" id="organization_id" value='{{ club.id }}'>
-        {% if member == False %}
-        <input id="join-club-button" class="button" type="submit" value="Join Club">
-        {% elif member == True and admin == True %}
+        {% if member == True and admin == True %}
         You are a member and admin of this club.
         {% elif member == True %}
         You are a member of this club.
+        {% else %}
+          <input id="join-club-button" class="button" type="submit" value="Join Club">
         {% endif %}
       </form>
 

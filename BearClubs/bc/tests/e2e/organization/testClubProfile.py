@@ -44,7 +44,7 @@ class clubProfileTests(TestCase):
     	self.assertTrue(self.org1.name in response.content);
         self.assertTrue(self.org1.contact_email in response.content);
         self.assertTrue(self.org1.organization_type.name in response.content);
-        self.assertFalse("Join Club" in response.content);
+        self.assertTrue("Join Club" in response.content);
         self.assertFalse("Manage" in response.content);
 
     def testViewClubLoggedInNotMember(self):
