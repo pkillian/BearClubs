@@ -64,13 +64,25 @@ def profile(request, user_id):
 
 @login_required(login_url='/login')
 def promote(request):
-    org_id = int(request.POST.get('org_id', ''));
-    uto_id = int(request.POST.get('uto_id',''));
-    uto = UserToOrganization.objects.get(id=uto_id);
-    uto.admin = True;
-    uto.save();
+    org_id = request.POST.get('org_id', '-1');
+    uto_id = request.POST.get('uto_id','-1');
+    if UserToOrganization.objects.get(user=request.user, organization=org_id).admin == True:
+        uto = UserToOrganization.objects.get(id=uto_id);
+        uto.admin = True;
+        uto.save();
 
-    return redirect("/clubs/"+str(org_id));
+    return redirect('/clubs/'+str(org_id)+'/manage_members');
+
+@login_required(login_url='/login')
+def demote(request):
+    org_id = request.POST.get('org_id', '-1');
+    uto_id = request.POST.get('uto_id','-1');
+    if UserToOrganization.objects.get(user=request.user, organization=org_id).admin == True:
+        uto = UserToOrganization.objects.get(id=uto_id);
+        uto.admin = False;
+        uto.save();
+
+    return redirect('/clubs/'+str(org_id)+'/manage_members');
 
 def userSignUp(request):
     if request.method == 'POST':

@@ -90,6 +90,39 @@ def joinClub(request):
     return redirect("/clubs/"+str(organization_id));
 
 @login_required(login_url='/login')
+def manage(request, organization_id):
+    args = {};
+
+    if request.user.is_authenticated():
+
+        org = Organization.objects.get(id=organization_id);
+        args['club'] = org;
+
+        user = User.objects.get(id=request.user.id);
+        
+        members = UserToOrganization.objects.filter(organization=org);
+        args['members'] = members;
+
+        args['member'] = False;
+
+        #check if logged-in user is a member of this organization already
+        for member in members:
+            if member.user.username == user.username:
+                args['member'] = True;
+                break;      #to account for the users that joined the club multiple times, but this should not happen anymore
+            else:
+                args['member'] = False;
+
+        #check if current logged-in user is an admin for this organization
+        for member in members:
+            if member.user.username == user.username and member.admin == True:
+                args['admin'] = True;
+                break;      #to account for the users that joined the club multiple times, but this should not happen anymore
+            else:
+                args['admin'] = False;
+    return render(request, 'manage.html', args);
+
+@login_required(login_url='/login')
 def addClub(request):
     args = {};
 
@@ -101,7 +134,14 @@ def addClub(request):
         # check if form is valid
         if form.is_valid():
             # add the club
-            form.save();
+            org = form.save();
+
+            # get club creator
+            user = User.objects.get(id=request.user.id);
+
+            # add club creator to club as admin
+            uto = UserToOrganization(user=user, organization=org, admin=True);
+            uto.save();
 
             # go to directory
             return redirect('/clubs');
