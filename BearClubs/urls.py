@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^search/',                             include('haystack.urls'),  name = 'search'),
+    url(r'^search/autocomplete',        views.autocomplete,           name='search_autocomplete'),
     url(r'^$',                          views.index,            name='index'),
     url(r'^index/?$',                   views.index,            name='index'),
     url(r'^index\.html/?$',             views.index,            name='index'),
