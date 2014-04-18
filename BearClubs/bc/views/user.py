@@ -5,14 +5,26 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 
 from BearClubs.bc.forms import UserSignUpForm, UserSignInForm
-from BearClubs.bc.models import User
+from BearClubs.bc.models import User, Organization
 from BearClubs.bc.models.mappings import UserToEvent, UserToOrganization
 
 @login_required(login_url='/login')
 def dashboard(request):
     args = {};
     args['user'] = request.user;
-    args['events'] = UserToEvent.getEventsForUser(request.user);
+
+    clubs = UserToOrganization.getOrganizationsForUser(request.user);
+    club_events = list()
+    for org in clubs:
+        events_for_org = Organization.getEventsForOrganization(org)
+        club_events.extend(events_for_org)
+
+    for event in UserToEvent.getEventsForUser(request.user):
+        # only add individual event if not suscribed to club that is hosting the event
+        if event not in club_events:
+            club_events.extend(event)
+
+    args['events'] = club_events
 
     return render(request, "dashboard.html", args);
 
@@ -33,7 +45,20 @@ def profile(request, user_id):
         user.name = user.username;
 
     user.clubs = UserToOrganization.getOrganizationsForUser(user);
-    user.events = UserToEvent.getEventsForUser(user);
+
+    club_events = list()
+    for org in user.clubs:
+        events_for_org = Organization.getEventsForOrganization(org)
+        club_events.extend(events_for_org)
+
+    for event in UserToEvent.getEventsForUser(user):
+        # only add individual event if not suscribed to club that is hosting the event
+        if event not in club_events:
+            club_events.extend(event)
+
+    user.events = club_events
+
+    print user.events
 
     args['user'] = user;
 
@@ -104,4 +129,5 @@ def userFormsRender(request, signUpForm=None, signInForm=None):
     args['signup_form'] = signUpForm;
     args['signin_form'] = signInForm;
 
-    return render(request, 'signup.html', args);
+    return render(request, 'signup.html', args);    
+
