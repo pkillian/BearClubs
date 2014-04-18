@@ -47,89 +47,45 @@ class UserDashboardTests(TestCase):
     def tearDown(self):
         self.client.logout();
 
-    def testValidDashboard_OneEvent(self):
-        self.ute1.save();
+    def testValidDashboard_ShowClubEvents(self):
+        self.uto1.save();
+        self.uto2.save();
+        self.uto3.save();
 
         response = self.client.get(self.baseURL + '/user');
 
         self.assertTrue(self.event1.name in response.content);
-        self.assertTrue('href="/clubs/1"' in response.content);
-        self.assertTrue('href="/events/1"' in response.content);
-        self.assertTrue('href="mailto:test1@test.com"' in response.content);
+        self.assertTrue('test 1' in response.content);
+        self.assertTrue('test 2' in response.content);
+        self.assertTrue('test 3' in response.content);
 
-        self.assertTrue(self.event2.name not in response.content);
-        self.assertTrue('href="/clubs/2"' not in response.content);
-        self.assertTrue('href="/events/2"' not in response.content);
-        self.assertTrue('href="mailto:test2@test.com"' not in response.content);
-
-        self.assertTrue(self.event3.name not in response.content);
-        self.assertTrue('href="/clubs/3"' not in response.content);
-        self.assertTrue('href="/events/3"' not in response.content);
-        self.assertTrue('href="mailto:test3@test.com"' not in response.content);
-
-    def testValidDashboard_TwoEvents1(self):
-        self.ute1.save();
-        self.ute2.save();
-
-        response = self.client.get(self.baseURL + '/user');
-
-        self.assertTrue(self.event1.name in response.content);
-        self.assertTrue('href="/clubs/1"' in response.content);
-        self.assertTrue('href="/events/1"' in response.content);
-        self.assertTrue('href="mailto:test1@test.com"' in response.content);
-
-        self.assertTrue(self.event2.name in response.content);
-        self.assertTrue('href="/clubs/2"' in response.content);
-        self.assertTrue('href="/events/2"' in response.content);
-        self.assertTrue('href="mailto:test2@test.com"' in response.content);
-
-        self.assertTrue(self.event3.name not in response.content);
-        self.assertTrue('href="/clubs/3"' not in response.content);
-        self.assertTrue('href="/events/3"' not in response.content);
-        self.assertTrue('href="mailto:test3@test.com"' not in response.content);
-
-    def testValidDashboard_TwoEvents2(self):
-        self.ute1.save();
-        self.ute3.save();
-
-        response = self.client.get(self.baseURL + '/user');
-
-        self.assertTrue(self.event1.name in response.content);
-        self.assertTrue('href="/clubs/1"' in response.content);
-        self.assertTrue('href="/events/1"' in response.content);
-        self.assertTrue('href="mailto:test1@test.com"' in response.content);
-
-        self.assertTrue(self.event2.name not in response.content);
-        self.assertTrue('href="/clubs/2"' not in response.content);
-        self.assertTrue('href="/events/2"' not in response.content);
-        self.assertTrue('href="mailto:test2@test.com"' not in response.content);
-
-        self.assertTrue(self.event3.name in response.content);
-        self.assertTrue('href="/clubs/3"' in response.content);
-        self.assertTrue('href="/events/3"' in response.content);
-        self.assertTrue('href="mailto:test3@test.com"' in response.content);
-
-    def testValidDashboard_ThreeEvents(self):
+    def testValidDashboard_ShowSubscribedEvents(self):
         self.ute1.save();
         self.ute2.save();
         self.ute3.save();
 
         response = self.client.get(self.baseURL + '/user');
 
-        self.assertTrue(self.event1.name in response.content);
-        self.assertTrue('href="/clubs/1"' in response.content);
-        self.assertTrue('href="/events/1"' in response.content);
-        self.assertTrue('href="mailto:test1@test.com"' in response.content);
+        self.assertTrue('test 1' in response.content);
+        self.assertTrue('test 2' in response.content);
+        self.assertTrue('test 3' in response.content);
 
-        self.assertTrue(self.event2.name in response.content);
-        self.assertTrue('href="/clubs/2"' in response.content);
-        self.assertTrue('href="/events/2"' in response.content);
-        self.assertTrue('href="mailto:test2@test.com"' in response.content);
+    def testValidDashboard_ShowTwoSubscribedEvents(self):
+        self.ute1.save();
+        self.ute2.save();
 
-        self.assertTrue(self.event3.name in response.content);
-        self.assertTrue('href="/clubs/3"' in response.content);
-        self.assertTrue('href="/events/3"' in response.content);
-        self.assertTrue('href="mailto:test3@test.com"' in response.content);
+        response = self.client.get(self.baseURL + '/user');
+
+        self.assertTrue('test 1' in response.content);
+        self.assertTrue('test 2' in response.content);
+
+    def testValidDashboard_ShowOneSubscribedEvents(self):
+        self.ute1.save();
+
+        response = self.client.get(self.baseURL + '/user');
+
+        self.assertTrue('test 1' in response.content);
+
 
 # If this file is invoked as a Python script, run the tests in this module
 if __name__ == "__main__":

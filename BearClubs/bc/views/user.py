@@ -22,7 +22,7 @@ def dashboard(request):
     for event in UserToEvent.getEventsForUser(request.user):
         # only add individual event if not suscribed to club that is hosting the event
         if event not in club_events:
-            club_events.extend(event)
+            club_events.append(event)
 
     args['events'] = club_events
 
@@ -54,7 +54,7 @@ def profile(request, user_id):
     for event in UserToEvent.getEventsForUser(user):
         # only add individual event if not suscribed to club that is hosting the event
         if event not in club_events:
-            club_events.extend(event)
+            club_events.append(event)
 
     user.events = club_events
 
