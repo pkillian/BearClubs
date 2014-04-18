@@ -25,6 +25,9 @@ class EventSubscribeTests(TestCase):
 
         self.client.login(username='test', password='1234');
 
+    def tearDown(self):
+        self.client.logout();
+
     def testEventSubscribe(self):
         self.client.post(self.baseURL + '/events/subscribe', {'event_id': 2});
 

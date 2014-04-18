@@ -183,16 +183,3 @@ class AddEventFunctionalTests(TestCase):
 
         self.assertTrue(error);
 
-
-
-
-        
-
-
-
-
-
-
-
-
-
