@@ -19,8 +19,6 @@
           <input type="hidden" name="uto_id" id="uto_id" value='{{ member.id }}'>
           <input type="hidden" name="org_id" id="org_id" value='{{ club.id }}'>
           <input id="promote-button" class="button" type="submit" value="Promote To Admin">
-        {% elif admin == True and member.admin == True %}
-          <input id="message-button" class="button" type="submit" value="Member is already an Admin" onClick="return false">
         {% endif %}
         </form>
         <form method="post" action="{% url 'BearClubs.bc.views.user.demote' %}">
