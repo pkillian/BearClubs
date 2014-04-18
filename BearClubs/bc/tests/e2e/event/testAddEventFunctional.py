@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from BearClubs.bc.forms import AddEventForm
-from BearClubs.bc.models import User, Organization, OrganizationType, Event
+from BearClubs.bc.models import User, Organization, OrganizationType, Event, UserToOrganization
 from django.utils import timezone
 import datetime
 
@@ -31,10 +31,13 @@ class AddEventFunctionalTests(TestCase):
 
 
     	self.c = Client();
-    	self.c.login(username='test', password='1234');
+
 
         Organization(name="Test Club", description="Club Description", contact_email="test@test.com", organization_type=bus_org_type).save();
         self.club = Organization.objects.get(name="Test Club");
+
+        self.uto = UserToOrganization(user=self.user, organization=self.club, admin=True).save();
+        self.c.login(username='test', password='1234');
 
     def tearDown(self):
         self.c.logout();
@@ -149,6 +152,39 @@ class AddEventFunctionalTests(TestCase):
         self.assertTrue(test_event.name == 'Test Event');
         self.assertTrue(test_event.description == 'Event Description');
         self.assertTrue(test_event.contact_email == email_128);
+
+    def testAddEventasNonAdmin(self):
+        self.uto = UserToOrganization.objects.get(user=self.user, organization=self.club);
+        self.uto.admin = False;
+        self.uto.save();
+
+        startTime = '9/24/2040 5:03:29 PM'
+        endTime = '9/24/2050 5:03:29 PM'
+
+        form_data = {
+            'name': 'Test Event',
+            'description': 'Event Description',
+            'organization': 1,
+            'contact_email': 'test@test.com',
+            'start_time': str(startTime),
+            'end_time': str(endTime),
+            'location': 'Berkeley',
+        };
+
+        response = self.c.post(self.baseURL+'/events/new', form_data);
+
+        self.assertTrue("Select a valid choice. That choice is not one of the available choices." in response.content);
+
+        error = False;
+        try:
+            Event.objects.get(name="Test Event");
+        except:
+            error = True;
+
+        self.assertTrue(error);
+
+
+
 
         
 

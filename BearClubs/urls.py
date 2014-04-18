@@ -34,4 +34,6 @@ urlpatterns = patterns('',
 
     url(r'^events/?$',                           views.eventDirectory,      name='eventDirectory'),
     url(r'^events/new/?$',                       views.addEvent,            name='addEvent'),
+    url(r'^events/(?P<event_id>\d+)/?$',   views.eventProfile,         name='event'),
+
 )

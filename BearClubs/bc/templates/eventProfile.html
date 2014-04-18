@@ -1,0 +1,20 @@
+{% extends "layout/base.html" %}
+
+{% block main_content %}
+
+<h2>{{ event.name }}</h2>
+<br>
+<h4>Description: {{ event.description }}</h4>
+<br>
+<h4>{{ event.organization }}</h4>
+<br>
+<h4>Start Time: {{ event.start_time }}</h4>
+<br>
+<h4>End Time: {{ event.end_time }}</h4>
+<br>
+<h4>Location: {{ event.location }}</h4>
+<br>
+<h4>Contact Email: {{ event.contact_email }}</h4>
+<br>
+
+{% endblock %}
