@@ -37,23 +37,50 @@
         "email": "test@gmail.com", 
         "date_joined": "2014-04-18T04:09:38.543Z"
     }
+  },
+  {
+      "pk": 2, 
+      "model": "auth.user", 
+      "fields": {
+          "username": "tester1", 
+          "first_name": "", 
+          "last_name": "", 
+          "is_active": true, 
+          "is_superuser": false, 
+          "is_staff": false, 
+          "last_login": "2014-04-18T04:09:52.920Z", 
+          "groups": [], 
+          "user_permissions": [], 
+          "password": "pbkdf2_sha256$12000$MJeFdbsDO1sw$K9nikfecpG2q2UJTnNzElfrKEoVUtcdvj00fm2rpUtY=", 
+          "email": "tester1@gmail.com", 
+          "date_joined": "2014-04-18T04:09:52.672Z"
+      }
+  },
+  {
+    "pk": 1, 
+    "model": "bc.organization", 
+    "fields": {
+        "name": "Test Club", 
+        "organization_type": 1, 
+        "created_at": "2014-04-18T08:48:51.562Z", 
+        "updated_at": "2014-04-18T08:48:51.562Z", 
+        "contact_email": "kevinchen8223@gmail.com", 
+        "location": "", 
+        "description": "test123"
+    }
 },
 {
     "pk": 2, 
-    "model": "auth.user", 
+    "model": "bc.organization", 
     "fields": {
-        "username": "tester1", 
-        "first_name": "", 
-        "last_name": "", 
-        "is_active": true, 
-        "is_superuser": false, 
-        "is_staff": false, 
-        "last_login": "2014-04-18T04:09:52.920Z", 
-        "groups": [], 
-        "user_permissions": [], 
-        "password": "pbkdf2_sha256$12000$MJeFdbsDO1sw$K9nikfecpG2q2UJTnNzElfrKEoVUtcdvj00fm2rpUtY=", 
-        "email": "tester1@gmail.com", 
-        "date_joined": "2014-04-18T04:09:52.672Z"
+        "name": "Test Club 2", 
+        "organization_type": 1, 
+        "created_at": "2014-04-18T08:49:08.659Z", 
+        "updated_at": "2014-04-18T08:49:08.659Z", 
+        "contact_email": "xsp1zax@gmail.com", 
+        "location": "", 
+        "description": "Test Club 2"
     }
 }
+
 ]

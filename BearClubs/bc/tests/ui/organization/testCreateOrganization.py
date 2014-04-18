@@ -20,7 +20,7 @@ class CreateOrganizationTest(LiveServerTestCase):
     super(CreateOrganizationTest, cls).tearDownClass()
 
 
-  def test_successfulLogin(self):
+  def test_successfulCreateOrganization(self):
     #login the user
     url = urljoin(self.live_server_url, '/login/')
     self.selenium.get(url)
@@ -52,7 +52,7 @@ class CreateOrganizationTest(LiveServerTestCase):
     body = self.selenium.find_element_by_tag_name('body')
     self.assertIn('Test Club', body.text)
   
-  def test_successfulLoginWithNoDescription(self):
+  def test_successfulCreateOrganizationWithNoDescription(self):
     #login the user
     url = urljoin(self.live_server_url, '/login/')
     self.selenium.get(url)
