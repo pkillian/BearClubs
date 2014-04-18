@@ -47,7 +47,7 @@ def promote(request):
     uto.admin = True;
     uto.save();
 
-    return redirect('/clubs/'+str(org_id)+'/manage');
+    return redirect('/clubs/'+str(org_id)+'/manage_members');
 
 def userSignUp(request):
     if request.method == 'POST':
