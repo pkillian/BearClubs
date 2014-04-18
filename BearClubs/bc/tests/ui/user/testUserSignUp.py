@@ -1,7 +1,7 @@
 from BearClubs.bc.models import User
 
 from django.test import LiveServerTestCase
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium.webdriver.phantomjs.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium import webdriver
 from urlparse import urljoin

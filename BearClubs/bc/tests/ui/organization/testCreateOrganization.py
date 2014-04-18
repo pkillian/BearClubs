@@ -78,11 +78,11 @@ class CreateOrganizationTest(LiveServerTestCase):
     name_input = self.selenium.find_element_by_xpath("//input[@id='id_name']")
    
     organization_input = self.selenium.find_element_by_xpath("//select[@id='id_organization_type']/option[text()='Business']").click()
-    name_input.send_keys('Test Club')
+    name_input.send_keys('Test Club No Description')
     
     self.selenium.find_element_by_xpath("//form//input[@value='Submit']").click()
     body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Test Club', body.text)
+    self.assertIn('Test Club No Description', body.text)
 
   def test_noOrganizationName(self):
     #login the user
