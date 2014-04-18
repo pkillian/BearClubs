@@ -2,6 +2,8 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.db import models
 
+from BearClubs.bc.models.event import Event
+
 class Organization(models.Model):
     name                = models.CharField(max_length=128, unique=True);
     description         = models.TextField(blank=True);
@@ -42,6 +44,16 @@ class Organization(models.Model):
             max_page = 1;
 
         return max_page;
+
+    @staticmethod 
+    def getEventsForOrganization(org):
+        events = list()
+        events_for_organization_objects = Event.objects.filter(organization=org.id);
+
+        for event in events_for_organization_objects:
+            events.append(event)
+
+        return events
 
     def __str__(self): 
         return self.name;

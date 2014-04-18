@@ -1,20 +1,9 @@
 {% extends "layout/base.html" %}
 
 {% block main_content %}
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
 
-    td {
-      padding: 0.5em;
-      font-weight: bold;
-    }
-  </style>
-
-  <div class="club-directory-header">
-    <div class="club-directory-nameplate">
+  <div class="event-directory-header">
+    <div class="event-directory-nameplate">
       <h2>Event Directory</h2><p> - </p><a href="/events/new">Add an Event</a>
     </div>
     <div class="page-controls">
@@ -47,7 +36,7 @@
 
     </div>
   </div>
-  <table id="club-directory" class="full tablesorter">
+  <table id="event-directory" class="full tablesorter">
     <thead>
       <tr>
         <th><span>Name</span></th>
@@ -61,12 +50,17 @@
       {% for event in events %}
       <tr>
           <td>
-            <a href="">
-              {{ event.name }}</td>
+            <a href="/events/{{ event.id }}">
+              {{ event.name }}
             </a>
-          <td>{{ event.organization }}</td>
+          </td>
+          <td>
+            <a href="/clubs/{{ event.organization.id }}">
+              {{ event.organization.name }}
+            </a>
+          </td>
           <td>{{ event.description }}</td>
-          <td>{{ event.start_time }}</td>_
+          <td>{{ event.start_time }}</td>
           <td>{{ event.contact_email }}</td>
       </tr>
       {% endfor %}

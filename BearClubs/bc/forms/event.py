@@ -2,6 +2,7 @@ from django import forms
 from django.utils import timezone
 from datetime import datetime
 from BearClubs.bc.models import Event, Organization
+from BearClubs.bc.models.mappings import UserToOrganization
 from django.contrib.admin import widgets 
 
 class AddEventForm(forms.ModelForm):
@@ -15,7 +16,8 @@ class AddEventForm(forms.ModelForm):
         self.fields['contact_email'].initial = user.email;
         self.fields['start_time'] = forms.DateTimeField(label="Start Time - Format(MM/DD/YYYY HH:MM:SS AM/PM) ", input_formats=ACCEPTABLE_FORMATS);
         self.fields['end_time'] = forms.DateTimeField(label="End Time - Format(MM/DD/YYYY HH:MM:SS AM/PM) ", input_formats=ACCEPTABLE_FORMATS);
-        self.fields['organization']=forms.ModelChoiceField(queryset=Organization.objects.all())
+        utos = [uto.organization.id for uto in UserToOrganization.objects.filter(user=user, admin=True)];
+        self.fields['organization']=forms.ModelChoiceField(queryset=Organization.objects.filter(pk__in=utos));
 
     def is_valid(self):
  

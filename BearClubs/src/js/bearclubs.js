@@ -54,12 +54,12 @@ var BearClubs = BearClubs || {};
         if (toggle) {
             // Show the header
             $('#header').animate({height: that.headerHeight + 'px'}, 'fast', function() {
-                $('#header').css('border-bottom-style', 'solid');
+                // $('#header').css('border-bottom-style', 'solid');
             });
         } else {
             // Hide the header
             $('#header').animate({height: '0px'}, 'fast', function() {
-                $('#header').css('border-bottom-style', 'none');
+                // $('#header').css('border-bottom-style', 'none');
             });
         }
 
@@ -99,8 +99,8 @@ var BearClubs = BearClubs || {};
     this.onReady = function() {
         $(window).scroll(that.bindHeaderScroll);
         $(window).mousemove(that.bindHeaderMouseOver);
-        $('#club-directory').styleTable();
-        $('#club-directory').tablesorter({widgets: ['zebra']});
+        $('.tablesorter').styleTable();
+        $('.tablesorter').tablesorter({widgets: ['zebra']});
     };
 
 }).call(BearClubs, BearClubs, jQuery, window, document);

@@ -3,7 +3,7 @@
 {% block main_content %}
 
   <div class="section-container">
-    <div id="add-evet" class="section-div">
+    <div id="add-event" class="section-div">
       <h3 class="add-event-title">Add a New Event</h3>
       <form method="post" action="{% url 'BearClubs.bc.views.event.addEvent' %}">
         {% csrf_token %}

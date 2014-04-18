@@ -195,6 +195,17 @@ A single user can be any combination of the following actors:
 
 | Field             | Description                                                                    |
 | ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Search Autocomplete                                                                     |
+| Actors:           | General User                                                                  |
+| Triggers:         | Click search button on header                                         |
+| Precondition:     | N/A                         |
+| Actions:          | Start typing in search field                                          |
+| Postconditions:   | Relevant search results are presented to the user                             |
+| Acceptance Tests: | Search results are relevant to search query       |
+| Iteration:        | 3                                                                              |
+
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
 | Name/Requirement: | Add Club Creator as Admin                                                      |
 | Actors:           | General User                                                                   |
 | Triggers:         | Click on Submit button of the create club page                                 |
@@ -247,7 +258,6 @@ A single user can be any combination of the following actors:
 | Postconditions:   | User now learns more about specific event and can navigate back to directory    |
 | Acceptance Tests: | Assure that Event page is populated with info added when "Adding a Event"        |
 | Iteration:        | 3                                                                             |
-
 
 ### User Stories For Future Iterations:
 
