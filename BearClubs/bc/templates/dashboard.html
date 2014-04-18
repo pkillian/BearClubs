@@ -1,22 +1,33 @@
 {% extends "layout/base.html" %}
 
 {% block main_content %}
-    
+
   <h2>Dashboard</h2>
   <h3><a href="/user/{{ user.id }}">{{ user.username }}</a> ({{user.email}})</h3>
 
   <h3>Upcoming Events:</h3>
-  <ul>
-    {% for event in events %}
-    <li>
-        <a href="/clubs/{{ event.organization.id }}">{{ event.organization.name }}</a>'s event 
-        <a href="/events/{{ event.id }}">{{ event.name }}</a>
-        {% if event.contact_email %}
-            <a href="mailto:{{ event.contact_email }}">({{ event.contact_email }})</a>
-        {% endif %}
-        starts at {{ event.start_time }}
-    </li>
-    {% endfor %}
-  </ul>
+  <table id="dashboard-events" class="full tablesorter">
+    <thead>
+      <tr>
+        <th><span>Name</span></th>
+        <th><span>Club</span></th>
+        <th><span>Description</span></th>
+        <th><span>Contact</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for event in events %}
+      <tr>
+          <td>
+            <a href="/clubs/{{ club.id }}">
+              {{ event.name }}</td>
+            </a>
+          <td>{{ event.organization.name }}</td>
+          <td>{{ event.description }}</td>
+          <td>{{ event.contact_email }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
 {% endblock %}

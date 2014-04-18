@@ -1,17 +1,6 @@
 {% extends "layout/base.html" %}
 
 {% block main_content %}
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td {
-      padding: 0.5em;
-      font-weight: bold;
-    }
-  </style>
 
   <div class="club-directory-header">
     <div class="club-directory-nameplate">
@@ -61,8 +50,9 @@
       <tr>
           <td>
             <a href="/clubs/{{ club.id }}">
-              {{ club.name }}</td>
+              {{ club.name }}
             </a>
+          </td>
           <td>{{ club.organization_type }}</td>
           <td>{{ club.description }}</td>
           <td>{{ club.contact_email }}</td>
