@@ -5,7 +5,7 @@
   <div class="section-container">
     <div id="signup" class="section-div">
       <h3 class="signup-title">Register</h3>
-      <form method="post" action="{% url 'BearClubs.bc.views.user.userSignUp' %}">
+      <form class="signup" method="post" action="{% url 'BearClubs.bc.views.user.userSignUp' %}">
         {% csrf_token %}
         {% for field in signup_form %}
           <div class="form_item_wrapper">

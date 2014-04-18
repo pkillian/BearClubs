@@ -22,7 +22,7 @@ class UserLoginTests(LiveServerTestCase):
     super(UserLoginTests, cls).tearDownClass()
     
 
-  def test_login(self):
+  def test_successfulLogin(self):
     url = urljoin(self.live_server_url, '/login/')
     self.selenium.get(url)
     username_input = self.selenium.find_element_by_xpath("//form[@class='login']//input[@id='id_username']")
@@ -32,3 +32,45 @@ class UserLoginTests(LiveServerTestCase):
     self.selenium.find_element_by_xpath("//form[@class='login']//input[@value='Log In']").click()
     body = self.selenium.find_element_by_tag_name('body')
     self.assertIn('Dashboard', body.text)
+
+  def test_successfulLogin2(self):
+    url = urljoin(self.live_server_url, '/login/')
+    self.selenium.get(url)
+    username_input = self.selenium.find_element_by_xpath("//form[@class='login']//input[@id='id_username']")
+    password_input = self.selenium.find_element_by_xpath("//form[@class='login']//input[@id='id_password']")
+    username_input.send_keys('tester1')
+    password_input.send_keys('test')
+    self.selenium.find_element_by_xpath("//form[@class='login']//input[@value='Log In']").click()
+    body = self.selenium.find_element_by_tag_name('body')
+    self.assertIn('Dashboard', body.text)
+
+  def test_unsuccessfulLogin(self):
+    url = urljoin(self.live_server_url, '/login/')
+    self.selenium.get(url)
+    username_input = self.selenium.find_element_by_xpath("//form[@class='login']//input[@id='id_username']")
+    password_input = self.selenium.find_element_by_xpath("//form[@class='login']//input[@id='id_password']")
+    username_input.send_keys('tester1')
+    password_input.send_keys('blahblah')
+    self.selenium.find_element_by_xpath("//form[@class='login']//input[@value='Log In']").click()
+    body = self.selenium.find_element_by_tag_name('body')
+    self.assertIn('Please enter a correct username and password.', body.text)
+
+  def test_noUserName(self):
+    url = urljoin(self.live_server_url, '/login/')
+    self.selenium.get(url)
+    username_input = self.selenium.find_element_by_xpath("//form[@class='login']//input[@id='id_username']")
+    password_input = self.selenium.find_element_by_xpath("//form[@class='login']//input[@id='id_password']")
+    password_input.send_keys('blahblah')
+    self.selenium.find_element_by_xpath("//form[@class='login']//input[@value='Log In']").click()
+    body = self.selenium.find_element_by_tag_name('body')
+    self.assertIn('This field is required.', body.text)
+
+  def test_noPassword(self):
+    url = urljoin(self.live_server_url, '/login/')
+    self.selenium.get(url)
+    username_input = self.selenium.find_element_by_xpath("//form[@class='login']//input[@id='id_username']")
+    password_input = self.selenium.find_element_by_xpath("//form[@class='login']//input[@id='id_password']")
+    username_input.send_keys('blahblah')
+    self.selenium.find_element_by_xpath("//form[@class='login']//input[@value='Log In']").click()
+    body = self.selenium.find_element_by_tag_name('body')
+    self.assertIn('This field is required.', body.text)
