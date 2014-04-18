@@ -54,10 +54,10 @@ CREATE VIEW bc_user_subscription_view AS
     FROM bc_user_to_event
     WHERE user_id = `user id variable`;
 ;
-*/
  
 CREATE VIEW bc_user_subscription_view AS
 
     SELECT * FROM bc_user_to_organization 
         INNER JOIN bc_user_to_event ON (bc_user_to_organization.user_id = bc_user_to_event.user_id)
 ;
+*/

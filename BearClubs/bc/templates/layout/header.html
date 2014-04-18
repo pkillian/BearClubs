@@ -6,13 +6,13 @@
         <div class="bc-logo-clubs">Clubs</div>
       </a>
     </div>
-    <a href="/clubs"><div class="header-button first"><div>Clubs</div></div></a>
-    <a href="/events"><div class="header-button"><div>Events</div></div></a>
-    <a href="/search"><div class="header-button"><div>Search</div></div></a>
     {% if user.is_authenticated %}
     <a href="/logout"><div class="header-button"><div>Logout</div></div></a>
     {% else %}
     <a href="/login"><div class="header-button"><div>Login</div></div></a>
     {% endif %}
+    <a href="/search"><div class="header-button"><div>Search</div></div></a>
+    <a href="/events"><div class="header-button"><div>Events</div></div></a>
+    <a href="/clubs"><div class="header-button first"><div>Clubs</div></div></a>
   </div>
 </div>
