@@ -52,3 +52,9 @@ heroku_logs_stage:
 heroku_logs_prod:
 	heroku logs -t --app $(HEROKU_PROD_APP)
 
+coverage:
+	coverage run --source='.' manage.py test BearClubs.bc
+
+coverage-report:
+	coverage report | grep --color=never 'BearClubs' > coverage.txt
+
