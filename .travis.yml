@@ -11,6 +11,7 @@ install:
     - "pip install -r requirements.txt"
 script:
   - "python manage.py test BearClubs.bc.tests.unit --verbosity 2"
+  - "python manage.py test BearClubs.bc.tests.e2e --verbosity 2"
 notifications:
   email:
     recipients:
