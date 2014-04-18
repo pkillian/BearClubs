@@ -5,7 +5,7 @@
     
     
     <meta http-equiv='X-UA-Compatible' content='IE=emulateIE7' />
-    <title>Coverage for BearClubs/bc/forms/user: 68%</title>
+    <title>Coverage for BearClubs/bc/forms/user: 93%</title>
     <link rel='stylesheet' href='style.css' type='text/css'>
     
     <script type='text/javascript' src='jquery.min.js'></script>
@@ -21,13 +21,13 @@
 <div id='header'>
     <div class='content'>
         <h1>Coverage for <b>BearClubs/bc/forms/user</b> :
-            <span class='pc_cov'>68%</span>
+            <span class='pc_cov'>93%</span>
         </h1>
         <img id='keyboard_icon' src='keybd_closed.png'>
         <h2 class='stats'>
             28 statements &nbsp;
-            <span class='run hide_run shortkey_r button_toggle_run'>19 run</span>
-            <span class='mis shortkey_m button_toggle_mis'>9 missing</span>
+            <span class='run hide_run shortkey_r button_toggle_run'>26 run</span>
+            <span class='mis shortkey_m button_toggle_mis'>2 missing</span>
             <span class='exc shortkey_x button_toggle_exc'>0 excluded</span>
             
         </h2>
@@ -109,15 +109,15 @@
 <p id='n46' class='stm run hide_run'><a href='#n46'>46</a></p>
 <p id='n47' class='pln'><a href='#n47'>47</a></p>
 <p id='n48' class='stm run hide_run'><a href='#n48'>48</a></p>
-<p id='n49' class='stm mis'><a href='#n49'>49</a></p>
+<p id='n49' class='stm run hide_run'><a href='#n49'>49</a></p>
 <p id='n50' class='pln'><a href='#n50'>50</a></p>
-<p id='n51' class='stm mis'><a href='#n51'>51</a></p>
-<p id='n52' class='stm mis'><a href='#n52'>52</a></p>
-<p id='n53' class='stm mis'><a href='#n53'>53</a></p>
+<p id='n51' class='stm run hide_run'><a href='#n51'>51</a></p>
+<p id='n52' class='stm run hide_run'><a href='#n52'>52</a></p>
+<p id='n53' class='stm run hide_run'><a href='#n53'>53</a></p>
 <p id='n54' class='pln'><a href='#n54'>54</a></p>
-<p id='n55' class='stm mis'><a href='#n55'>55</a></p>
-<p id='n56' class='stm mis'><a href='#n56'>56</a></p>
-<p id='n57' class='stm mis'><a href='#n57'>57</a></p>
+<p id='n55' class='stm run hide_run'><a href='#n55'>55</a></p>
+<p id='n56' class='stm run hide_run'><a href='#n56'>56</a></p>
+<p id='n57' class='stm run hide_run'><a href='#n57'>57</a></p>
 <p id='n58' class='pln'><a href='#n58'>58</a></p>
 <p id='n59' class='stm mis'><a href='#n59'>59</a></p>
 <p id='n60' class='pln'><a href='#n60'>60</a></p>
@@ -175,15 +175,15 @@
 <p id='t46' class='stm run hide_run'><span class='key'>class</span> <span class='nam'>UserSignInForm</span><span class='op'>(</span><span class='nam'>AuthenticationForm</span><span class='op'>)</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
 <p id='t47' class='pln'><span class='strut'>&nbsp;</span></p>
 <p id='t48' class='stm run hide_run'>&nbsp; &nbsp; <span class='key'>def</span> <span class='nam'>loginUser</span><span class='op'>(</span><span class='nam'>self</span><span class='op'>,</span> <span class='nam'>request</span><span class='op'>)</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
-<p id='t49' class='stm mis'>&nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>user</span> <span class='op'>=</span> <span class='op'>{</span><span class='op'>}</span><span class='strut'>&nbsp;</span></p>
+<p id='t49' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>user</span> <span class='op'>=</span> <span class='op'>{</span><span class='op'>}</span><span class='strut'>&nbsp;</span></p>
 <p id='t50' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t51' class='stm mis'>&nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>username</span> <span class='op'>=</span> <span class='nam'>self</span><span class='op'>.</span><span class='nam'>cleaned_data</span><span class='op'>[</span><span class='str'>&#39;username&#39;</span><span class='op'>]</span><span class='strut'>&nbsp;</span></p>
-<p id='t52' class='stm mis'>&nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>password</span> <span class='op'>=</span> <span class='nam'>self</span><span class='op'>.</span><span class='nam'>cleaned_data</span><span class='op'>[</span><span class='str'>&#39;password&#39;</span><span class='op'>]</span><span class='strut'>&nbsp;</span></p>
-<p id='t53' class='stm mis'>&nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>user</span> <span class='op'>=</span> <span class='nam'>authenticate</span><span class='op'>(</span><span class='nam'>username</span><span class='op'>=</span><span class='nam'>username</span><span class='op'>,</span> <span class='nam'>password</span><span class='op'>=</span><span class='nam'>password</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
+<p id='t51' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>username</span> <span class='op'>=</span> <span class='nam'>self</span><span class='op'>.</span><span class='nam'>cleaned_data</span><span class='op'>[</span><span class='str'>&#39;username&#39;</span><span class='op'>]</span><span class='strut'>&nbsp;</span></p>
+<p id='t52' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>password</span> <span class='op'>=</span> <span class='nam'>self</span><span class='op'>.</span><span class='nam'>cleaned_data</span><span class='op'>[</span><span class='str'>&#39;password&#39;</span><span class='op'>]</span><span class='strut'>&nbsp;</span></p>
+<p id='t53' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>user</span> <span class='op'>=</span> <span class='nam'>authenticate</span><span class='op'>(</span><span class='nam'>username</span><span class='op'>=</span><span class='nam'>username</span><span class='op'>,</span> <span class='nam'>password</span><span class='op'>=</span><span class='nam'>password</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
 <p id='t54' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t55' class='stm mis'>&nbsp; &nbsp; &nbsp; &nbsp; <span class='key'>if</span> <span class='nam'>user</span> <span class='key'>is</span> <span class='key'>not</span> <span class='nam'>None</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
-<p id='t56' class='stm mis'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='key'>if</span> <span class='nam'>user</span><span class='op'>.</span><span class='nam'>is_active</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
-<p id='t57' class='stm mis'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>login</span><span class='op'>(</span><span class='nam'>request</span><span class='op'>,</span> <span class='nam'>user</span><span class='op'>)</span><span class='op'>;</span><span class='strut'>&nbsp;</span></p>
+<p id='t55' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; <span class='key'>if</span> <span class='nam'>user</span> <span class='key'>is</span> <span class='key'>not</span> <span class='nam'>None</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
+<p id='t56' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='key'>if</span> <span class='nam'>user</span><span class='op'>.</span><span class='nam'>is_active</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
+<p id='t57' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>login</span><span class='op'>(</span><span class='nam'>request</span><span class='op'>,</span> <span class='nam'>user</span><span class='op'>)</span><span class='op'>;</span><span class='strut'>&nbsp;</span></p>
 <p id='t58' class='pln'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='key'>else</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
 <p id='t59' class='stm mis'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='key'>return</span> <span class='nam'>False</span><span class='strut'>&nbsp;</span></p>
 <p id='t60' class='pln'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='com'># Return a &#39;disabled account&#39; error message</span><span class='strut'>&nbsp;</span></p>
