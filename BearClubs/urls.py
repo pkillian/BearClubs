@@ -26,6 +26,7 @@ urlpatterns = patterns('',
     url(r'^user/?$',                    views.dashboard,        name='dashboard'),
     url(r'^user/(?P<user_id>\d+)/?$',   views.profile,          name='profile'),
     url(r'^user/promote/?$',            views.promote,          name='promote'),
+    url(r'^user/demote/?$',            views.demote,          name='demote'),
 
     url(r'^clubs/?$',                            views.directory,           name='directory'),
     url(r'^clubs/new/?$',                        views.addClub,             name='addClub'),

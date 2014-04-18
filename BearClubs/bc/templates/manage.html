@@ -23,6 +23,10 @@
           <input id="message-button" class="button" type="submit" value="Member is already an Admin" onClick="return false">
         {% endif %}
         </form>
+        <form method="post" action="{% url 'BearClubs.bc.views.user.demote' %}">
+          {% if admin == True and member.admin == True %}
+          <input id="demote-button" class="button" type="submit" value="Demote Admin">
+          </form>
       </li>
     {% endfor %}
     </ul>

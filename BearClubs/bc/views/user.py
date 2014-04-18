@@ -50,6 +50,17 @@ def promote(request):
 
     return redirect('/clubs/'+str(org_id)+'/manage_members');
 
+@login_required(login_url='/login')
+def demote(request):
+    org_id = request.POST.get('org_id', '-1');
+    uto_id = request.POST.get('uto_id','-1');
+    if UserToOrganization.objects.get(user=request.user, organization=org_id).admin == True:
+        uto = UserToOrganization.objects.get(id=uto_id);
+        uto.admin = False;
+        uto.save();
+
+    return redirect('/clubs/'+str(org_id)+'/manage_members');
+
 def userSignUp(request):
     if request.method == 'POST':
         form = UserSignUpForm(request.POST)
