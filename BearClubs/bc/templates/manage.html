@@ -26,6 +26,8 @@
         <form method="post" action="{% url 'BearClubs.bc.views.user.demote' %}">
           {% if admin == True and member.admin == True %}
           {% csrf_token %}
+          <input type="hidden" name="uto_id" id="uto_id" value='{{ member.id }}'>
+          <input type="hidden" name="org_id" id="org_id" value='{{ club.id }}'>
           <input id="demote-button" class="button" type="submit" value="Demote Admin">
           {% endif %}
           </form>
