@@ -1,6 +1,6 @@
 from django.test import TestCase
 from BearClubs.bc.forms import AddEventForm
-from BearClubs.bc.models import User, Organization, OrganizationType, Event
+from BearClubs.bc.models import User, Organization, OrganizationType, Event, UserToOrganization
 from django.utils import timezone
 import datetime
 
@@ -34,8 +34,11 @@ class AddEventUnitTests(TestCase):
 
         User(username='test', password='1234', email='test@test.com').save();
         Organization(name="Test Club", description="Club Description", contact_email="test@test.com", organization_type=bus_org_type).save();
+
         self.user = User.objects.get(username='test');
         self.club = Organization.objects.get(name="Test Club");
+
+        UserToOrganization(user=self.user, organization=self.club, admin=True).save();
 
     def testValidEvent1(self):
         startTime = '9/24/2040 5:03:29 PM'
