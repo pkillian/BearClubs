@@ -1,6 +1,7 @@
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.core.urlresolvers import reverse
 
 class Event(models.Model):
     name           = models.CharField(max_length=128);
@@ -61,8 +62,7 @@ class Event(models.Model):
         return super(Event, self).save(*args, **kwargs);
 
     def get_absolute_url(self):
-        return ''
-        # return reverse('event', args=[self.id]);
+        return reverse('event', args=[self.id]);
 
     def __unicode__(self):
         return 'Event: %s' % (self.name)
