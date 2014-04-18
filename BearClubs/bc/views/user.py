@@ -58,8 +58,6 @@ def profile(request, user_id):
 
     user.events = club_events
 
-    print user.events
-
     args['user'] = user;
 
     return render(request, "userProfile.html", args);
