@@ -259,10 +259,33 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | Assure that Event page is populated with info added when "Adding a Event"        |
 | Iteration:        | 3                                                                             |
 
+#### Iteration 4 User Stories:
+
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | First Time User Tutorial                                                                 |
+| Actors:           | General User                                                                   |
+| Triggers:         | Sign Up                                                |
+| Precondition:     | User clicks on sign up button after filling in information  |
+| Actions:          | User exposed to new UI that explains how various components of the site works                    |
+| Postconditions:   | User now is educated on the UI and core concept of the site    |
+| Acceptance Tests: | Assure that the tutorial only shows up for newly signed up users        |
+| Iteration:        | 4                                                                             |
+
+| Field             | Description                                                                    |
+| ----------------- |:-------------------------------------------------------------------------------|
+| Name/Requirement: | Sign In / Sign Up With CalNet                                                                 |
+| Actors:           | General User                                                                   |
+| Triggers:         | N/A                                                |
+| Precondition:     | User clicks on sign up with CalNet button  |
+| Actions:          | CalNet integration dialog shows                   |
+| Postconditions:   | User is now signed up to BearClubs through their CalNet ID and Password   |
+| Acceptance Tests: | Assure that user is able to signup with their CalNet ID and Password        |
+| Iteration:        | 4                                                                             |
+
+
 ### User Stories For Future Iterations:
 
-* First time user tutorial
-* Sign In With CalNet
 * View your Calendar
 * Edit Club Page (Admin)
 
