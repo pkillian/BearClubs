@@ -8,7 +8,7 @@
   <h3>Upcoming Events:</h3>
   <table id="dashboard-events" class="full tablesorter">
     <thead>
-      <tr>
+      <tr class="clickable">
         <th><span>Name</span></th>
         <th><span>Club</span></th>
         <th><span>Description</span></th>
@@ -17,14 +17,14 @@
     </thead>
     <tbody>
       {% for event in events %}
-      <tr>
-          <td>
-            <a href="/clubs/{{ club.id }}">
-              {{ event.name }}</td>
-            </a>
-          <td>{{ event.organization.name }}</td>
-          <td>{{ event.description }}</td>
-          <td>{{ event.contact_email }}</td>
+      <tr class="row-click">
+        <td>
+          <a class="row-link" href="/events/{{ event.id }}">
+            {{ event.name }}</td>
+          </a>
+        <td>{{ event.organization.name }}</td>
+        <td>{{ event.description }}</td>
+        <td>{{ event.contact_email }}</td>
       </tr>
       {% endfor %}
     </tbody>
