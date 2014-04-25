@@ -58,3 +58,6 @@ coverage:
 coverage-report:
 	coverage report | grep --color=never 'BearClubs' > coverage.txt
 
+elasticsearch:
+	elasticsearch -f -D es.config=elasticsearch.yml
+
