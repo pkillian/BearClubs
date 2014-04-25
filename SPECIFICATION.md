@@ -316,6 +316,28 @@ A single user can be any combination of the following actors:
 | Acceptance Tests: | All profile pages (User, Club, Event) have similar, coherant and attractive style     |
 | Iteration:        | 4                                                                                     |
 
+| Field             | Description                                                                           |
+| ----------------- |:--------------------------------------------------------------------------------------|
+| Name/Requirement: | Leave Club                                                                            |
+| Actors:           | Club Member                                                                           |
+| Triggers:         | Click Leave Club button                                                               |
+| Precondition:     | User is a member of the club                                                          |
+| Actions:          | User is removed from club member list                                                 |
+| Postconditions:   | User is no longer a member of the club                                                |
+| Acceptance Tests: | User is not listed as a member on the manage club page; user does not see the club listed under their profile's club membership list.     |
+| Iteration:        | 4                                                                                     |
+
+| Field             | Description                                                                           |
+| ----------------- |:--------------------------------------------------------------------------------------|
+| Name/Requirement: | Restrict demotions                                                                    |
+| Actors:           | Admin                                                                                 |
+| Triggers:         | Click demote button for the user him/herself (? or show no demote button for the user)|
+| Precondition:     | User is an admin of a club                                                            |
+| Actions:          | An error message is displayed telling the user that you can't demote yourself (?)     |
+| Postconditions:   | User is still an admin                                                                |
+| Acceptance Tests: | User still has admin privileges, being able to create events, and can see the club management page |
+| Iteration:        | 4                                                                                     |
+
 ### User Stories For Future Iterations:
 
 * View your Calendar
