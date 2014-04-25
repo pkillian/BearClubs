@@ -331,9 +331,9 @@ A single user can be any combination of the following actors:
 | ----------------- |:--------------------------------------------------------------------------------------|
 | Name/Requirement: | Restrict demotions                                                                    |
 | Actors:           | Admin                                                                                 |
-| Triggers:         | Click demote button for the user him/herself (? or show no demote button for the user)|
-| Precondition:     | User is an admin of a club                                                            |
-| Actions:          | An error message is displayed telling the user that you can't demote yourself (?)     |
+| Triggers:         | Click demote button for the user him/herself (or show no demote button for the user)  |
+| Precondition:     | User is the only admin of a club                                                      |
+| Actions:          | An error message is displayed telling the user that you can't demote the last admin   |
 | Postconditions:   | User is still an admin                                                                |
 | Acceptance Tests: | User still has admin privileges, being able to create events, and can see the club management page |
 | Iteration:        | 4                                                                                     |
