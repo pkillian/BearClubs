@@ -291,6 +291,23 @@ A single user can be any combination of the following actors:
 
 ## User Interface Requirements
 
+### Screenshots after Iteration 3
+
+#### Home Page
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-25%20at%201.00.32%20PM.png)
+
+#### Club and Event Directories
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-25%20at%201.00.41%20PM.png)
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-25%20at%201.00.51%20PM.png)
+
+#### Search and Autocomplete
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-25%20at%201.00.59%20PM.png)
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-25%20at%201.01.02%20PM.png)
+
+#### Dashboard and User Profile
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-25%20at%201.01.22%20PM.png)
+![](https://dl.dropboxusercontent.com/u/632568/Screen%20Shot%202014-04-25%20at%201.01.26%20PM.png)
+
 ### Screenshots after Iteration 2
 
 #### Club and Event Directories
