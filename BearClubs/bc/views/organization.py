@@ -37,7 +37,7 @@ def directory(request):
     view_args['page']       = page;
     view_args['increment']  = increment;
 
-    return render(request, 'directory.html', view_args);
+    return render(request, 'clubDirectory.html', view_args);
 
 def clubProfile(request, organization_id):
 

@@ -2,17 +2,17 @@
 
 {% block main_content %}
 
-  <div class="event-directory-header">
-    <div class="event-directory-nameplate">
-      <h2>Event Directory</h2><p> - </p><a href="/events/new">Add an Event</a>
+  <div class="club-directory-header">
+    <div class="club-directory-nameplate">
+      <h2>Club Directory</h2><p> - </p><a href="/clubs/new">Add a Club</a>
     </div>
     <div class="page-controls">
 
       {% if page > 1 %}
-      <a href="/events?page=1&inc={{ increment }}">
+      <a href="/clubs?page=1&inc={{ increment }}">
         <i class="fa fa-angle-double-left"></i>
       </a>
-      <a href="/events?page={{ page|add:'-1' }}&inc={{ increment }}">
+      <a href="/clubs?page={{ page|add:'-1' }}&inc={{ increment }}">
         <i class="fa fa-angle-left"></i>
       </a>
       {% else %}
@@ -23,10 +23,10 @@
       <p>Page: {{ page }} Increment: {{ increment }}</p>
 
       {% if page < max_page %}
-      <a href="/events?page={{ page|add:'1' }}&inc={{ increment }}">
+      <a href="/clubs?page={{ page|add:'1' }}&inc={{ increment }}">
         <i class="fa fa-angle-right"></i>
       </a>
-      <a href="/events?page={{ max_page }}&inc={{ increment }}">
+      <a href="/clubs?page={{ max_page }}&inc={{ increment }}">
         <i class="fa fa-angle-double-right"></i>
       </a>
       {% else %}
@@ -36,32 +36,26 @@
 
     </div>
   </div>
-  <table id="event-directory" class="full tablesorter">
+  <table id="club-directory" class="full tablesorter">
     <thead>
       <tr>
         <th><span>Name</span></th>
-        <th><span>Organization</span></th>
+        <th><span>Type</span></th>
         <th><span>Description</span></th>
-        <th><span>Start</span></th>
         <th><span>Contact</span></th>
       </tr>
     </thead>
     <tbody>
-      {% for event in events %}
+      {% for club in clubs %}
       <tr>
         <td>
-          <a class="row-link" href="/events/{{ event.id }}">
-            {{ event.name }}
+          <a class="row-link" href="/clubs/{{ club.id }}">
+            {{ club.name }}
           </a>
         </td>
-        <td>
-          <a href="/clubs/{{ event.organization.id }}">
-            {{ event.organization.name }}
-          </a>
-        </td>
-        <td>{{ event.description }}</td>
-        <td>{{ event.start_time }}</td>
-        <td>{{ event.contact_email }}</td>
+        <td>{{ club.organization_type }}</td>
+        <td>{{ club.description }}</td>
+        <td>{{ club.contact_email }}</td>
       </tr>
       {% endfor %}
     </tbody>

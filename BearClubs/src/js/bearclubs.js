@@ -99,8 +99,12 @@ var BearClubs = BearClubs || {};
     this.onReady = function() {
         $(window).scroll(that.bindHeaderScroll);
         $(window).mousemove(that.bindHeaderMouseOver);
+
         $('.tablesorter').styleTable();
         $('.tablesorter').tablesorter({widgets: ['zebra']});
+        $('.tablesorter').find('tr').click(function() {
+            window.location = $(this).find('.row-link').attr('href');
+        });
     };
 
 }).call(BearClubs, BearClubs, jQuery, window, document);
