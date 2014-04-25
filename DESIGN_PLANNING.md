@@ -1,17 +1,16 @@
 BearClubs  
 Design and Planning Document  
-*04/11/2014, version 3.0*  
+*04/25/2014, version 4.0*  
 
 # BearClubs
 
 A tool for connecting students and organizations at UC Berkeley.
 
-## Changelog *v3.0*
+## Changelog *v4.0*
 * Bump date and revision
-* Added Haystack/ElasticSearch to System Architecture
-* Removed iteration 2 user stories from implementation plan; left summary for browsing purposes
-* Add iteration 3 user stories and tasks to implementation plan
-* Assign new teams for iteration 3
+* Removed iteration 3 user stories from implementation plan; left summary for browsing purposes
+* Add iteration 4 user stories and tasks to implementation plan
+* Assign new teams for iteration 4
 * Fixed various typos
 
 ## System Architecture
@@ -157,6 +156,7 @@ For iteration 1, our algorithms are trivial. In future iterations, algorithms th
     * Distinguishing between users, clubs, events, etc.
     * Live-updating results on keypresses
     * Caching of data (Redis, SOLR, etc.)
+* CalNet Authentication System (CAS) based authentication
 
 #### Protocols
 
@@ -282,48 +282,56 @@ The four user stories involving clubs (View Club Page, Join Club, Add Club Event
 
 For Iteration 3, we want to further expand on what we accomplished in Iteration 2. We want to elaborate on the basic functionality provided in the User Profile, Club, and Event pages. In addition, we want to begin revamping the BearClubs UI and begin consolidating and unifying the views to a uniform design and feel.
 
+The following tasks were completed:
+* Club creator automatically promoted to admin
+* Implement first revision of pub/sub paradigm to events and clubs
+* Event profile view created
+* Entire UI revamped and coalesced
+
+### Iteration 4
+
+For Iteration 4, we'll be polishing our application and implementing a few remaining key features. Of these, we've included a few touch ups to Club administration and membership, CalNet authentication, and coalescing our profile page style guidelines for the User, Club and Event profile pages. After this iteration, our application will be in such a position that a full demo will highlight the potential and possible future of our application.
+
 #### Entire Bear Clubs Team Tasks (These will happen before the start of tasks by any team)
 
-#### Club Team - Tiffany, Shubham
+* 1) Sketch and decide on a new, coherant style for all profile pages (3 days)
 
-* Number of Days to Develop: 4
-* Number of Days to Test: 2
+#### Club Team - 
 
-###### Sub-tasks
-
-* 1) Allow club creator to register as club admin through front end functionality (2 days)
-* 2) Add front end UI functionality to allow admins to promote existing club members to admin (2 days)
-
-#### User Team - Patrick, Peter
-
-* Number of Days to Develop: 4 days
-* Number of Days to Test: 3 days
-
-###### Sub-tasks
-
-* 1)  Implement frontend functionality to allow signed in Users to subscribe to a club. (1 day)
-* 2)  Implement back-end functionality to allow subscribed users to see club events. (3 days)
-
-#### Event Team - Peter, Tiffany
-
-* Number of Days to Develop: 3 days
-* Number of Days to Test: 3 days
-
-###### Sub-tasks
-
-* 1) Implement view for User to view details on a specific Event listed on the event directory page. (2 days)
-* 2) Provide front-end functionality to allow the club admin to add an event. (1 day)
-
-#### UI Team - Kevin, Patrick
-
-* Number of Days to Develop: 8 days
+* Number of Days to Develop: 2 days
 * Number of Days to Test: 2 days
 
 ###### Sub-tasks
 
-* 1) Identify a new style for all views to conform with (3 days)
-* 2) Identify all pages and group them into various 'buckets' (ie. form, table view, display, etc.) (2 days)
-* 3) Implement site-wide style changes, build out any outstanding components (ie. headers, footers, etc.) (3 days)
+* 1) Abide by new style guideline and implement a coherant UI for the Club Profile page (2 days)
+
+#### User Team - 
+
+* Number of Days to Develop: 2 days
+* Number of Days to Test: 2 days
+
+###### Sub-tasks
+
+* 1) Abide by new style guideline and implement a coherant UI for the User Profile page (2 days)
+
+#### Event Team - 
+
+* Number of Days to Develop: 2 days
+* Number of Days to Test: 2 days
+
+###### Sub-tasks
+
+* 1) Abide by new style guideline and implement a coherant UI for the Event Profile page (2 days)
+
+#### CalNet Team - Patrick
+
+* Number of Days to Develop: 4 days
+* Number of Days to Test: 2 days
+
+###### Sub-tasks
+
+* 1) Research and implement a backend capable of formatting requests and responses to and from CalNet Central Authentication Service (CAS) (2 days)
+* 2) Implement frontend and model changes necessary to login via CalNet (2 days)
 
 ## Testing Plan
 
