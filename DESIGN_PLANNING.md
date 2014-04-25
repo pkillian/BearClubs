@@ -296,16 +296,17 @@ For Iteration 4, we'll be polishing our application and implementing a few remai
 
 * 1) Sketch and decide on a new, coherant style for all profile pages (3 days)
 
-#### Club Team - 
+#### Club Team - Tiffany, Kevin
 
-* Number of Days to Develop: 2 days
-* Number of Days to Test: 2 days
+* Number of Days to Develop: 3 days
+* Number of Days to Test: 3 days
 
 ###### Sub-tasks
 
 * 1) Abide by new style guideline and implement a coherant UI for the Club Profile page (2 days)
+* 2) Allow users to leave a club, and make sure the last admin cannot leave the club or demote themself (1 day)
 
-#### User Team - 
+#### User Team - Peter
 
 * Number of Days to Develop: 2 days
 * Number of Days to Test: 2 days
@@ -314,7 +315,7 @@ For Iteration 4, we'll be polishing our application and implementing a few remai
 
 * 1) Abide by new style guideline and implement a coherant UI for the User Profile page (2 days)
 
-#### Event Team - 
+#### Event Team - Shubham
 
 * Number of Days to Develop: 2 days
 * Number of Days to Test: 2 days
