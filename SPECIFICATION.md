@@ -263,26 +263,58 @@ A single user can be any combination of the following actors:
 
 | Field             | Description                                                                    |
 | ----------------- |:-------------------------------------------------------------------------------|
-| Name/Requirement: | First Time User Tutorial                                                                 |
+| Name/Requirement: | First Time User Tutorial                                                       |
 | Actors:           | General User                                                                   |
-| Triggers:         | Sign Up                                                |
-| Precondition:     | User clicks on sign up button after filling in information  |
-| Actions:          | User exposed to new UI that explains how various components of the site works                    |
-| Postconditions:   | User now is educated on the UI and core concept of the site    |
-| Acceptance Tests: | Assure that the tutorial only shows up for newly signed up users        |
-| Iteration:        | 4                                                                             |
+| Triggers:         | Sign Up                                                                        |
+| Precondition:     | User clicks on sign up button after filling in information                     |
+| Actions:          | User exposed to new UI that explains how various components of the site works  |
+| Postconditions:   | User now is educated on the UI and core concept of the site                    |
+| Acceptance Tests: | Assure that the tutorial only shows up for newly signed up users               |
+| Iteration:        | 4                                                                              |
 
 | Field             | Description                                                                    |
 | ----------------- |:-------------------------------------------------------------------------------|
-| Name/Requirement: | Sign In / Sign Up With CalNet                                                                 |
+| Name/Requirement: | Sign In / Sign Up With CalNet                                                  |
 | Actors:           | General User                                                                   |
-| Triggers:         | N/A                                                |
-| Precondition:     | User clicks on sign up with CalNet button  |
-| Actions:          | CalNet integration dialog shows                   |
-| Postconditions:   | User is now signed up to BearClubs through their CalNet ID and Password   |
-| Acceptance Tests: | Assure that user is able to signup with their CalNet ID and Password        |
-| Iteration:        | 4                                                                             |
+| Triggers:         | N/A                                                                            |
+| Precondition:     | User clicks on sign up with CalNet button                                      |
+| Actions:          | CalNet integration dialog shows                                                |
+| Postconditions:   | User is now signed up to BearClubs through their CalNet ID and Password        |
+| Acceptance Tests: | Assure that user is able to signup with their CalNet ID and Password           |
+| Iteration:        | 4                                                                              |
 
+| Field             | Description                                                                           |
+| ----------------- |:--------------------------------------------------------------------------------------|
+| Name/Requirement: | Polish User Profile Style/Format                                                      |
+| Actors:           | General User                                                                          |
+| Triggers:         | N/A                                                                                   |
+| Precondition:     | User navigates to a user's profile page                                               |
+| Actions:          | User is displayed the proper profile and relevent info in a more attractive manner    |
+| Postconditions:   | N/A                                                                                   |
+| Acceptance Tests: | All profile pages (User, Club, Event) have similar, coherant and attractive style     |
+| Iteration:        | 4                                                                                     |
+
+| Field             | Description                                                                           |
+| ----------------- |:--------------------------------------------------------------------------------------|
+| Name/Requirement: | Polish Club Profile Style/Format                                                      |
+| Actors:           | General User                                                                          |
+| Triggers:         | N/A                                                                                   |
+| Precondition:     | User navigates to a club's profile page                                               |
+| Actions:          | User is displayed the proper profile and relevent info in a more attractive manner    |
+| Postconditions:   | N/A                                                                                   |
+| Acceptance Tests: | All profile pages (User, Club, Event) have similar, coherant and attractive style     |
+| Iteration:        | 4                                                                                     |
+
+| Field             | Description                                                                           |
+| ----------------- |:--------------------------------------------------------------------------------------|
+| Name/Requirement: | Polish Event Profile Style/Format                                                     |
+| Actors:           | General User                                                                          |
+| Triggers:         | N/A                                                                                   |
+| Precondition:     | User navigates to an event's profile page                                             |
+| Actions:          | User is displayed the proper profile and relevent info in a more attractive manner    |
+| Postconditions:   | N/A                                                                                   |
+| Acceptance Tests: | All profile pages (User, Club, Event) have similar, coherant and attractive style     |
+| Iteration:        | 4                                                                                     |
 
 ### User Stories For Future Iterations:
 
