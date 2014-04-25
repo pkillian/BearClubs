@@ -1,0 +1,262 @@
+[
+  {
+    "model": "bc.organization",
+    "pk": 1,
+    "fields": {
+      "name": "ABA",
+      "description": "ABA was founded in 1975 by a group of students who set out to provide a bridge between the professional world and the students of the UC Berkeley campus.",
+      "contact_email": "aba@berkeley.edu",
+      "organization_type": 3
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 2,
+    "fields": {
+      "name": "AFX Dance",
+      "description": "AFX Dance is a hip-hop team founded in Fall 2011 at UC Berkeley.",
+      "contact_email": "afx@berkeley.edu",
+      "organization_type": 2
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 3,
+    "fields": {
+      "name": "American Nuclear Society",
+      "description": "The American Nuclear Society serves its members in their efforts to develop and safely apply nuclear science and technology for public benefit through knowledge exchange, professional development, and enhanced public understanding.",
+      "contact_email": "ans@berkeley.edu",
+      "organization_type": 6
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 4,
+    "fields": {
+      "name": "American Red Cross at Cal",
+      "description": "American Red Cross at Cal is composed of a passionate group of college students dedicated to the mission and spirit of the Red Cross.",
+      "contact_email": "redcross@berkeley.edu",
+      "organization_type": 5
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 5,
+    "fields": {
+      "name": "Amnesty International",
+      "description": "Amnesty International is a Nobel Prize-winning grassroots activist organization with over 2.2 million members worldwide.",
+      "contact_email": "ai@berkeley.edu",
+      "organization_type": 1
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 6,
+    "fields": {
+      "name": "Artists in Resonance",
+      "description": "Artists in Resonance, commonly known as AiR, is Berkeley's premiere co-ed A Cappella group.",
+      "contact_email": "air@berkeley.edu",
+      "organization_type": 2
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 7,
+    "fields": {
+      "name": "ASCEND",
+      "description": "Ascend is the premier business organization dedicated to enabling its members and the community to leverage the leadership and global business potential of its members.",
+      "contact_email": "ascend@berkeley.edu",
+      "organization_type": 3
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 8,
+    "fields": {
+      "name": "Ballet Company at Berkeley",
+      "description": "The Ballet Company at Berkeley (BC@B) is UC Berkeley’s first ballet company, committed to excellence in ballet and the enrichment of the arts community on campus, as well as expanding the aesthetic horizons of both dancers and audiences.",
+      "contact_email": "bc@berkeley.edu",
+      "organization_type": 2
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 9,
+    "fields": {
+      "name": "BARE Magazine",
+      "description": "BARE Magazine is UC Berkeley's premier arts, fashion, and lifestyle publication.",
+      "contact_email": "bare@berkeley.edu",
+      "organization_type": 2
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 10,
+    "fields": {
+      "name": "Berkeley Bhangra Club",
+      "description": "Berkeley Bhangra Club is an organization where students become aware of the aspects of the Bhangra folk art through structured Bhangra performances and organizing the west coast's premier bhangra competition, Dhol Di Awaz.",
+      "contact_email": "bhangra@berkeley.edu",
+      "organization_type": 7
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 11,
+    "fields": {
+      "name": "Berkeley Business Society",
+      "description": "Here at the Berkeley Business Society, our primary goal is to use BBS' extensive network to help members access a bank of internships, mentorships, and networking opportunities while gaining real-world experience and building their professional skills.",
+      "contact_email": "bbs@berkeley.edu",
+      "organization_type": 3
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 12,
+    "fields": {
+      "name": "Berkeley College Republicans",
+      "description": "The Berkeley College Republicans is one of the largest and most active student run organizations at UC Berkeley and is the largest College Republican organization in the state of California.",
+      "contact_email": "bcr@berkeley.edu",
+      "organization_type": 8
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 13,
+    "fields": {
+      "name": "Berkeley Consulting",
+      "description": "Each semester, we provide consulting services to several businesses in the Bay Area. We also organize professional development training for our members.",
+      "contact_email": "consulting@berkeley.edu",
+      "organization_type": 3
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 14,
+    "fields": {
+      "name": "The Berkeley Group",
+      "description": "The Berkeley Group is a professional student group committed to providing pro-bono consulting services to nonprofit organizations in the Bay Area.",
+      "contact_email": "tbg@berkeley.edu",
+      "organization_type": 3
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 15,
+    "fields": {
+      "name": "Berkeley Medical Reserve Corps",
+      "description": "To unite student EMTs (emergency medical technicians) and those interested in being EMTs on campus, providing opportunities to use their licenses, refreshing their skills, and offering a forum to discuss EMS as it relates to Berkeley and beyond.",
+      "contact_email": "medreserve@berkeley.edu",
+      "organization_type": 5
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 16,
+    "fields": {
+      "name": "The Berkeley Political Review",
+      "description": "UC Berkeley's only non-partisan political magazine.",
+      "contact_email": "polreview@berkeley.edu",
+      "organization_type": 8
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 17,
+    "fields": {
+      "name": "Black Student Union",
+      "description": "The Black Student Union at University of California, Berkeley, serves as the unifying body for Black organizations on campus as well as the Black student body. ",
+      "contact_email": "bsu@berkeley.edu",
+      "organization_type": 7
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 18,
+    "fields": {
+      "name": "The Blue & Gold Yearbook",
+      "description": "The Blue & Gold Yearbook is the official yearbook for UC Berkeley. The Blue & Gold provides readers selective coverage of events, issues and trends within the Berkeley community.",
+      "contact_email": "bluegoldybk@berkeley.edu",
+      "organization_type": 9
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 19,
+    "fields": {
+      "name": "Blueprint, Technology for Nonprofits",
+      "description": "To make beautiful engineering accessible and useful for those who create communities and promote public welfare.",
+      "contact_email": "blueprint@berkeley.edu",
+      "organization_type": 4
+    }
+  },
+  {
+    "model": "bc.organization",
+    "pk": 20,
+    "fields": {
+      "name": "Cal Berkeley Democrats",
+      "description": "The Cal Berkeley Democrats was founded in 1960 and is the official arm of the Democratic Party at the University of California, Berkeley.",
+      "contact_email": "dems@berkeley.edu",
+      "organization_type": 8
+    }
+  },
+  {
+    "model": "bc.event",
+    "pk": 1,
+    "fields": {
+      "name": "Info session",
+      "description": "Come get information about ABA",
+      "organization": 1,
+      "start_time": "2014-04-30 20:00:00-07:00",
+      "end_time": "2014-04-30 21:00:00-07:00",
+      "contact_email": "aba@berkeley.edu"
+    }
+  },
+  {
+    "model": "bc.event",
+    "pk": 2,
+    "fields": {
+      "name": "General Meeting",
+      "description": "General Meeting #8",
+      "organization": 3,
+      "start_time": "2014-04-26 20:00:00-07:00",
+      "end_time": "2014-04-26 21:00:00-07:00",
+      "contact_email": "ans@berkeley.edu"
+    }
+  },
+  {
+    "model": "bc.event",
+    "pk": 3,
+    "fields": {
+      "name": "Sub Committee Meetings",
+      "description": "Meet with your subcommittees",
+      "organization": 5,
+      "start_time": "2014-04-30 18:00:00-07:00",
+      "end_time": "2014-04-30 20:00:00-07:00",
+      "contact_email": "ai@berkeley.edu"
+    }
+  },
+  {
+    "model": "bc.event",
+    "pk": 4,
+    "fields": {
+      "name": "Business Plan Presentations",
+      "description": "Present your small business plans",
+      "organization": 11,
+      "start_time": "2014-04-29 20:00:00-07:00",
+      "end_time": "2014-04-29 22:00:00-07:00",
+      "contact_email": "bbs@berkeley.edu"
+    }
+  },
+  {
+    "model": "bc.event",
+    "pk": 5,
+    "fields": {
+      "name": "EMT Training Sessions",
+      "description": "Training Session #3",
+      "organization": 15,
+      "start_time": "2014-04-27 17:00:00-07:00",
+      "end_time": "2014-04-27 19:00:00-07:00",
+      "contact_email": "medreserve@berkeley.edu"
+    }
+  },
+]
