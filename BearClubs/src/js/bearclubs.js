@@ -102,7 +102,7 @@ var BearClubs = BearClubs || {};
 
         $('.tablesorter').styleTable();
         $('.tablesorter').tablesorter({widgets: ['zebra']});
-        $('.tablesorter').find('tr').click(function() {
+        $('.tablesorter').find('.row-click').click(function() {
             window.location = $(this).find('.row-link').attr('href');
         });
     };

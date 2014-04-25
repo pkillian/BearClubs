@@ -38,7 +38,7 @@
   </div>
   <table id="event-directory" class="full tablesorter">
     <thead>
-      <tr>
+      <tr class="clickable">
         <th><span>Name</span></th>
         <th><span>Organization</span></th>
         <th><span>Description</span></th>
@@ -48,7 +48,7 @@
     </thead>
     <tbody>
       {% for event in events %}
-      <tr>
+      <tr class="row-click">
         <td>
           <a class="row-link" href="/events/{{ event.id }}">
             {{ event.name }}

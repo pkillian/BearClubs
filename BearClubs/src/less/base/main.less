@@ -32,6 +32,10 @@ body {
   vertical-align: baseline;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 #header {
   position: fixed;
   z-index:  500;
@@ -254,19 +258,17 @@ body {
     text-decoration: none;
   }
 
-  
-
   table.full {
     border-collapse: collapse;
     width: 100%;
-    
-    tr {
-      cursor: pointer;
-    }
 
     td {
       padding: 0.5em;
       font-weight: bold;
+    }
+
+    .row-click {
+      cursor: pointer;
     }
   }
 

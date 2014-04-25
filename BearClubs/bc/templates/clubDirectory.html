@@ -38,7 +38,7 @@
   </div>
   <table id="club-directory" class="full tablesorter">
     <thead>
-      <tr>
+      <tr class="clickable">
         <th><span>Name</span></th>
         <th><span>Type</span></th>
         <th><span>Description</span></th>
@@ -47,7 +47,7 @@
     </thead>
     <tbody>
       {% for club in clubs %}
-      <tr>
+      <tr class="row-click">
         <td>
           <a class="row-link" href="/clubs/{{ club.id }}">
             {{ club.name }}
