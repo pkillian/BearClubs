@@ -77,7 +77,7 @@ def clubProfile(request, organization_id):
 
 @login_required(login_url='/login')
 def joinClub(request):
-    if request.user.is_authenticated() and request.POST:
+    if request.user.is_authenticated() and request.POST and 'join-club-button' in request.POST:
         organization_id = int(request.POST.get('organization_id','-1'));
 
         org = Organization.objects.get(id=organization_id);
@@ -87,7 +87,19 @@ def joinClub(request):
 
         uto.save();
 
-    return redirect("/clubs/"+str(organization_id));
+        return redirect("/clubs/"+str(organization_id));
+
+    elif request.user.is_authenticated() and request.POST and 'leave-club-button' in request.POST:
+        organization_id = int(request.POST.get('organization_id','-1'));
+
+        org = Organization.objects.get(id=organization_id);
+        user = User.objects.get(id=request.user.id);
+
+        uto = UserToOrganization.objects.get(user=user, organization=org);
+
+        uto.delete();
+
+        return redirect("/clubs/"+str(organization_id));
 
 @login_required(login_url='/login')
 def manage(request, organization_id):

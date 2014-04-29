@@ -17,9 +17,10 @@
         {% if member == True and admin == True %}
         You are a member and admin of this club.
         {% elif member == True %}
-        You are a member of this club.
+          <p>You are a member of this club.</p>
+          <input id="leave-club-button" class="button" type="submit" name="leave-club-button" value="Leave Club">
         {% else %}
-          <input id="join-club-button" class="button" type="submit" value="Join Club">
+          <input id="join-club-button" class="button" type="submit" name="join-club-button" value="Join Club">
         {% endif %}
       </form>
 
