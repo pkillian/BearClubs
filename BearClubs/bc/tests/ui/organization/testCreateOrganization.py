@@ -1,5 +1,5 @@
 from django.test import LiveServerTestCase
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium.webdriver.phantomjs.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium import webdriver
 from urlparse import urljoin
@@ -11,11 +11,13 @@ class CreateOrganizationTest(LiveServerTestCase):
   def setUpClass(cls):
     cls.selenium = WebDriver()
     cls.selenium.implicitly_wait(3)
+    cls.selenium.set_page_load_timeout(3)
     super(CreateOrganizationTest, cls).setUpClass()
 
 
   @classmethod
   def tearDownClass(cls):
+    cls.selenium.refresh()
     cls.selenium.quit()
     super(CreateOrganizationTest, cls).tearDownClass()
 
@@ -24,6 +26,7 @@ class CreateOrganizationTest(LiveServerTestCase):
     #login the user
     url = urljoin(self.live_server_url, '/login/')
     self.selenium.get(url)
+
     username_input = self.selenium.find_element_by_xpath("//form[@class='login']//input[@id='id_username']")
     password_input = self.selenium.find_element_by_xpath("//form[@class='login']//input[@id='id_password']")
     username_input.send_keys('test')
@@ -32,15 +35,8 @@ class CreateOrganizationTest(LiveServerTestCase):
     body = self.selenium.find_element_by_tag_name('body')
     self.assertIn('Dashboard', body.text)
 
-    #click on club tab
-    self.selenium.find_element_by_xpath("//div[@class='header-button first']").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Club Directory', body.text)
-
-    #click on add club
-    self.selenium.find_element_by_xpath("//a[contains(@href,'/clubs/new')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Add a New Organization', body.text)
+    url = urljoin(self.live_server_url, '/clubs/new')
+    self.selenium.get(url)
 
     #input add organization stuff
     name_input = self.selenium.find_element_by_xpath("//input[@id='id_name']")
@@ -64,15 +60,8 @@ class CreateOrganizationTest(LiveServerTestCase):
     body = self.selenium.find_element_by_tag_name('body')
     self.assertIn('Dashboard', body.text)
 
-    #click on club tab
-    self.selenium.find_element_by_xpath("//div[@class='header-button first']").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Club Directory', body.text)
-
-    #click on add club
-    self.selenium.find_element_by_xpath("//a[contains(@href,'/clubs/new')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Add a New Organization', body.text)
+    url = urljoin(self.live_server_url, '/clubs/new')
+    self.selenium.get(url)
 
     #input add organization stuff
     name_input = self.selenium.find_element_by_xpath("//input[@id='id_name']")
@@ -96,15 +85,8 @@ class CreateOrganizationTest(LiveServerTestCase):
     body = self.selenium.find_element_by_tag_name('body')
     self.assertIn('Dashboard', body.text)
 
-    #click on club tab
-    self.selenium.find_element_by_xpath("//div[@class='header-button first']").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Club Directory', body.text)
-
-    #click on add club
-    self.selenium.find_element_by_xpath("//a[contains(@href,'/clubs/new')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Add a New Organization', body.text)
+    url = urljoin(self.live_server_url, '/clubs/new')
+    self.selenium.get(url)
 
     #input add organization stuff
     description_input = self.selenium.find_element_by_xpath("//textarea[@id='id_description']")
@@ -127,15 +109,8 @@ class CreateOrganizationTest(LiveServerTestCase):
     body = self.selenium.find_element_by_tag_name('body')
     self.assertIn('Dashboard', body.text)
 
-    #click on club tab
-    self.selenium.find_element_by_xpath("//div[@class='header-button first']").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Club Directory', body.text)
-
-    #click on add club
-    self.selenium.find_element_by_xpath("//a[contains(@href,'/clubs/new')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Add a New Organization', body.text)
+    url = urljoin(self.live_server_url, '/clubs/new')
+    self.selenium.get(url)
 
     #input add organization stuff
     name_input = self.selenium.find_element_by_xpath("//input[@id='id_name']")

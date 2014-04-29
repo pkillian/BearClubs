@@ -1,5 +1,5 @@
 from django.test import LiveServerTestCase
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium.webdriver.phantomjs.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium import webdriver
 from urlparse import urljoin
@@ -11,11 +11,13 @@ class CreateEventTest(LiveServerTestCase):
   def setUpClass(cls):
     cls.selenium = WebDriver()
     cls.selenium.implicitly_wait(3)
+    cls.selenium.set_page_load_timeout(3)
     super(CreateEventTest, cls).setUpClass()
 
 
   @classmethod
   def tearDownClass(cls):
+    cls.selenium.refresh()
     cls.selenium.quit()
     super(CreateEventTest, cls).tearDownClass()
 
@@ -32,15 +34,8 @@ class CreateEventTest(LiveServerTestCase):
     body = self.selenium.find_element_by_tag_name('body')
     self.assertIn('Dashboard', body.text)
 
-    #click on event tab
-    self.selenium.find_element_by_xpath("//div[contains(text(),'Events')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Event Directory', body.text)
-
-    #click on add event
-    self.selenium.find_element_by_xpath("//a[contains(@href,'/events/new')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Add a New Event', body.text)
+    url = urljoin(self.live_server_url, '/events/new')
+    self.selenium.get(url)
 
     #input add event stuff
     name_input = self.selenium.find_element_by_xpath("//input[@id='id_name']")
@@ -70,15 +65,8 @@ class CreateEventTest(LiveServerTestCase):
     body = self.selenium.find_element_by_tag_name('body')
     self.assertIn('Dashboard', body.text)
 
-    #click on event tab
-    self.selenium.find_element_by_xpath("//div[contains(text(),'Events')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Event Directory', body.text)
-
-    #click on add event
-    self.selenium.find_element_by_xpath("//a[contains(@href,'/events/new')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Add a New Event', body.text)
+    url = urljoin(self.live_server_url, '/events/new')
+    self.selenium.get(url)
 
     #input add event stuff
     name_input = self.selenium.find_element_by_xpath("//input[@id='id_name']")
@@ -106,15 +94,8 @@ class CreateEventTest(LiveServerTestCase):
     body = self.selenium.find_element_by_tag_name('body')
     self.assertIn('Dashboard', body.text)
 
-    #click on event tab
-    self.selenium.find_element_by_xpath("//div[contains(text(),'Events')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Event Directory', body.text)
-
-    #click on add event
-    self.selenium.find_element_by_xpath("//a[contains(@href,'/events/new')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Add a New Event', body.text)
+    url = urljoin(self.live_server_url, '/events/new')
+    self.selenium.get(url)
 
     #input add event stuff
     name_input = self.selenium.find_element_by_xpath("//input[@id='id_name']") 
@@ -140,15 +121,8 @@ class CreateEventTest(LiveServerTestCase):
     body = self.selenium.find_element_by_tag_name('body')
     self.assertIn('Dashboard', body.text)
 
-    #click on event tab
-    self.selenium.find_element_by_xpath("//div[contains(text(),'Events')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Event Directory', body.text)
-
-    #click on add event
-    self.selenium.find_element_by_xpath("//a[contains(@href,'/events/new')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Add a New Event', body.text)
+    url = urljoin(self.live_server_url, '/events/new')
+    self.selenium.get(url)
 
     #input add event stuff
     organization_input = self.selenium.find_element_by_xpath("//select[@id='id_organization']/option[text()='Organization: Test Club']").click()
@@ -173,15 +147,8 @@ class CreateEventTest(LiveServerTestCase):
     body = self.selenium.find_element_by_tag_name('body')
     self.assertIn('Dashboard', body.text)
 
-    #click on event tab
-    self.selenium.find_element_by_xpath("//div[contains(text(),'Events')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Event Directory', body.text)
-
-    #click on add event
-    self.selenium.find_element_by_xpath("//a[contains(@href,'/events/new')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Add a New Event', body.text)
+    url = urljoin(self.live_server_url, '/events/new')
+    self.selenium.get(url)
 
     #input add event stuff
     name_input = self.selenium.find_element_by_xpath("//input[@id='id_name']") 
@@ -206,15 +173,8 @@ class CreateEventTest(LiveServerTestCase):
     body = self.selenium.find_element_by_tag_name('body')
     self.assertIn('Dashboard', body.text)
 
-    #click on event tab
-    self.selenium.find_element_by_xpath("//div[contains(text(),'Events')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Event Directory', body.text)
-
-    #click on add event
-    self.selenium.find_element_by_xpath("//a[contains(@href,'/events/new')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Add a New Event', body.text)
+    url = urljoin(self.live_server_url, '/events/new')
+    self.selenium.get(url)
 
     #input add event stuff
     name_input = self.selenium.find_element_by_xpath("//input[@id='id_name']") 

@@ -15,6 +15,7 @@ class UserDashboardTests(LiveServerTestCase):
         cls.client = Client();
         cls.selenium = WebDriver();
         cls.selenium.implicitly_wait(3);
+        cls.selenium.set_page_load_timeout(3)
 
         super(UserDashboardTests, cls).setUpClass();
 
@@ -31,6 +32,7 @@ class UserDashboardTests(LiveServerTestCase):
 
     @classmethod
     def tearDownClass(cls):
+        cls.selenium.refresh()
         cls.selenium.quit()
         super(UserDashboardTests, cls).tearDownClass()
 

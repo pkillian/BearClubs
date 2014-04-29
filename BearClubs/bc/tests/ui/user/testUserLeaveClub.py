@@ -1,5 +1,5 @@
 from django.test import LiveServerTestCase
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium.webdriver.phantomjs.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium import webdriver
 from urlparse import urljoin
@@ -11,11 +11,13 @@ class UserLeaveClubTest(LiveServerTestCase):
   def setUpClass(cls):
     cls.selenium = WebDriver()
     cls.selenium.implicitly_wait(3)
+    cls.selenium.set_page_load_timeout(3)
     super(UserLeaveClubTest, cls).setUpClass()
 
 
   @classmethod
   def tearDownClass(cls):
+    cls.selenium.refresh()
     cls.selenium.quit()
     super(UserLeaveClubTest, cls).tearDownClass()
     
@@ -31,15 +33,8 @@ class UserLeaveClubTest(LiveServerTestCase):
     body = self.selenium.find_element_by_tag_name('body')
     self.assertIn('Dashboard', body.text)
 
-    #click on club tab
-    self.selenium.find_element_by_xpath("//div[@class='header-button first']").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Club Directory', body.text)
-
-    #click on club
-    self.selenium.find_element_by_xpath("//a[contains(@href,'/clubs/1')]").click()
-    body = self.selenium.find_element_by_tag_name('body')
-    self.assertIn('Description: test123', body.text)
+    url = urljoin(self.live_server_url, '/clubs/1')
+    self.selenium.get(url)
 
     #click on join club
     self.selenium.find_element_by_xpath("//input[@name='join-club-button']").click()
