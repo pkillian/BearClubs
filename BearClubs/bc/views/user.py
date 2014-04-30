@@ -77,10 +77,23 @@ def promote(request):
 def demote(request):
     org_id = request.POST.get('org_id', '-1');
     uto_id = request.POST.get('uto_id','-1');
+
+    #get admins of organization
+    members = UserToOrganization.objects.filter(organization=org_id, admin=True);
+
+    #check if the member to be demoted is the last/only admin of the club
+    lastAdmin = False;
+    if len(members) == 1:
+        if UserToOrganization.objects.get(id=uto_id) == members[0]:
+            lastAdmin = True;
+
+    #make sure logged-in user has admin privileges and can demote members
     if UserToOrganization.objects.get(user=request.user, organization=org_id).admin == True:
-        uto = UserToOrganization.objects.get(id=uto_id);
-        uto.admin = False;
-        uto.save();
+        #if not the lastAdmin, demote the specified admin to a member
+        if lastAdmin == False:
+            uto = UserToOrganization.objects.get(id=uto_id);
+            uto.admin = False;
+            uto.save();
 
     return redirect('/clubs/'+str(org_id)+'/manage_members');
 
