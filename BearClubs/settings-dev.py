@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_URL = 'http://localhost:8000/'
 
+# CalNet authentication URLs
+CALNET_TICKET_AUTH = 'https://auth.berkeley.edu/cas/login?service=' + BASE_URL + 'calnet'
+CALNET_VALIDATE = 'https://auth.berkeley.edu/cas/serviceValidate?service=' + BASE_URL + 'calnet'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
