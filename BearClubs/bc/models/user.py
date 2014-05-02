@@ -61,28 +61,42 @@ class User(auth.models.User):
 
             # Check for multiple first names
             if xmlData.getElementsByTagName('givenname0'):
-                firstName = xmlData.getElementsByTagName('givenname0')[0].firstChild.nodeValue;
+                if xmlData.getElementsByTagName('givenname0')[0].firstChild:
+                    firstName = xmlData.getElementsByTagName('givenname0')[0].firstChild.nodeValue;
             elif xmlData.getElementsByTagName('givenname'):
-                firstName = xmlData.getElementsByTagName('givenname')[0].firstChild.nodeValue;
+                if xmlData.getElementsByTagName('givenname')[0].firstChild:
+                    firstName = xmlData.getElementsByTagName('givenname')[0].firstChild.nodeValue;
 
             # Get rid of spaces
-            firstName = re.match(r'(.*)\s.*', firstName).group(1);
+            if " " in firstName:
+                firstName = re.match(r'(.*)\s.*', firstName).group(1);
 
             print("FIRST NAME: " + firstName);
 
             # Check for multiple last names
             if xmlData.getElementsByTagName('sn0'):
-                lastName = xmlData.getElementsByTagName('sn0')[0].firstChild.nodeValue;
+                if xmlData.getElementsByTagName('sn0')[0].firstChild:
+                    lastName = xmlData.getElementsByTagName('sn0')[0].firstChild.nodeValue;
             elif xmlData.getElementsByTagName('sn'):
-                lastName = xmlData.getElementsByTagName('sn')[0].firstChild.nodeValue;
+                if xmlData.getElementsByTagName('sn')[0].firstChild:
+                    lastName = xmlData.getElementsByTagName('sn')[0].firstChild.nodeValue;
 
             print("LAST NAME: " + lastName);
 
+            print("GETTING EMAIL");
+
             # Check for multiple email addresses
             if xmlData.getElementsByTagName('mail0'):
-                bMail = xmlData.getElementsByTagName('mail0')[0].firstChild.nodeValue;
+                if xmlData.getElementsByTagName('mail0')[0].firstChild:
+                    bMail = xmlData.getElementsByTagName('mail0')[0].firstChild.nodeValue;
             elif xmlData.getElementsByTagName('mail'):
-                bMail = xmlData.getElementsByTagName('mail')[0].firstChild.nodeValue;
+                if xmlData.getElementsByTagName('mail')[0].firstChild:
+                    bMail = xmlData.getElementsByTagName('mail')[0].firstChild.nodeValue;
+            
+            # NO EMAIL; FERPA forbids us from releasing/guessing the email
+            # Just make it unique for now
+            if not bMail:
+                bMail = "no_email_on_file" + calNetID + "@berkeley.edu";
 
             print("BMAIL: " + bMail);
 
