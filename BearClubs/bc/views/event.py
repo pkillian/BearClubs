@@ -7,6 +7,8 @@ from BearClubs.bc.forms.event import AddEventForm
 from BearClubs.bc.models.mappings.user import UserToEvent
 from BearClubs.bc.models.event import Event
 from BearClubs.bc.models.user import User
+from BearClubs.bc.models.organization import Organization
+from BearClubs.bc.models.mappings import UserToOrganization
 
 def eventProfile(request, event_id):
     args = {}
