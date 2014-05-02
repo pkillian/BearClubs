@@ -58,7 +58,7 @@ def eventDirectory(request):
 
     return render(request, 'eventDirectory.html', view_args);
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def addEvent(request):
     args = {};
 
@@ -85,7 +85,7 @@ def addEvent(request):
         args['form'] = AddEventForm(request.user);
         return render(request, 'addEvent.html', args);
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def subscribe(request):
     args = {};
     event_id = None;
@@ -104,7 +104,7 @@ def subscribe(request):
 
     return eventProfile(request, event_id);
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def unsubscribe(request):
     args = {};
     event_id = None;

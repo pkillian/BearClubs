@@ -8,7 +8,7 @@ from BearClubs.bc.forms import UserSignUpForm, UserSignInForm
 from BearClubs.bc.models import User, Organization
 from BearClubs.bc.models.mappings import UserToEvent, UserToOrganization
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def dashboard(request):
     args = {};
     args['user'] = request.user;
@@ -28,7 +28,7 @@ def dashboard(request):
 
     return render(request, "dashboard.html", args);
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def profile(request, user_id):
     args = {};
 
@@ -62,7 +62,7 @@ def profile(request, user_id):
 
     return render(request, "userProfile.html", args);
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def promote(request):
     org_id = request.POST.get('org_id', '-1');
     uto_id = request.POST.get('uto_id','-1');
@@ -73,7 +73,7 @@ def promote(request):
 
     return redirect('/clubs/'+str(org_id)+'/manage_members');
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def demote(request):
     org_id = request.POST.get('org_id', '-1');
     uto_id = request.POST.get('uto_id','-1');
