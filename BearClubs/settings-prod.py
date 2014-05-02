@@ -14,8 +14,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_URL = 'http://bearclubs-stage.herokuapp.com/'
 
 # CalNet authentication URLs
-CALNET_TICKET_AUTH = 'https://auth.berkeley.edu/cas/login?service=' + BASE_URL + 'calnet'
-CALNET_VALIDATE = 'https://auth.berkeley.edu/cas/serviceValidate?service=' + BASE_URL + 'calnet'
+CALNET_TICKET_AUTH = 'https://auth.berkeley.edu/cas/login?service=' + BASE_URL + 'calnet/login'
+CALNET_VALIDATE = 'https://auth.berkeley.edu/cas/serviceValidate?service=' + BASE_URL + 'calnet/login'
+CALNET_LOGOUT = 'https://auth.berkeley.edu/cas/logout?url=' + BASE_URL
 
 BERKELEY_PERSON_API  =  ("https://apis.berkeley.edu/calnet/person?attributesToReturn=mail%2Csn%2CgivenName&app_id="
                             + os.environ.get('BERKELEY_API_APP_ID')

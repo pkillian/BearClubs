@@ -2,12 +2,13 @@ import urllib2
 from xml.dom import minidom
 
 from django.conf import settings
+from django.contrib import auth
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 
 from BearClubs.bc.models import User
 
-def calnet(request, testData=None):
+def calnet_login(request, testData=None):
     # check if logged in
     if request.user.is_authenticated():
         return redirect('/user');
@@ -59,3 +60,8 @@ def calnet(request, testData=None):
         # if not, send the user to CAS login
         else:
             return redirect(settings.CALNET_TICKET_AUTH);
+
+def calnet_logout(request):
+    auth.logout(request);
+    return redirect(settings.CALNET_LOGOUT);
+

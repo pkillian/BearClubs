@@ -18,7 +18,7 @@ class User(auth.models.User):
     # first_name   = models.CharField(max_length=64);
     # last_name    = models.CharField(max_length=64);
 
-    calNetID = models.IntegerField();
+    calNetID = models.IntegerField(null=True, blank=True);
 
     def __unicode__(self):
         return 'User: %s' % (self.username)
