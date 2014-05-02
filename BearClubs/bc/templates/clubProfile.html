@@ -1,31 +1,48 @@
 {% extends "layout/base.html" %}
 
 {% block main_content %}
-
-<h2>{{ club.name }}</h2>
-<br>
-<h4>Organization Type: {{ club.organization_type }}</h4>
-<br>
-<h4>Description: {{ club.description }}</h4>
-<br>
-<h4>Contact Email: {{ club.contact_email }}</h4>
-<br>
 <div class="clubProfile">
+  <div class="row-container">
+    <div class="col-div">
+      <h2>{{ club.name }}</h2>
+
+      <p class="subtitle">{{ club.organization_type }}</p>
+      <br>
+      <br>
+      <br>
+      <p>{{ club.description }}</p>
+      <br>
+      <br>
+      <br>
+      <p>Contact: {{ club.contact_email }}</p>
+      <br>
+      <br>
+      <br>
       <form method="post" action="{% url 'BearClubs.bc.views.organization.joinClub' %}">
         {% csrf_token %}
         <input type="hidden" name="organization_id" id="organization_id" value='{{ club.id }}'>
         {% if member == True and admin == True %}
-        You are a member and admin of this club.
+        <p>You are a member and admin of this club.</p>
         {% elif member == True %}
-        You are a member of this club.
+          <p>You are a member of this club.</p>
+          <input id="leave-club-button" class="button" type="submit" name="leave-club-button" value="Leave Club">
         {% else %}
-          <input id="join-club-button" class="button" type="submit" value="Join Club">
+          <input id="join-club-button" class="button" type="submit" name="join-club-button" value="Join Club">
         {% endif %}
       </form>
 
       {% if admin == True %}
         <input id="manage-button" class="button" type="submit" value="Manage" onClick="location.href='/clubs/{{ club.id }}/manage_members';">
       {% endif %}
+    </div>
+    <div class="rightbox">
+      <p> Members: </p>
+        <br>
+        {% for member in members %}
+        <p> {{ member.user.username }} </p>
+        {% endfor %}
+    </div>
+  </div>
 </div>
 
 {% endblock %}

@@ -15,6 +15,7 @@ class UserProfileTests(LiveServerTestCase):
         cls.client = Client();
         cls.selenium = WebDriver();
         cls.selenium.implicitly_wait(3);
+        cls.selenium.set_page_load_timeout(3)
 
         super(UserProfileTests, cls).setUpClass();
 
@@ -31,6 +32,7 @@ class UserProfileTests(LiveServerTestCase):
 
     @classmethod
     def tearDownClass(cls):
+        cls.selenium.refresh()
         cls.selenium.quit()
         super(UserProfileTests, cls).tearDownClass()
 
@@ -40,7 +42,7 @@ class UserProfileTests(LiveServerTestCase):
         self.selenium.get(url)
 
         body = self.selenium.find_element_by_tag_name('body')
-        self.assertIn('Profile', body.text)
+        self.assertIn('Club Membership:', body.text)
 
     def test_profileHasUserName(self):
         url = urljoin(self.live_server_url, '/user/1')
@@ -54,7 +56,7 @@ class UserProfileTests(LiveServerTestCase):
         self.selenium.get(url)
 
         body = self.selenium.find_element_by_tag_name('body')
-        self.assertIn('(test@gmail.com)', body.text)
+        self.assertIn('test@gmail.com', body.text)
 
     def test_profileHasOrganization(self):
         url = urljoin(self.live_server_url, '/user/1')

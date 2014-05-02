@@ -7,12 +7,17 @@ from BearClubs.bc.forms.event import AddEventForm
 from BearClubs.bc.models.mappings.user import UserToEvent
 from BearClubs.bc.models.event import Event
 from BearClubs.bc.models.user import User
+from BearClubs.bc.models.organization import Organization
+from BearClubs.bc.models.mappings import UserToOrganization
 
 def eventProfile(request, event_id):
     args = {}
     
     user = None;
     event = Event.objects.get(id=event_id);
+    
+    users_subscribed = UserToEvent.getUsersForEvent(event);
+    args['attendance'] = users_subscribed;
 
     if request.user.is_authenticated():
         user = User.objects.get(id=request.user.id);
@@ -53,7 +58,7 @@ def eventDirectory(request):
 
     return render(request, 'eventDirectory.html', view_args);
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def addEvent(request):
     args = {};
 
@@ -80,7 +85,7 @@ def addEvent(request):
         args['form'] = AddEventForm(request.user);
         return render(request, 'addEvent.html', args);
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def subscribe(request):
     args = {};
     event_id = None;
@@ -99,7 +104,7 @@ def subscribe(request):
 
     return eventProfile(request, event_id);
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def unsubscribe(request):
     args = {};
     event_id = None;

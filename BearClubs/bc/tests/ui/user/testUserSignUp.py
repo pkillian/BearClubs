@@ -13,11 +13,13 @@ class UserSignUpTests(LiveServerTestCase):
   def setUpClass(cls):
     cls.selenium = WebDriver()
     cls.selenium.implicitly_wait(3)
+    cls.selenium.set_page_load_timeout(3)
     super(UserSignUpTests, cls).setUpClass()
 
 
   @classmethod
   def tearDownClass(cls):
+    cls.selenium.refresh()
     cls.selenium.quit()
     super(UserSignUpTests, cls).tearDownClass()
     

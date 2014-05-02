@@ -128,14 +128,14 @@ class AdminTests(TestCase):
         self.uto1 = UserToOrganization(user=self.user, organization=self.org1, admin=True);
         self.uto1.save();
 
-        # add user2 to club (not as admin)
-        self.uto2 = UserToOrganization(user=self.user2, organization=self.org1);
+        # add user2 to club
+        self.uto2 = UserToOrganization(user=self.user2, organization=self.org1, admin=True);
         self.uto2.save();
 
         # login as user (admin)
         self.client.login(username='test', password='1234');
 
-        # uto_id is connected to user2, the user we want to promote
+        # uto_id is connected to user2, the user we want to demote
         data = {
             'org_id': self.org1.id,
             'uto_id': self.uto2.id,
@@ -163,8 +163,8 @@ class AdminTests(TestCase):
         self.uto1 = UserToOrganization(user=self.user, organization=self.org1);
         self.uto1.save();
 
-        # add user2 to club (not as admin)
-        self.uto2 = UserToOrganization(user=self.user2, organization=self.org1);
+        # add user2 to club
+        self.uto2 = UserToOrganization(user=self.user2, organization=self.org1, admin=True);
         self.uto2.save();
 
         # login as user
@@ -187,9 +187,41 @@ class AdminTests(TestCase):
         self.assertEquals(test_user, UserToOrganization.objects.get(user=test_user, organization=test_club).user);
         self.assertEquals(test_club, UserToOrganization.objects.get(user=test_user, organization=test_club).organization);
 
-        # check that user2 is NOT an admin
-        self.assertFalse(UserToOrganization.objects.get(user=test_user, organization=test_club).admin);
+        # check that user2 is still an admin
+        self.assertTrue(UserToOrganization.objects.get(user=test_user, organization=test_club).admin);
     
+
+    def testDemoteLastAdmin(self):
+        """
+        Tests that an admin of a club cannot demote the last/only admin of the club.
+        """
+        # make user the only admin
+        self.uto1 = UserToOrganization(user=self.user, organization=self.org1, admin=True);
+        self.uto1.save();
+
+        # login as user (admin)
+        self.client.login(username='test', password='1234');
+
+        # uto_id is connected to user with uto1, the user we want to demote
+        data = {
+            'org_id': self.org1.id,
+            'uto_id': self.uto1.id,
+        };
+
+        # send data to demote
+        response = self.client.post(self.baseURL+'/user/demote', data);
+
+        # get the club and user we want to verify directly from db
+        test_club = Organization.objects.get(name="test org 1");
+        test_user = User.objects.get(username="test");
+
+        # check that the uto is of user of uto1 and org1
+        self.assertEquals(test_user, UserToOrganization.objects.get(user=test_user, organization=test_club).user);
+        self.assertEquals(test_club, UserToOrganization.objects.get(user=test_user, organization=test_club).organization);
+
+        # check that user is still an admin
+        self.assertTrue(UserToOrganization.objects.get(user=test_user, organization=test_club).admin);
+
     def tearDown(self):
         self.client.logout();
 

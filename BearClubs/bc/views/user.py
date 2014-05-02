@@ -8,7 +8,7 @@ from BearClubs.bc.forms import UserSignUpForm, UserSignInForm
 from BearClubs.bc.models import User, Organization
 from BearClubs.bc.models.mappings import UserToEvent, UserToOrganization
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def dashboard(request):
     args = {};
     args['user'] = request.user;
@@ -28,7 +28,7 @@ def dashboard(request):
 
     return render(request, "dashboard.html", args);
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def profile(request, user_id):
     args = {};
 
@@ -62,7 +62,7 @@ def profile(request, user_id):
 
     return render(request, "userProfile.html", args);
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def promote(request):
     org_id = request.POST.get('org_id', '-1');
     uto_id = request.POST.get('uto_id','-1');
@@ -73,14 +73,27 @@ def promote(request):
 
     return redirect('/clubs/'+str(org_id)+'/manage_members');
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def demote(request):
     org_id = request.POST.get('org_id', '-1');
     uto_id = request.POST.get('uto_id','-1');
+
+    #get admins of organization
+    members = UserToOrganization.objects.filter(organization=org_id, admin=True);
+
+    #check if the member to be demoted is the last/only admin of the club
+    lastAdmin = False;
+    if len(members) == 1:
+        if UserToOrganization.objects.get(id=uto_id) == members[0]:
+            lastAdmin = True;
+
+    #make sure logged-in user has admin privileges and can demote members
     if UserToOrganization.objects.get(user=request.user, organization=org_id).admin == True:
-        uto = UserToOrganization.objects.get(id=uto_id);
-        uto.admin = False;
-        uto.save();
+        #if not the lastAdmin, demote the specified admin to a member
+        if lastAdmin == False:
+            uto = UserToOrganization.objects.get(id=uto_id);
+            uto.admin = False;
+            uto.save();
 
     return redirect('/clubs/'+str(org_id)+'/manage_members');
 
