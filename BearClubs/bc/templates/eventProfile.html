@@ -44,11 +44,18 @@
       <input type="hidden" name="event_id" id="event_id" value='{{ event.id }}'>
       
       {% if subscribed %}
-        <input id="subscribe-button" class="button" type="submit" value="Unsubscribe">
+        <input id="subscribe-button" class="button" type="submit" value="Unsubscribe" align="left">
       {% else %}
-        <input id="subscribe-button" class="button" type="submit" value="Subscribe">
+        <input id="subscribe-button" class="button" type="submit" value="Subscribe" align="left">
       {% endif %}
     </form>
+    <ul>
+    {% for user in event.users %}
+    <li>
+        <p>{{ user.name }}</p>
+      </li>
+        {% endfor %}
+      </ul>
 
     </div>
   </div>
