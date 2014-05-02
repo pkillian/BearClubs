@@ -17,7 +17,6 @@ def eventProfile(request, event_id):
     event = Event.objects.get(id=event_id);
     
     users_subscribed = UserToEvent.getUsersForEvent(event);
-    # users_subscribed.append(request.user); testing manually adding a user
     args['attendance'] = users_subscribed;
 
     if request.user.is_authenticated():
