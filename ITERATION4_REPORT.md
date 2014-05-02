@@ -12,10 +12,13 @@ The CalNet team had a variety of learning curves to adapt to, but the trickiest 
 
 # Features
 
-## Additional features implemented:
+### Additional features implemented:
  - Club Profile page displays members of the club on the right. 
  - Event profile page displays suscribed members to an event on the right. 
 
+### Features not implemented:
+ - User tutorial (felt unnecessary and too time consuming)
+ 
 # Tests
 
 We utilized the Django unittest class for all of our unit testing needs. We also utilized Django's test client for performing end-to-end (functional/implementation) tests, and the Selenium WebDriver for our UI testing in combination with Firefox and PhantomJS browsers.
