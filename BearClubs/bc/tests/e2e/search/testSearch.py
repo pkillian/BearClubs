@@ -12,23 +12,20 @@ from django.utils.unittest import TestLoader, TextTestRunner
 from BearClubs.bc.models import User, Event, Organization, OrganizationType
 
 class SearchEndToEndTests(TestCase):
+    fixtures = ['test_data.json']
 
     def setUp(self):
         haystack.connections.reload('test')
         super(SearchEndToEndTests, self).setUp()
         self.client = Client()
 
-        bus_org_type = OrganizationType.objects.get(name='Business');
-        business_club = Organization(name='Business Club', description='Test 1 Desc', contact_email='test1@test.com', organization_type=bus_org_type).save();
-
-        User(username='test', password='1234', email='test@test.com').save();
-
-        Event(name='event', description='event description', organization=Organization.objects.get(name='Business Club'),  start_time=timezone.now(), end_time=timezone.now()).save();
-
-
     def testUser(self):
+        user = User(username='testsearch', password='1234', email='test@search.com')
+        user.set_password('1234')
+        user.save();
+
         response = self.client.get('/search/?q=test')
-        result_html = '<a href="/user/1">User: test</a>'
+        result_html = 'User: testsearch</a>'
 
         # Check that the response is 200 OK.
         self.assertEqual(response.status_code, 200)
@@ -37,8 +34,8 @@ class SearchEndToEndTests(TestCase):
         self.assertContains(response, result_html, 1)
 
     def testOrganization(self):
-        response = self.client.get('/search/?q=business')
-        result_html = '<a href="/clubs/1">Organization: Business Club</a>'
+        response = self.client.get('/search/?q=test')
+        result_html = '<a href="/clubs/1">Organization: Test Club</a>'
 
         # Check that the response is 200 OK.
         self.assertEqual(response.status_code, 200)
@@ -47,8 +44,8 @@ class SearchEndToEndTests(TestCase):
         self.assertContains(response, result_html, 1)
 
     def testEvent(self):
-        response = self.client.get('/search/?q=event')
-        result_html = 'Event: event</a>'
+        response = self.client.get('/search/?q=test')
+        result_html = 'Event: Test Event 1</a>'
 
         # Check that the response is 200 OK.
         self.assertEqual(response.status_code, 200)
