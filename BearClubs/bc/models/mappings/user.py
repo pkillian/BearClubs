@@ -56,6 +56,11 @@ class UserToEvent(models.Model):
         return super(UserToEvent, self).save(*args, **kwargs);
 
     @staticmethod
+    def getUsersForEvent(event):
+        ute_objects = UserToEvent.objects.filter(event=event.id);
+        return [ute.user for ute in ute_objects];
+
+    @staticmethod
     def getEventsForUser(user):
         ute_objects = UserToEvent.objects.filter(user=user.id);
         return [ute.event for ute in ute_objects];

@@ -49,11 +49,9 @@
         <input id="subscribe-button" class="button" type="submit" value="Subscribe" align="left">
       {% endif %}
     </form>
-    <ul>
-    {% for user in event.users %}
-    <li>
-        <p>{{ user.name }}</p>
-      </li>
+      <ul>
+        {% for user in attendance %}
+          <li> {{ user.username }} </li>
         {% endfor %}
       </ul>
 
