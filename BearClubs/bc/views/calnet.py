@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 
 from BearClubs.bc.models import User
 
-def calnet_login(request, testData=None):
+def calnet_login(request):
     # check if logged in
     if request.user.is_authenticated():
         return redirect('/user');
@@ -22,13 +22,7 @@ def calnet_login(request, testData=None):
                 # Compile a URL for CAS login
                 url = settings.CALNET_VALIDATE + '&ticket=' + request.GET.get('ticket');
 
-                result = '';
-
-                # Dependency injection
-                if testData:
-                    result = testData;
-                else:
-                    result = urllib2.urlopen(url);
+                result = urllib2.urlopen(url);
 
                 # Parse the result
                 xmlData = minidom.parse(result);
