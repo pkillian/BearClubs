@@ -17,6 +17,13 @@ BASE_URL = 'http://localhost:8000/'
 CALNET_TICKET_AUTH = 'https://auth.berkeley.edu/cas/login?service=' + BASE_URL + 'calnet'
 CALNET_VALIDATE = 'https://auth.berkeley.edu/cas/serviceValidate?service=' + BASE_URL + 'calnet'
 
+BERKELEY_PERSON_API  =  ("https://apis.berkeley.edu/calnet/person?attributesToReturn=mail%2Csn%2CgivenName&app_id="
+                            + os.environ.get('BERKELEY_API_APP_ID')
+                            + "&app_key="
+                            + os.environ.get('BERKELEY_API_APP_KEY')
+                            + "&searchFilter=uid%3D"
+                        )
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
