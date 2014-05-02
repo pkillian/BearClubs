@@ -36,8 +36,10 @@ class User(auth.models.User):
             user.backend = 'django.contrib.auth.backends.ModelBackend';
             auth.login(request, user);
 
+        return request;
+
     @staticmethod
-    def registerCalNet(calNetID, testData=None):
+    def registerCalNet(calNetID):
 
         bMailUsername   = "";
         firstName       = "";
@@ -49,15 +51,10 @@ class User(auth.models.User):
 
         # Get and parse data from Berkeley API
         try:
-            # Dependency injection
-            if testData:
-                result = testData;
-            else:
-                result = urllib2.urlopen(url);
 
             # Parse the result
+            result = urllib2.urlopen(url);
             xmlData = minidom.parse(result);
-            print(xmlData.toxml());
 
             # Check for multiple first names
             if xmlData.getElementsByTagName('givenname0'):
@@ -97,12 +94,12 @@ class User(auth.models.User):
             # Just make it unique for now
             if not bMail:
                 bMail = "no_email_on_file" + calNetID + "@berkeley.edu";
-
+                bMailUsername = firstName + "." + lastName;
+            else:
+                # Get username from bMail address
+                bMailUsername = re.match(r'(.*)@.*\.?berkeley\.edu$', bMail).group(1);
+            
             print("BMAIL: " + bMail);
-
-            # Get username from bMail address
-            bMailUsername = re.match(r'(.*)@.*\.?berkeley\.edu$', bMail).group(1);
-
             print("BMAIL USER: " + bMailUsername);
 
         # Exception? Return null and the view will handle the error
