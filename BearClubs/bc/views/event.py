@@ -7,12 +7,17 @@ from BearClubs.bc.forms.event import AddEventForm
 from BearClubs.bc.models.mappings.user import UserToEvent
 from BearClubs.bc.models.event import Event
 from BearClubs.bc.models.user import User
+from BearClubs.bc.models.organization import Organization
+from BearClubs.bc.models.mappings import UserToOrganization
 
 def eventProfile(request, event_id):
     args = {}
     
     user = None;
     event = Event.objects.get(id=event_id);
+    
+    users_subscribed = UserToEvent.getUsersForEvent(event);
+    args['attendance'] = users_subscribed;
 
     if request.user.is_authenticated():
         user = User.objects.get(id=request.user.id);
