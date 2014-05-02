@@ -1,5 +1,4 @@
 from django.conf.urls import patterns, include, url
-
 from django.contrib import admin
 
 from BearClubs.bc import views
@@ -41,8 +40,9 @@ urlpatterns = patterns('',
     url(r'^events/(?P<event_id>\d+)/?$',        views.eventProfile,         name='event'),
     url(r'^events/subscribe/?$',                views.subscribe,            name='subscribe'),
     url(r'^events/unsubscribe/?$',              views.unsubscribe,          name='unsubscribe'),
-
     
     url(r'^clubs/(?P<organization_id>\d+)/manage_members/?$',
                                                 views.manage,               name='manage'),
+
+    url(r'^error/?$',                           views.error,                name='error')
 )
