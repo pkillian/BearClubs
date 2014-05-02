@@ -44,7 +44,7 @@ class ManageMembersPageTests(TestCase):
         self.assertFalse(self.org1.name in response.content);
         self.assertFalse(self.user.username in response.content);
         self.assertFalse("promote-button" in response.content);
-        self.assertFalse("Demote Admin" in response.content);
+        self.assertFalse("demote-button" in response.content);
 
     def testViewManageLoggedInNonAdmin(self):
         self.client.login(username='test', password='1234');
@@ -54,7 +54,7 @@ class ManageMembersPageTests(TestCase):
         self.assertTrue(self.org1.name in response.content);
         self.assertTrue(self.user.username in response.content);
         self.assertFalse("promote-button" in response.content);
-        self.assertFalse("Demote Admin" in response.content);
+        self.assertFalse("demote-button" in response.content);
 
     def testViewManageLoggedInAdmin(self):
         self.uto1 = UserToOrganization.objects.get(user=self.user, organization=self.org1);
@@ -68,7 +68,7 @@ class ManageMembersPageTests(TestCase):
         self.assertTrue(self.org1.name in response.content);
         self.assertTrue(self.user.username in response.content);
         self.assertFalse("promote-button" in response.content);
-        self.assertTrue("Demote Admin" in response.content);
+        self.assertTrue("demote-button" in response.content);
 
     def testViewManageLoggedInAdminWithNonAdminMember(self):
         self.uto1 = UserToOrganization.objects.get(user=self.user, organization=self.org1);
@@ -85,7 +85,7 @@ class ManageMembersPageTests(TestCase):
         self.assertTrue(self.user2.username in response.content);
         self.assertTrue(self.user.username in response.content);
         self.assertTrue("promote-button" in response.content);
-        self.assertTrue("Demote Admin" in response.content);
+        self.assertTrue("demote-button" in response.content);
 
 
     def tearDown(self):

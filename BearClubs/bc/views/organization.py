@@ -115,6 +115,13 @@ def manage(request, organization_id):
         members = UserToOrganization.objects.filter(organization=org);
         args['members'] = members;
 
+        admins = UserToOrganization.objects.filter(organization=org, admin=True);
+
+        #check if there is only one admin of the club
+        args['lastAdmin'] = False;
+        if len(admins) == 1:
+            args['lastAdmin'] = True;
+
         args['member'] = False;
 
         #check if logged-in user is a member of this organization already

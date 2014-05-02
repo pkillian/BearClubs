@@ -2,12 +2,13 @@
 
 {% block main_content %}
 
-<h2>{{ club.name }}</h2>
-<br>
-<h4>Click on "Promote To Admin" button to give a member admin privileges.</h4>
-<br>
-<h4>Members:</h4>
-<br>
+<div class="manage">
+  <h2>{{ club.name }}</h2>
+  <br>
+  <p>Click on the "Promote To Admin" button to give a member admin privileges. Click on "Demote Admin" button to take away admin privileges. You cannot demote the only admin in the organization. There must be at least one admin.</p>
+  <br>
+  <p>Members:</p>
+  <br>
   {% if members %}
     <ul>
     {% for member in members %}
@@ -22,16 +23,20 @@
         {% endif %}
         </form>
         <form method="post" action="{% url 'BearClubs.bc.views.user.demote' %}">
-          {% if admin == True and member.admin == True %}
+        {% if admin == True and member.admin == True %}
           {% csrf_token %}
           <input type="hidden" name="uto_id" id="uto_id" value='{{ member.id }}'>
           <input type="hidden" name="org_id" id="org_id" value='{{ club.id }}'>
           <input id="demote-button" class="button" type="submit" value="Demote Admin">
+          {% if lastAdmin == True %}
+          Cannot demote the only admin of the organization.
           {% endif %}
-          </form>
+        {% endif %}
+        </form>
       </li>
     {% endfor %}
     </ul>
   {% endif %}
+</div>
 
 {% endblock %}
