@@ -22,16 +22,6 @@
       <br>
       <br>
       <br>
-      
-    </div>
-
-    <div class="rightbox">
-      <p> Attending: </p>
-      <br>
-      {% for user in attendance %}
-      <p> {{ user.username }} </p>
-      {% endfor %}
-      <br>
 
       {% if subscribed %}
       <form method="post" action="{% url 'BearClubs.bc.views.event.unsubscribe' %}">
@@ -49,6 +39,15 @@
         {% endif %}
 
       </form>
+      
+    </div>
+
+    <div class="rightbox">
+      <p> Attending: </p>
+      <br>
+      {% for user in attendance %}
+      <p> {{ user.username }} </p>
+      {% endfor %}
       
     </div>
 
