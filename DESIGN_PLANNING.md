@@ -315,7 +315,7 @@ For Iteration 4, we'll be polishing our application and implementing a few remai
 
 * 1) Abide by new style guideline and implement a coherant UI for the User Profile page (2 days)
 
-#### Event Team - Shubham
+#### Event Team - Shubham, Alex
 
 * Number of Days to Develop: 2 days
 * Number of Days to Test: 2 days

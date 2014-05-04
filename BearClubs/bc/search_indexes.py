@@ -8,6 +8,7 @@ class UserIndex(indexes.SearchIndex, indexes.Indexable):
     email = indexes.CharField(model_attr='email')
     first_name = indexes.CharField(model_attr='first_name')
     last_name = indexes.CharField(model_attr='last_name')
+    calNetID = indexes.IntegerField(model_attr='calNetID', null=True)
 
     # We add this for autocomplete.
     name_auto = indexes.EdgeNgramField(model_attr='username')

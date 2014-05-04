@@ -1,8 +1,28 @@
 [
   {
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "pkillian", 
+        "first_name": "Patrick", 
+        "last_name": "Killian", 
+        "is_active": true, 
+        "is_superuser": true,
+        "is_staff": true, 
+        "last_login": "2014-04-18T04:10:07.258Z", 
+        "groups": [], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$12000$CBIXXfELCbeZ$xCwCpwyktBwVGkXQLnk4PAe2rRJwyLhojVMOmrNUNqk=", 
+        "email": "pkillian@berkeley.edu", 
+        "date_joined": "2014-04-18T04:09:38.543Z"
+    }
+  },
+  {
     "model": "bc.user",
     "pk": 1,
-    "fields": {}
+    "fields": {
+      "calNetID": 960302
+    }
   },
   {
     "model": "bc.organizationtype",

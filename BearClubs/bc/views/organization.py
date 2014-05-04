@@ -75,7 +75,7 @@ def clubProfile(request, organization_id):
 
     return render(request, 'clubProfile.html', args);
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def joinClub(request):
     if request.user.is_authenticated() and request.POST and 'join-club-button' in request.POST:
         organization_id = int(request.POST.get('organization_id','-1'));
@@ -101,7 +101,7 @@ def joinClub(request):
 
         return redirect("/clubs/"+str(organization_id));
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def manage(request, organization_id):
     args = {};
 
@@ -114,6 +114,13 @@ def manage(request, organization_id):
         
         members = UserToOrganization.objects.filter(organization=org);
         args['members'] = members;
+
+        admins = UserToOrganization.objects.filter(organization=org, admin=True);
+
+        #check if there is only one admin of the club
+        args['lastAdmin'] = False;
+        if len(admins) == 1:
+            args['lastAdmin'] = True;
 
         args['member'] = False;
 
@@ -134,7 +141,7 @@ def manage(request, organization_id):
                 args['admin'] = False;
     return render(request, 'manage.html', args);
 
-@login_required(login_url='/login')
+@login_required(login_url='/calnet/login')
 def addClub(request):
     args = {};
 

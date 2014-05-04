@@ -2,12 +2,16 @@
   {
     "model": "bc.user",
     "pk": 1,
-    "fields": {}
+    "fields": {
+      "calNetID": 111111
+    }
   },
   {
     "model": "bc.user",
     "pk": 2,
-    "fields": {}
+    "fields": {
+      "calNetID": 222222
+    }
   },
   {
     "pk": 1, 

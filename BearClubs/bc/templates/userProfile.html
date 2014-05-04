@@ -2,31 +2,43 @@
 
 {% block main_content %}
 
-  <h2>Profile</h2>
-  <h3>{{ user.name }} ({{user.email}})</h3>
+<div class="userProfile">
 
-  <h3>Club Membership:</h3>
-  <ul>
-    {% for club in user.clubs %}
-    <li>
-        <a href="/clubs/{{ club.id }}">{{ club.name }}</a>
-        {% if club.contact_email %}
-            <a href="mailto:{{ club.contact_email }}">({{ club.contact_email }})</a>
-        {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
+      <h2>{{ user.name }}</h2>
+      <p class="subtitle">{{user.email}}</p>
 
-  <h3>Upcoming Events:</h3>
-  <ul>
-    {% for event in user.events %}
-    <li>
-        <a href="/events/{{ event.id }}">{{ event.name }}</a>
-        {% if event.contact_email %}
-            <a href="mailto:{{ event.contact_email }}">({{ event.contact_email }})</a>
-        {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
+      <div class="boxes">
+
+        <div class="leftbox">
+          <h3>Club Membership:</h3> 
+            <br>
+            {% for club in user.clubs %}
+                <p> 
+                  <a href="/clubs/{{ club.id }}">{{ club.name }}</a>
+                {% if club.contact_email %}
+                  <a href="mailto:{{ club.contact_email }}">- {{ club.contact_email }}</a> 
+                {% endif %}
+                </p>
+            {% endfor %}
+        </div>
+
+
+        <div class="rightbox">
+          <h3>Upcoming Events:</h3>
+          <br>
+            {% for event in user.events %}
+              <p> 
+                <a href="/events/{{ event.id }}">{{ event.name }}</a>
+              {% if event.contact_email %}
+                <a href="mailto:{{ event.contact_email }}">- {{ event.contact_email }}</a>
+              {% endif %}
+              </p>
+            {% endfor %}
+          </ul>
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock %}
